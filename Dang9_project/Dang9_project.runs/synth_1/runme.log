@@ -14,13 +14,13 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 19324 
+INFO: Helper process launched with PID 6296 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 367.047 ; gain = 96.004
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 367.633 ; gain = 96.984
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-7972-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-7972-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-8636-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-8636-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'keypad' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
 	Parameter CLK_KHZ bound to: 25175 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'keypad' (2#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
@@ -58,7 +58,7 @@ WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[0]
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 421.902 ; gain = 150.859
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 422.062 ; gain = 151.414
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -71,10 +71,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 421.902 ; gain = 150.859
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 422.062 ; gain = 151.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 421.902 ; gain = 150.859
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 422.062 ; gain = 151.414
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -92,16 +92,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 792.578 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 792.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 792.578 ; gain = 521.535
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 792.512 ; gain = 521.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 792.578 ; gain = 521.535
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 792.512 ; gain = 521.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -110,12 +110,27 @@ Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/
 Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for clk_inst. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 792.578 ; gain = 521.535
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 792.512 ; gain = 521.863
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "keypad_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball1_vx_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball1_vy_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball2_vx_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball2_vy_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball1_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball2_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball1_reach_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball1_reach_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball1_reach_top" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball1_reach_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball2_reach_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball2_reach_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball2_reach_top" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball2_reach_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "refr_tick" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "c_v" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 792.578 ; gain = 521.535
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 792.512 ; gain = 521.863
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -129,26 +144,25 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
-	   2 Input     10 Bit       Adders := 6     
+	   2 Input     10 Bit       Adders := 10    
 +---Registers : 
-	               10 Bit    Registers := 6     
+	               10 Bit    Registers := 10    
 	                5 Bit    Registers := 5     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	  10 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 4     
+	   2 Input     10 Bit        Muxes := 6     
 	   4 Input      5 Bit        Muxes := 4     
 	   5 Input      5 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 4     
 	  10 Input      4 Bit        Muxes := 1     
-	   5 Input      3 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 2     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      2 Bit        Muxes := 4     
 	   8 Input      1 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 12    
 	   4 Input      1 Bit        Muxes := 2     
@@ -198,13 +212,13 @@ Detailed RTL Component Info :
 Module graph_mod 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     10 Bit       Adders := 4     
+	   2 Input     10 Bit       Adders := 8     
 +---Registers : 
-	               10 Bit    Registers := 4     
+	               10 Bit    Registers := 8     
 +---Muxes : 
-	   2 Input     10 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 4     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 4     
 Module sync_mod 
 Detailed RTL Component Info : 
@@ -238,24 +252,42 @@ INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too spar
 INFO: [Synth 8-5546] ROM "sync_inst/c_v" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[0]' (FDCE) to 'graph_inst/ball_vy_reg_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_vy_reg_reg[1] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball_vy_reg_reg[2] )
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[3]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[4]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[5]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[6]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[7]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[8]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[0]' (FDCE) to 'graph_inst/ball_vx_reg_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_vx_reg_reg[1] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball_vx_reg_reg[2] )
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[3]' (FDPE) to 'graph_inst/ball_vx_reg_reg[4]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[4]' (FDPE) to 'graph_inst/ball_vx_reg_reg[5]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[5]' (FDPE) to 'graph_inst/ball_vx_reg_reg[6]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[6]' (FDPE) to 'graph_inst/ball_vx_reg_reg[7]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[7]' (FDPE) to 'graph_inst/ball_vx_reg_reg[8]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[8]' (FDPE) to 'graph_inst/ball_vx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vy_reg_reg[0]' (FDCE) to 'graph_inst/ball2_vy_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball2_vy_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball2_vy_reg_reg[2] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vy_reg_reg[3]' (FDPE) to 'graph_inst/ball2_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vy_reg_reg[4]' (FDPE) to 'graph_inst/ball2_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vy_reg_reg[5]' (FDPE) to 'graph_inst/ball2_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vy_reg_reg[6]' (FDPE) to 'graph_inst/ball2_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vy_reg_reg[7]' (FDPE) to 'graph_inst/ball2_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vy_reg_reg[8]' (FDPE) to 'graph_inst/ball2_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[0]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball2_vx_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball2_vx_reg_reg[2] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[3]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[4]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[5]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[6]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[7]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[8]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[0]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_vy_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball1_vy_reg_reg[2] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[3]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[4]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[5]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[6]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[7]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[8]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[0]' (FDCE) to 'graph_inst/ball1_vx_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_vx_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball1_vx_reg_reg[2] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[3]' (FDPE) to 'graph_inst/ball1_vx_reg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[4]' (FDPE) to 'graph_inst/ball1_vx_reg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[5]' (FDPE) to 'graph_inst/ball1_vx_reg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[6]' (FDPE) to 'graph_inst/ball1_vx_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[7]' (FDPE) to 'graph_inst/ball1_vx_reg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[8]' (FDPE) to 'graph_inst/ball1_vx_reg_reg[9]'
 WARNING: [Synth 8-3332] Sequential element (keypad_inst/pressed_reg) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (keypad_inst/keypad_out_reg[4]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (keypad_inst/keypad_out_reg[3]) is unused and will be removed from module top.
@@ -282,14 +314,20 @@ WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][3]) is
 WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][2]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][1]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][0]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vy_reg_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vy_reg_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vx_reg_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vx_reg_reg[1]) is unused and will be removed from module top.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_y_reg0_inferred /\graph_inst/ball_y_reg_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_x_reg0_inferred /\graph_inst/ball_x_reg_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vy_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vy_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vx_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vx_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vy_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vy_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vx_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vx_reg_reg[1]) is unused and will be removed from module top.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball2_y_reg0_inferred /\graph_inst/ball2_y_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball2_x_reg0_inferred /\graph_inst/ball2_x_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_y_reg0_inferred /\graph_inst/ball1_y_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_x_reg0_inferred /\graph_inst/ball1_x_reg_reg[0] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 792.578 ; gain = 521.535
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 792.512 ; gain = 521.863
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -303,13 +341,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_inst/clk_out1' to pin 'clk_inst/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 792.578 ; gain = 521.535
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 792.512 ; gain = 521.863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 808.926 ; gain = 537.883
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 808.535 ; gain = 537.887
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -321,7 +359,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -345,7 +383,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -358,7 +396,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -370,25 +408,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -406,15 +444,15 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
-|2     |CARRY4    |    20|
-|3     |LUT1      |     4|
-|4     |LUT2      |    26|
-|5     |LUT3      |    15|
-|6     |LUT4      |    24|
-|7     |LUT5      |    49|
-|8     |LUT6      |   106|
-|9     |FDCE      |    47|
-|10    |FDPE      |     7|
+|2     |CARRY4    |    32|
+|3     |LUT1      |     6|
+|4     |LUT2      |    44|
+|5     |LUT3      |    21|
+|6     |LUT4      |    35|
+|7     |LUT5      |    73|
+|8     |LUT6      |   123|
+|9     |FDCE      |    58|
+|10    |FDPE      |    14|
 |11    |FDRE      |    20|
 |12    |IBUF      |     1|
 |13    |OBUF      |    18|
@@ -424,19 +462,19 @@ Report Instance Areas:
 +------+--------------+----------+------+
 |      |Instance      |Module    |Cells |
 +------+--------------+----------+------+
-|1     |top           |          |   339|
-|2     |  graph_inst  |graph_mod |    72|
+|1     |top           |          |   447|
+|2     |  graph_inst  |graph_mod |   149|
 |3     |  keypad_inst |keypad    |   128|
-|4     |  sync_inst   |sync_mod  |   118|
+|4     |  sync_inst   |sync_mod  |   149|
 +------+--------------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 32 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 814.988 ; gain = 173.270
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 814.988 ; gain = 543.945
+Synthesis finished with 0 errors, 0 critical warnings and 36 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 815.148 ; gain = 174.051
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 815.148 ; gain = 544.500
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 21 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 33 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -444,11 +482,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 44 Warnings, 0 Critical Warnings and 0 Errors encountered.
+87 Infos, 48 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 814.988 ; gain = 551.508
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 815.148 ; gain = 551.273
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 814.988 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Nov 23 19:22:22 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 815.148 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 23 20:35:49 2021...
