@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Tue Nov 23 18:47:49 2021
+| Date             : Tue Nov 23 19:23:27 2021
 | Host             : DESKTOP-00TQ7BI running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.226        |
+| Total On-Chip Power (W)  | 0.227        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.116        |
+| Dynamic (W)              | 0.117        |
 | Device Static (W)        | 0.110        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 82.4         |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        5 |       --- |             --- |
-| Slice Logic    |    <0.001 |      194 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      108 |     53200 |            0.20 |
-|   Register     |    <0.001 |       56 |    106400 |            0.05 |
-|   CARRY4       |    <0.001 |        8 |     13300 |            0.06 |
-|   Others       |     0.000 |        5 |       --- |             --- |
-| Signals        |    <0.001 |      166 |       --- |             --- |
+| Slice Logic    |    <0.001 |      325 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      181 |     53200 |            0.34 |
+|   CARRY4       |    <0.001 |       20 |     13300 |            0.15 |
+|   Register     |    <0.001 |       74 |    106400 |            0.07 |
+|   Others       |     0.000 |        7 |       --- |             --- |
+| Signals        |    <0.001 |      242 |       --- |             --- |
 | MMCM           |     0.115 |        1 |         4 |           25.00 |
 | I/O            |    <0.001 |       20 |       200 |           10.00 |
 | Static Power   |     0.110 |          |           |                 |
-| Total          |     0.226 |          |           |                 |
+| Total          |     0.227 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -150,9 +150,10 @@ Table of Contents
 +---------------+-----------+
 | Name          | Power (W) |
 +---------------+-----------+
-| top           |     0.116 |
+| top           |     0.117 |
 |   clk_inst    |     0.115 |
 |     inst      |     0.115 |
+|   graph_inst  |    <0.001 |
 |   keypad_inst |    <0.001 |
 |   sync_inst   |    <0.001 |
 +---------------+-----------+
