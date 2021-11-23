@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -38,8 +39,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v
   C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v
 }
-read_vhdl -library xil_defaultlib C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/font_rom.vhd
-read_ip -quiet c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+read_ip -quiet C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
