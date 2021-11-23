@@ -1,0 +1,503 @@
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source top.tcl -notrace
+Command: synth_design -top top -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13656 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 367.371 ; gain = 96.875
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-1000-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-1000-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'keypad' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
+	Parameter CLK_KHZ bound to: 25175 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'keypad' (2#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/debounce.v:1]
+	Parameter SIZE bound to: 16 - type: integer 
+	Parameter BTN_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/debounce.v:1]
+INFO: [Synth 8-6157] synthesizing module 'graph_mod' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:1]
+	Parameter MAX_X bound to: 640 - type: integer 
+	Parameter MAX_Y bound to: 480 - type: integer 
+	Parameter WALL_X_L bound to: 32 - type: integer 
+	Parameter WALL_X_R bound to: 35 - type: integer 
+	Parameter BAR_X_L bound to: 600 - type: integer 
+	Parameter BAR_X_R bound to: 603 - type: integer 
+	Parameter BAR_Y_SIZE bound to: 72 - type: integer 
+	Parameter BAR_V bound to: 4 - type: integer 
+	Parameter BALL_SIZE bound to: 8 - type: integer 
+	Parameter BALL_V bound to: 4 - type: integer 
+	Parameter NEWGAME bound to: 2'b00 
+	Parameter PLAY bound to: 2'b01 
+	Parameter NEWBALL bound to: 2'b10 
+	Parameter OVER bound to: 2'b11 
+INFO: [Synth 8-226] default block is never used [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:136]
+INFO: [Synth 8-638] synthesizing module 'font_rom_vhd' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/font_rom.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'font_rom_vhd' (4#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/font_rom.vhd:21]
+INFO: [Synth 8-6155] done synthesizing module 'graph_mod' (5#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sync_mod' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sync_mod' (6#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'top' (7#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
+WARNING: [Synth 8-3331] design font_rom_vhd has unconnected port clk
+WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[4]
+WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[3]
+WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[2]
+WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[1]
+WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[0]
+WARNING: [Synth 8-3331] design top has unconnected port btn[1]
+WARNING: [Synth 8-3331] design top has unconnected port btn[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 422.770 ; gain = 152.273
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 422.770 ; gain = 152.273
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 422.770 ; gain = 152.273
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_inst'
+Finished Parsing XDC File [c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_inst'
+Parsing XDC File [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]
+Finished Parsing XDC File [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 795.871 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 795.871 ; gain = 525.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 795.871 ; gain = 525.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for clk_inst. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 795.871 ; gain = 525.375
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "keypad_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5587] ROM size for "char_addr_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "reach_top" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "dig1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state_next" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "life_next" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5587] ROM size for "char_addr_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "reach_top" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "dig1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state_next" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "life_next" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball_vx_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball_vy_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "wall_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bar_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "score_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "life_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "over_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "game_over" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "game_stop" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "refr_tick" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "reach_wall" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "reach_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "reach_bar" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "d_clr" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hit" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state_next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state_next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "miss" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "miss_ball" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "life_next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "c_v" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 795.871 ; gain = 525.375
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 6     
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 7     
+	                5 Bit    Registers := 5     
+	                4 Bit    Registers := 3     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  10 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 7     
+	   2 Input      7 Bit        Muxes := 8     
+	  12 Input      7 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 4     
+	   5 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 12    
+	  10 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 10    
+	   7 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   8 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 6     
+	   8 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 19    
+	   4 Input      1 Bit        Muxes := 6     
+	  10 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module top 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+Module keypad 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  10 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 4     
+	   5 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 2     
+	  10 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 1     
+Module debounce 
+Detailed RTL Component Info : 
++---Registers : 
+	                5 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module graph_mod 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 4     
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 5     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 5     
+	   2 Input      7 Bit        Muxes := 8     
+	  12 Input      7 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 8     
+	   2 Input      3 Bit        Muxes := 10    
+	   7 Input      3 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   8 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 4     
+Module sync_mod 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
++---Registers : 
+	               10 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "graph_inst/reach_top" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sync_inst/c_v" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design top has unconnected port btn[1]
+WARNING: [Synth 8-3331] design top has unconnected port btn[0]
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[0]' (FDCE) to 'graph_inst/ball_vy_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_vy_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball_vy_reg_reg[2] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[3]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[4]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[5]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[6]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[7]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vy_reg_reg[8]' (FDCE) to 'graph_inst/ball_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[0]' (FDCE) to 'graph_inst/ball_vx_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_vx_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball_vx_reg_reg[2] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[3]' (FDPE) to 'graph_inst/ball_vx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[4]' (FDPE) to 'graph_inst/ball_vx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[5]' (FDPE) to 'graph_inst/ball_vx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[6]' (FDPE) to 'graph_inst/ball_vx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[7]' (FDPE) to 'graph_inst/ball_vx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_vx_reg_reg[8]' (FDPE) to 'graph_inst/ball_vx_reg_reg[9]'
+WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vx_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vx_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vy_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_vy_reg_reg[1]) is unused and will be removed from module top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 795.871 ; gain = 525.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------+---------------------------------+---------------+----------------+
+|Module Name  | RTL Object                      | Depth x Width | Implemented As | 
++-------------+---------------------------------+---------------+----------------+
+|font_rom_vhd | ROM[0]                          | 2048x8        | LUT            | 
+|top          | graph_inst/font_rom_inst/ROM[0] | 2048x8        | LUT            | 
++-------------+---------------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_inst/clk_out1' to pin 'clk_inst/bbstub_clk_out1/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 795.871 ; gain = 525.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 828.762 ; gain = 558.266
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |clk_wiz_0 |     1|
+|2     |CARRY4    |    35|
+|3     |LUT1      |     3|
+|4     |LUT2      |    32|
+|5     |LUT3      |    50|
+|6     |LUT4      |    65|
+|7     |LUT5      |   205|
+|8     |LUT6      |   462|
+|9     |MUXF7     |    17|
+|10    |MUXF8     |     8|
+|11    |FDCE      |   101|
+|12    |FDPE      |    11|
+|13    |FDRE      |    20|
+|14    |IBUF      |     5|
+|15    |OBUF      |    18|
++------+----------+------+
+
+Report Instance Areas: 
++------+----------------+----------+------+
+|      |Instance        |Module    |Cells |
++------+----------------+----------+------+
+|1     |top             |          |  1034|
+|2     |  debounce_inst |debounce  |    57|
+|3     |  graph_inst    |graph_mod |   187|
+|4     |  keypad_inst   |keypad    |   173|
+|5     |  sync_inst     |sync_mod  |   592|
++------+----------------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 837.824 ; gain = 194.227
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 837.824 ; gain = 567.328
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 65 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+85 Infos, 19 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 837.824 ; gain = 574.336
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 837.824 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 23 18:04:39 2021...
