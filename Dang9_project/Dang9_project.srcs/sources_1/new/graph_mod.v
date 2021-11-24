@@ -30,7 +30,7 @@ reg [9:0] BALL_2Vx = 4;
 reg [9:0] BALL_2Vy = 4;
 
 wire refr_tick; 
-assign refr_tick = (y==MAX_Y-1 && x==MAX_X-1)? 1 : 0; // 매 프레임마다 한 clk 동안만 1이 됨. 
+assign refr_tick = (y==MAX_Y-1 && x==MAX_X-1)? 1 : 0; // ?? ????????? ?? clk ????? 1?? ??. 
 
 // table
 wire table_out_on, table_in_on;
@@ -60,7 +60,7 @@ assign ball1_y_t = ball1_y_reg; //ball의 top
 assign ball1_y_b = ball1_y_reg + BALL_SIZE - 1; //ball의 bottom
 
 
-// 공2 범위
+// ??2 ????
 assign ball2_x_l = ball2_x_reg; //ball의 left
 assign ball2_x_r = ball2_x_reg + BALL_SIZE - 1; //ball의 right
 assign ball2_y_t = ball2_y_reg; //ball의 top
@@ -81,19 +81,18 @@ assign ball2_reach_bottom = (TABLE_IN_B <= ball2_y_b) ? 1 : 0;
 assign ball2_reach_left = (TABLE_IN_L >= ball2_x_l) ? 1 : 0;
 assign ball2_reach_right = (TABLE_IN_R <= ball2_x_r) ? 1 : 0;
 
-//공 간 충돌 -> 검출 알고리즘 다시 생각하기
-
+//공 간 충돌 검출
 //ball2 기준
-assign Crash_ball2_to_ball1_x_l = ((ball1_x_l <= ball2_x_l) && (ball2_x_l <= ball1_x_r)) ? 1 : 0; // 2번 공 x중심이 1번공 x범위 내인지 검출
-assign Crash_ball2_to_ball1_x_r = ((ball1_x_l <= ball2_x_r) && (ball2_x_r <= ball1_x_r)) ? 1 : 0; // 2번 공 x중심이 1번공 x범위 내인지 검출
-assign Crash_ball2_to_ball1_y_t = ((ball1_y_t <= ball2_y_t) && (ball2_y_t <= ball1_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
-assign Crash_ball2_to_ball1_y_b = ((ball1_y_t <= ball2_y_b) && (ball2_y_b <= ball1_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
+assign Crash_ball2_to_ball1_x_l = ((ball1_x_l <= ball2_x_l) && (ball2_x_l <= ball1_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
+assign Crash_ball2_to_ball1_x_r = ((ball1_x_l <= ball2_x_r) && (ball2_x_r <= ball1_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
+assign Crash_ball2_to_ball1_y_t = ((ball1_y_t <= ball2_y_t) && (ball2_y_t <= ball1_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+assign Crash_ball2_to_ball1_y_b = ((ball1_y_t <= ball2_y_b) && (ball2_y_b <= ball1_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
 
 //ball1 기준
-assign Crash_ball1_to_ball2_x_l = ((ball2_x_l <= ball1_x_l) && (ball1_x_l <= ball2_x_r)) ? 1 : 0; // 1번 공 x중심이 2번공 x범위 내인지 검출
-assign Crash_ball1_to_ball2_x_r = ((ball2_x_l <= ball1_x_r) && (ball1_x_r <= ball2_x_r)) ? 1 : 0; // 1번 공 x중심이 2번공 x범위 내인지 검출
-assign Crash_ball1_to_ball2_y_t = ((ball2_y_t <= ball1_y_t) && (ball1_y_t <= ball2_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
-assign Crash_ball1_to_ball2_y_b = ((ball2_y_t <= ball1_y_b) && (ball1_y_b <= ball2_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
+assign Crash_ball1_to_ball2_x_l = ((ball2_x_l <= ball1_x_l) && (ball1_x_l <= ball2_x_r)) ? 1 : 0; // 1?? ?? x????? 2???? x???? ?????? ????
+assign Crash_ball1_to_ball2_x_r = ((ball2_x_l <= ball1_x_r) && (ball1_x_r <= ball2_x_r)) ? 1 : 0; // 1?? ?? x????? 2???? x???? ?????? ????
+assign Crash_ball1_to_ball2_y_t = ((ball2_y_t <= ball1_y_t) && (ball1_y_t <= ball2_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+assign Crash_ball1_to_ball2_y_b = ((ball2_y_t <= ball1_y_b) && (ball1_y_b <= ball2_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
 
 assign Crash_ball2_to_ball1 = (Crash_ball2_to_ball1_x_l && Crash_ball2_to_ball1_y_t) || 
                               (Crash_ball2_to_ball1_x_l && Crash_ball2_to_ball1_y_b) ||
@@ -111,26 +110,26 @@ always @ (posedge clk or posedge rst) begin
         ball1_vx_reg <= -1*BALL_1Vx; //game이 멈추면 왼쪽으로 
         ball1_vy_reg <= BALL_1Vy; //game이 멈추면 아래로
     end else begin
-        if (ball1_reach_top) ball1_vy_reg <= BALL_1Vy; //천장에 부딪히면 ㄴ아래로.
+        if (ball1_reach_top) ball1_vy_reg <= BALL_1Vy; //천장에 부딪히면 ㄴ아래로..
         else if (ball1_reach_bottom) ball1_vy_reg <= -1*BALL_1Vy; //바닥에 부딪히면 위로
-        else if (ball1_reach_left) ball1_vx_reg <= BALL_1Vx; //벽에 부딪히면 오른쪽으로 
+        else if (ball1_reach_left) ball1_vx_reg <= BALL_1Vx; //벽에 부딪히면 오른쪽으로
         else if (ball1_reach_right) ball1_vx_reg <= -1*BALL_1Vx; //바에 튕기면 왼쪽으로
-        else if (Crash_ball1_to_ball2 || Crash_ball2_to_ball1) begin
-            //ball1_vx_reg <= -1 * ball1_vx_reg;
-            //ball1_vy_reg <= -1 * ball1_vy_reg;
-        end
+        else if (Crash_ball1_to_ball2 || Crash_ball2_to_ball1) begin/*
+            ball1_vx_reg <= -1 * ball1_vx_reg;
+            ball1_vy_reg <= -1 * ball1_vy_reg;
+        */end
     end  
 end
 
 // 공2 방향 업데이트
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball2_vx_reg <= BALL_2Vx; //game이 멈추면 왼쪽으로 
+        ball2_vx_reg <= BALL_2Vx; ////game이 멈추면 왼쪽으로 
         ball2_vy_reg <= -1*BALL_2Vy; //game이 멈추면 아래로
     end else begin
-        if (ball2_reach_top) ball2_vy_reg <= BALL_2Vy; //천장에 부딪히면 아래로.
-        else if (ball2_reach_bottom) ball2_vy_reg <= -1*BALL_2Vy; //바닥에 부딪히면 위로
-        else if (ball2_reach_left) ball2_vx_reg <= BALL_2Vx; //벽에 부딪히면 오른쪽으로 
+        if (ball2_reach_top) ball2_vy_reg <= BALL_2Vy; //천장에 부딪히면 아래로
+        else if (ball2_reach_bottom) ball2_vy_reg <= -1*BALL_2Vy; //.바닥에 부딪히면 위로
+        else if (ball2_reach_left) ball2_vx_reg <= BALL_2Vx; //벽에 부딪히면 오른쪽으로
         else if (ball2_reach_right) ball2_vx_reg <= -1*BALL_2Vx; //바에 튕기면 왼쪽으로
         else if (Crash_ball1_to_ball2 || Crash_ball2_to_ball1) begin
             ball2_vx_reg <= -1 * ball2_vx_reg;
@@ -139,11 +138,11 @@ always @ (posedge clk or posedge rst) begin
     end  
 end
 
-// 공1, 2 좌표 업데이트
+// ??1, 2 ??? ???????
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
         ball1_x_reg <= 250; ball2_x_reg <= 300; // game이 멈추면 중간에서 시작
-        ball1_y_reg <= MAX_Y/2; ball2_y_reg <= MAX_Y/2; // game이 멈추면 중간에서 시작
+        ball1_y_reg <= MAX_Y/2; ball2_y_reg <= MAX_Y/2; // e이 멈추면 중간에서 시작
     end else if (refr_tick) begin
         ball1_x_reg <= ball1_x_reg + ball1_vx_reg;  //매 프레임마다 ball_vx_reg만큼 움직임
         ball1_y_reg <= ball1_y_reg + ball1_vy_reg;  //매 프레임마다 ball_vy_reg만큼 움직임
@@ -152,7 +151,7 @@ always @ (posedge clk or posedge rst) begin
     end
 end
 
-// 최종 출력
+// ???? ???
 assign rgb = (table_out_on == 1 && table_in_on == 0) ? 3'b111 :
              (table_out_on == 1 && table_in_on == 1 && ball1_on == 0 && ball2_on == 0) ? 3'b000 : 
              (table_out_on == 1 && table_in_on == 1 && ball1_on == 1) ? 3'b001 : 
