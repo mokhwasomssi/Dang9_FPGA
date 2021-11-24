@@ -21,7 +21,7 @@ parameter TABLE_IN_T = 40;
 parameter TABLE_IN_B = 440;
 
 // ball의 속도, 크기 설정
-parameter BALL_SIZE = 16;
+parameter BALL_SIZE = 30;
 //parameter BALL_V = 4;
 
 reg [9:0] BALL_1Vx = 4;
@@ -40,8 +40,8 @@ assign table_in_on = (x >= TABLE_IN_L && x <= TABLE_IN_R - 1 && y >= TABLE_IN_T 
 // ball
 wire ball1_reach_top, ball1_reach_bottom, ball1_reach_left, ball1_reach_right;
 wire ball2_reach_top, ball2_reach_bottom, ball2_reach_left, ball2_reach_right;
-wire Crash_ball2_to_ball1_x, Crash_ball2_to_ball1_y, Crash_ball2_to_ball1;
-wire Crash_ball1_to_ball2_x, Crash_ball1_to_ball2_y, Crash_ball1_to_ball2;
+wire Crash_ball2_to_ball1_x_l, Crash_ball2_to_ball1_x_r, Crash_ball2_to_ball1_y_t, Crash_ball2_to_ball1_y_b, Crash_ball2_to_ball1;
+wire Crash_ball1_to_ball2_x_l, Crash_ball1_to_ball2_x_r, Crash_ball1_to_ball2_y_t, Crash_ball1_to_ball2_y_b, Crash_ball1_to_ball2;
 
 wire ball1_on;
 reg [9:0]  ball1_x_reg, ball1_y_reg;
@@ -53,26 +53,18 @@ reg [9:0]  ball2_vx_reg, ball2_vy_reg;
 reg [9:0]  ball2_x_reg, ball2_y_reg; 
 wire [9:0] ball2_x_l, ball2_x_r, ball2_y_t, ball2_y_b;
 
-wire ball1_x_center, ball1_y_center;
-wire ball2_x_center, ball2_y_center;
-
 // 공1 범위
 assign ball1_x_l = ball1_x_reg; //ball의 left
 assign ball1_x_r = ball1_x_reg + BALL_SIZE - 1; //ball의 right
 assign ball1_y_t = ball1_y_reg; //ball의 top
 assign ball1_y_b = ball1_y_reg + BALL_SIZE - 1; //ball의 bottom
 
-assign ball1_x_center = ball1_x_l + (BALL_SIZE/2) -1;
-assign ball1_y_center = ball1_y_b + (BALL_SIZE/2) -1;
 
 // 공2 범위
 assign ball2_x_l = ball2_x_reg; //ball의 left
 assign ball2_x_r = ball2_x_reg + BALL_SIZE - 1; //ball의 right
 assign ball2_y_t = ball2_y_reg; //ball의 top
 assign ball2_y_b = ball2_y_reg + BALL_SIZE - 1; //ball의 bottom
-
-assign ball2_x_center = ball2_x_l + (BALL_SIZE/2) -1;
-assign ball2_y_center = ball2_y_b + (BALL_SIZE/2) -1;
 
 assign ball1_on = (x>=ball1_x_l && x<=ball1_x_r && y>=ball1_y_t && y<=ball1_y_b)? 1 : 0; //ball1이 있는 영역
 assign ball2_on = (x>=ball2_x_l && x<=ball2_x_r && y>=ball2_y_t && y<=ball2_y_b)? 1 : 0; //ball2이 있는 영역
@@ -90,15 +82,28 @@ assign ball2_reach_left = (TABLE_IN_L >= ball2_x_l) ? 1 : 0;
 assign ball2_reach_right = (TABLE_IN_R <= ball2_x_r) ? 1 : 0;
 
 //공 간 충돌 -> 검출 알고리즘 다시 생각하기
-/* 
-assign Crash_ball2_to_ball1_x = ((ball1_x_reg <= ball2_x_center) && (ball2_x_center <= ball1_x_reg)) ? 1 : 0; // 2번 공 x중심이 1번공 x범위 내인지 검출
-assign Crash_ball2_to_ball1_y = ((ball1_y_reg <= ball2_y_center) && (ball2_y_center <= ball1_y_reg)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
-assign Crash_ball2_to_ball1 = Crash_ball2_to_ball1_x && Crash_ball2_to_ball1_y; // 2번 공 중심이 1번공 범위내인지 검출
 
-assign Crash_ball1_to_ball2_x = ((ball2_x_reg <= ball1_x_center) && (ball1_x_center <= ball2_x_reg)) ? 1 : 0; // 1번 공 x중심이 2번공 x범위 내인지 검출
-assign Crash_ball1_to_ball2_y = ((ball2_y_reg <= ball1_y_center) && (ball1_y_center <= ball2_y_reg)) ? 1 : 0; // 1번 공 y중심이 2번공 y범위 내인지 검출
-assign Crash_ball1_to_ball2 = Crash_ball1_to_ball2_x && Crash_ball1_to_ball2_y;// 1번 공 중심이 2번공 범위내인지 검출
-*/
+//ball2 기준
+assign Crash_ball2_to_ball1_x_l = ((ball1_x_l <= ball2_x_l) && (ball2_x_l <= ball1_x_r)) ? 1 : 0; // 2번 공 x중심이 1번공 x범위 내인지 검출
+assign Crash_ball2_to_ball1_x_r = ((ball1_x_l <= ball2_x_r) && (ball2_x_r <= ball1_x_r)) ? 1 : 0; // 2번 공 x중심이 1번공 x범위 내인지 검출
+assign Crash_ball2_to_ball1_y_t = ((ball1_y_t <= ball2_y_t) && (ball2_y_t <= ball1_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
+assign Crash_ball2_to_ball1_y_b = ((ball1_y_t <= ball2_y_b) && (ball2_y_b <= ball1_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
+
+//ball1 기준
+assign Crash_ball1_to_ball2_x_l = ((ball2_x_l <= ball1_x_l) && (ball1_x_l <= ball2_x_r)) ? 1 : 0; // 1번 공 x중심이 2번공 x범위 내인지 검출
+assign Crash_ball1_to_ball2_x_r = ((ball2_x_l <= ball1_x_r) && (ball1_x_r <= ball2_x_r)) ? 1 : 0; // 1번 공 x중심이 2번공 x범위 내인지 검출
+assign Crash_ball1_to_ball2_y_t = ((ball2_y_t <= ball1_y_t) && (ball1_y_t <= ball2_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
+assign Crash_ball1_to_ball2_y_b = ((ball2_y_t <= ball1_y_b) && (ball1_y_b <= ball2_y_b)) ? 1 : 0; // 2번 공 y중심이 1번공 y범위 내인지 검출
+
+assign Crash_ball2_to_ball1 = (Crash_ball2_to_ball1_x_l && Crash_ball2_to_ball1_y_t) || 
+                              (Crash_ball2_to_ball1_x_l && Crash_ball2_to_ball1_y_b) ||
+                              (Crash_ball2_to_ball1_x_r &&Crash_ball2_to_ball1_y_t) || 
+                              (Crash_ball2_to_ball1_x_r && Crash_ball2_to_ball1_y_b);
+                              
+assign Crash_ball1_to_ball2 = (Crash_ball1_to_ball2_x_l && Crash_ball1_to_ball2_y_t) ||
+                              (Crash_ball1_to_ball2_x_l && Crash_ball1_to_ball2_y_b) ||
+                              (Crash_ball1_to_ball2_x_r && Crash_ball1_to_ball2_y_t) ||
+                              (Crash_ball1_to_ball2_x_r && Crash_ball1_to_ball2_y_b);
 
 // 공1 방향 업데이트
 always @ (posedge clk or posedge rst) begin
@@ -110,9 +115,9 @@ always @ (posedge clk or posedge rst) begin
         else if (ball1_reach_bottom) ball1_vy_reg <= -1*BALL_1Vy; //바닥에 부딪히면 위로
         else if (ball1_reach_left) ball1_vx_reg <= BALL_1Vx; //벽에 부딪히면 오른쪽으로 
         else if (ball1_reach_right) ball1_vx_reg <= -1*BALL_1Vx; //바에 튕기면 왼쪽으로
-        else if (Crash_ball2_to_ball1 || Crash_ball1_to_ball2) begin
-            ball1_vx_reg <= -1 * ball1_vx_reg;
-            ball1_vy_reg <= -1 * ball1_vy_reg;
+        else if (Crash_ball1_to_ball2 || Crash_ball2_to_ball1) begin
+            //ball1_vx_reg <= -1 * ball1_vx_reg;
+            //ball1_vy_reg <= -1 * ball1_vy_reg;
         end
     end  
 end
@@ -127,7 +132,7 @@ always @ (posedge clk or posedge rst) begin
         else if (ball2_reach_bottom) ball2_vy_reg <= -1*BALL_2Vy; //바닥에 부딪히면 위로
         else if (ball2_reach_left) ball2_vx_reg <= BALL_2Vx; //벽에 부딪히면 오른쪽으로 
         else if (ball2_reach_right) ball2_vx_reg <= -1*BALL_2Vx; //바에 튕기면 왼쪽으로
-        else if (Crash_ball2_to_ball1 || Crash_ball1_to_ball2) begin
+        else if (Crash_ball1_to_ball2 || Crash_ball2_to_ball1) begin
             ball2_vx_reg <= -1 * ball2_vx_reg;
             ball2_vy_reg <= -1 * ball2_vy_reg;
         end
