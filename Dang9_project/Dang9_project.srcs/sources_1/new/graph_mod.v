@@ -106,7 +106,7 @@ always @ (posedge clk or posedge rst) begin
         ball1_vx_reg <= -1*BALL_1Vx; //game이 멈추면 왼쪽으로 
         ball1_vy_reg <= BALL_1Vy; //game이 멈추면 아래로
     end else begin
-        if (ball1_reach_top) ball1_vy_reg <= BALL_1Vy; //천장에 부딪히면 아래로.
+        if (ball1_reach_top) ball1_vy_reg <= BALL_1Vy; //천장에 부딪히면 ㄴ아래로.
         else if (ball1_reach_bottom) ball1_vy_reg <= -1*BALL_1Vy; //바닥에 부딪히면 위로
         else if (ball1_reach_left) ball1_vx_reg <= BALL_1Vx; //벽에 부딪히면 오른쪽으로 
         else if (ball1_reach_right) ball1_vx_reg <= -1*BALL_1Vx; //바에 튕기면 왼쪽으로
