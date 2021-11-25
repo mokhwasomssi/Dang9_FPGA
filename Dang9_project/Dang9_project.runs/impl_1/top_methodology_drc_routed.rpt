@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Thu Nov 25 00:01:59 2021
+| Date         : Thu Nov 25 20:09:30 2021
 | Host         : DESKTOP-8PEBONS running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 40
+             Violations found: 20
 +--------+----------+---------------------------+------------+
 | Rule   | Severity | Description               | Violations |
 +--------+----------+---------------------------+------------+
-| DPIR-1 | Warning  | Asynchronous driver check | 40         |
+| DPIR-1 | Warning  | Asynchronous driver check | 20         |
 +--------+----------+---------------------------+------------+
 
 2. REPORT DETAILS
@@ -130,106 +130,6 @@ Related violations: <none>
 DPIR-1#20 Warning
 Asynchronous driver check  
 DSP graph_inst/ball1_vy_reg0 input pin graph_inst/ball1_vy_reg0/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#21 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#22 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#23 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#24 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#25 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#26 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#27 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#28 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#29 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#30 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vx_reg0 input pin graph_inst/ball2_vx_reg0/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#31 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#32 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#33 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#34 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#35 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#36 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#37 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#38 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#39 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-DPIR-1#40 Warning
-Asynchronous driver check  
-DSP graph_inst/ball2_vy_reg0 input pin graph_inst/ball2_vy_reg0/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 

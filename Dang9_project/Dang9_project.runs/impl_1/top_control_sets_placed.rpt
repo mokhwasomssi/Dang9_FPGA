@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Thu Nov 25 00:01:32 2021
+| Date         : Thu Nov 25 20:08:58 2021
 | Host         : DESKTOP-8PEBONS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     8 |
-| Unused register locations in slices containing registers |    24 |
+| Number of unique control sets                            |     6 |
+| Unused register locations in slices containing registers |    16 |
 +----------------------------------------------------------+-------+
 
 
@@ -35,7 +35,7 @@ Table of Contents
 | Fanout | Control Sets |
 +--------+--------------+
 |      8 |            1 |
-|    16+ |            7 |
+|    16+ |            5 |
 +--------+--------------+
 
 
@@ -46,11 +46,11 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               0 |            0 |
-| No           | No                    | Yes                    |              64 |           13 |
-| No           | Yes                   | No                     |              20 |            3 |
+| No           | No                    | Yes                    |              72 |           15 |
+| No           | Yes                   | No                     |              20 |            6 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             168 |           21 |
-| Yes          | Yes                   | No                     |              20 |            4 |
+| Yes          | No                    | Yes                    |             152 |           24 |
+| Yes          | Yes                   | No                     |              20 |            6 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -61,13 +61,11 @@ Table of Contents
 |       Clock Signal      |            Enable Signal           | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +-------------------------+------------------------------------+------------------+------------------+----------------+
 |  clk_inst/inst/clk_out1 | keypad_inst/col[3]_i_1_n_0         | rst_IBUF         |                1 |              8 |
-|  clk_inst/inst/clk_out1 | sync_inst/c_v_0                    | rst_IBUF         |                4 |             20 |
+|  clk_inst/inst/clk_out1 | sync_inst/c_v_1                    | rst_IBUF         |                6 |             20 |
 |  clk_inst/inst/clk_out1 | graph_inst/ball1_vx_reg            | rst_IBUF         |                2 |             20 |
-|  clk_inst/inst/clk_out1 | graph_inst/ball1_vy_reg[9]_i_1_n_0 | rst_IBUF         |                2 |             20 |
-|  clk_inst/inst/clk_out1 | graph_inst/ball2_vx_reg            | rst_IBUF         |                2 |             20 |
-|  clk_inst/inst/clk_out1 | graph_inst/ball2_vy_reg[9]_i_1_n_0 | rst_IBUF         |                2 |             20 |
-|  clk_inst/inst/clk_out1 | sync_inst/E[0]                     | rst_IBUF         |               12 |             80 |
-|  clk_inst/inst/clk_out1 |                                    | rst_IBUF         |               16 |             84 |
+|  clk_inst/inst/clk_out1 | graph_inst/ball1_vy_reg[9]_i_1_n_0 | rst_IBUF         |                3 |             20 |
+|  clk_inst/inst/clk_out1 |                                    | rst_IBUF         |               21 |             92 |
+|  clk_inst/inst/clk_out1 | sync_inst/E[0]                     | rst_IBUF         |               18 |            104 |
 +-------------------------+------------------------------------+------------------+------------------+----------------+
 
 
