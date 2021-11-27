@@ -5,11 +5,11 @@ input [9:0] x, y;
 input [4:0] key, key_pulse; 
 output [2:0] rgb; 
 
-// È­¸é Å©±â ¼³Á¤
+// È­ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 parameter MAX_X = 640; 
 parameter MAX_Y = 480;  
 
-// tableÀÇ ÁÂÇ¥ ¼³Á¤ 
+// tableï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ 
 parameter TABLE_OUT_L = 20;
 parameter TABLE_OUT_R = 620;
 parameter TABLE_OUT_T = 20;
@@ -20,16 +20,21 @@ parameter TABLE_IN_R = 600;
 parameter TABLE_IN_T = 40;
 parameter TABLE_IN_B = 440;
 
-// ballÀÇ ¼Óµµ, Å©±â ¼³Á¤
+// ballï¿½ï¿½ ï¿½Óµï¿½, Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 parameter BALL_SIZE = 40;
-//parameter BALL_V = 4;
 
-reg [9:0] BALL_1Vx = 4;
-reg [9:0] BALL_1Vy = 4;
-reg [9:0] BALL_2Vx = 4;
-reg [9:0] BALL_2Vy = 4;
-reg [9:0] BALL_3Vx = 4;
-reg [9:0] BALL_3Vy = 4;
+reg signed [9:0] BALL_1Vx   = 4;
+reg signed [9:0] BALL_1Vy   = 4;
+reg signed [1:0] BALL_1_Dx  = 1;
+reg signed [1:0] BALL_1_Dy  = 1;
+reg signed [9:0] BALL_2Vx   = 4;
+reg signed [9:0] BALL_2Vy   = 4;
+reg signed [1:0] BALL_2_Dx  = 1;
+reg signed [1:0] BALL_2_Dy  = 1;
+reg signed [9:0] BALL_3Vx   = 4;
+reg signed [9:0] BALL_3Vy   = 4;
+reg signed [1:0] BALL_3_Dx  = 1;
+reg signed [1:0] BALL_3_Dy  = 1;
 
 wire refr_tick; 
 assign refr_tick = (y==MAX_Y-1 && x==MAX_X-1)? 1 : 0; // ?? ????????? ?? clk ????? 1?? ??. 
@@ -44,198 +49,328 @@ wire ball1_reach_top, ball1_reach_bottom, ball1_reach_left, ball1_reach_right;
 wire ball2_reach_top, ball2_reach_bottom, ball2_reach_left, ball2_reach_right;
 wire ball3_reach_top, ball3_reach_bottom, ball3_reach_left, ball3_reach_right;
 
-wire Crash_ball1_to_ball2_x_l, Crash_ball1_to_ball2_x_r, Crash_ball1_to_ball2_y_t, Crash_ball1_to_ball2_y_b, Crash_ball1_to_ball2;
-wire Crash_ball1_to_ball3_x_l, Crash_ball1_to_ball3_x_r, Crash_ball1_to_ball3_y_t, Crash_ball1_to_ball3_y_b, Crash_ball1_to_ball3;
-
-wire Crash_ball2_to_ball1_x_l, Crash_ball2_to_ball1_x_r, Crash_ball2_to_ball1_y_t, Crash_ball2_to_ball1_y_b, Crash_ball2_to_ball1;
-wire Crash_ball2_to_ball3_x_l, Crash_ball2_to_ball3_x_r, Crash_ball2_to_ball3_y_t, Crash_ball2_to_ball3_y_b, Crash_ball2_to_ball3;
-
-wire Crash_ball3_to_ball1_x_l, Crash_ball3_to_ball1_x_r, Crash_ball3_to_ball1_y_t, Crash_ball3_to_ball1_y_b, Crash_ball3_to_ball1;
-wire Crash_ball3_to_ball2_x_l, Crash_ball3_to_ball2_x_r, Crash_ball3_to_ball2_y_t, Crash_ball3_to_ball2_y_b, Crash_ball3_to_ball2;
-
 wire ball1_on;
 reg [9:0]  ball1_x_reg, ball1_y_reg;
 reg [9:0]  ball1_vx_reg, ball1_vy_reg;
 wire [9:0] ball1_x_l, ball1_x_r, ball1_y_t, ball1_y_b;
+wire [9:0] ball1_x_c, ball1_y_c;
 
 wire ball2_on;
 reg [9:0]  ball2_vx_reg, ball2_vy_reg;
 reg [9:0]  ball2_x_reg, ball2_y_reg; 
 wire [9:0] ball2_x_l, ball2_x_r, ball2_y_t, ball2_y_b;
+wire [9:0] ball2_x_c, ball2_y_c;
 
 wire ball3_on;
 reg [9:0]  ball3_vx_reg, ball3_vy_reg;
 reg [9:0]  ball3_x_reg, ball3_y_reg; 
 wire [9:0] ball3_x_l, ball3_x_r, ball3_y_t, ball3_y_b;
+wire [9:0] ball3_x_c, ball3_y_c;
 
-// °ø1 ¹üÀ§
-assign ball1_x_l = ball1_x_reg; //ballÀÇ left
-assign ball1_x_r = ball1_x_reg + BALL_SIZE - 1; //ballÀÇ right
-assign ball1_y_t = ball1_y_reg; //ballÀÇ top
-assign ball1_y_b = ball1_y_reg + BALL_SIZE - 1; //ballÀÇ bottom
+//FLAG
+//12
+wire ball12_L, ball12_xC, ball12_R, ball12_T, ball12_yC, ball12_B;
+wire ball12_LTRB, ball12_RTLB, ball12_LBRT, ball12_RBLT;
+wire ball12_LCRC, ball12_RCLC, ball12_CTCB,  ball12_CBCT;
 
-// °ø2 ¹üÀ§
-assign ball2_x_l = ball2_x_reg; //ballÀÇ left
-assign ball2_x_r = ball2_x_reg + BALL_SIZE - 1; //ballÀÇ right
-assign ball2_y_t = ball2_y_reg; //ballÀÇ top
-assign ball2_y_b = ball2_y_reg + BALL_SIZE - 1; //ballÀÇ bottom
+//13
+wire ball13_L, ball13_xC, ball13_R, ball13_T, ball13_yC, ball13_B;
+wire ball13_LTRB, ball13_RTLB, ball13_LBRT, ball13_RBLT;
+wire ball13_LCRC, ball13_RCLC, ball13_CTCB,  ball13_CBCT;
 
-//°ø3 ¹üÀ§
-assign ball3_x_l = ball3_x_reg; //ballÀÇ left
-assign ball3_x_r = ball3_x_reg + BALL_SIZE - 1; //ballÀÇ right
-assign ball3_y_t = ball3_y_reg; //ballÀÇ top
-assign ball3_y_b = ball3_y_reg + BALL_SIZE - 1; //ballÀÇ bottom
+//23
+wire ball23_L, ball23_xC, ball23_R, ball23_T, ball23_yC, ball23_B;
+wire ball23_LTRB, ball23_RTLB, ball23_LBRT, ball23_RBLT;
+wire ball23_LCRC, ball23_RCLC, ball23_CTCB,  ball23_CBCT;
 
-assign ball1_on = (x>=ball1_x_l && x<=ball1_x_r && y>=ball1_y_t && y<=ball1_y_b)? 1 : 0; //ball1ÀÌ ÀÖ´Â ¿µ¿ª
-assign ball2_on = (x>=ball2_x_l && x<=ball2_x_r && y>=ball2_y_t && y<=ball2_y_b)? 1 : 0; //ball2ÀÌ ÀÖ´Â ¿µ¿ª
-assign ball3_on = (x>=ball3_x_l && x<=ball3_x_r && y>=ball3_y_t && y<=ball3_y_b)? 1 : 0; //ball2ÀÌ ÀÖ´Â ¿µ¿ª
+// ï¿½ï¿½1 ï¿½ï¿½ï¿½ï¿½
+assign ball1_x_l = ball1_x_reg; //ballï¿½ï¿½ left
+assign ball1_x_r = ball1_x_reg + BALL_SIZE - 1; //ballï¿½ï¿½ right
+assign ball1_y_t = ball1_y_reg; //ballï¿½ï¿½ top
+assign ball1_y_b = ball1_y_reg + BALL_SIZE - 1; //ballï¿½ï¿½ bottom
 
-// °ø1 Ãæµ¹ ÀÎ½Ä
+assign ball1_x_c = ball1_x_reg + (BALL_SIZE/2) - 1;
+assign ball1_y_c = ball1_y_reg + (BALL_SIZE/2) - 1;
+
+// ï¿½ï¿½2 ï¿½ï¿½ï¿½ï¿½
+assign ball2_x_l = ball2_x_reg; //ballï¿½ï¿½ left
+assign ball2_x_r = ball2_x_reg + BALL_SIZE - 1; //ballï¿½ï¿½ right
+assign ball2_y_t = ball2_y_reg; //ballï¿½ï¿½ top
+assign ball2_y_b = ball2_y_reg + BALL_SIZE - 1; //ballï¿½ï¿½ bottom
+
+assign ball2_x_c = ball2_x_reg + (BALL_SIZE/2) - 1;
+assign ball2_y_c = ball2_y_reg + (BALL_SIZE/2) - 1;
+
+//ï¿½ï¿½3 ï¿½ï¿½ï¿½ï¿½
+assign ball3_x_l = ball3_x_reg; //ballï¿½ï¿½ left
+assign ball3_x_r = ball3_x_reg + BALL_SIZE - 1; //ballï¿½ï¿½ right
+assign ball3_y_t = ball3_y_reg; //ballï¿½ï¿½ top
+assign ball3_y_b = ball3_y_reg + BALL_SIZE - 1; //ballï¿½ï¿½ bottom
+
+assign ball3_x_c = ball3_x_reg + (BALL_SIZE/2) - 1;
+assign ball3_y_c = ball3_y_reg + (BALL_SIZE/2) - 1;
+
+assign ball1_on = (x>=ball1_x_l && x<=ball1_x_r && y>=ball1_y_t && y<=ball1_y_b)? 1 : 0; //ball1ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+assign ball2_on = (x>=ball2_x_l && x<=ball2_x_r && y>=ball2_y_t && y<=ball2_y_b)? 1 : 0; //ball2ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+assign ball3_on = (x>=ball3_x_l && x<=ball3_x_r && y>=ball3_y_t && y<=ball3_y_b)? 1 : 0; //ball2ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+// ï¿½ï¿½1 ï¿½æµ¹ ï¿½Î½ï¿½
 assign ball1_reach_top = (TABLE_IN_T >= ball1_y_t) ? 1 : 0;
 assign ball1_reach_bottom = (TABLE_IN_B <= ball1_y_b) ? 1 : 0;
 assign ball1_reach_left = (TABLE_IN_L >= ball1_x_l) ? 1 : 0;
 assign ball1_reach_right = (TABLE_IN_R <= ball1_x_r) ? 1 : 0;
 
-// °ø2 Ãæµ¹ ÀÎ½Ä
+// ï¿½ï¿½2 ï¿½æµ¹ ï¿½Î½ï¿½
 assign ball2_reach_top = (TABLE_IN_T >= ball2_y_t) ? 1 : 0;
 assign ball2_reach_bottom = (TABLE_IN_B <= ball2_y_b) ? 1 : 0;
 assign ball2_reach_left = (TABLE_IN_L >= ball2_x_l) ? 1 : 0;
 assign ball2_reach_right = (TABLE_IN_R <= ball2_x_r) ? 1 : 0;
 
-// °ø3 Ãæµ¹ ÀÎ½Ä
+// ï¿½ï¿½3 ï¿½æµ¹ ï¿½Î½ï¿½
 assign ball3_reach_top = (TABLE_IN_T >= ball3_y_t) ? 1 : 0;
 assign ball3_reach_bottom = (TABLE_IN_B <= ball3_y_b) ? 1 : 0;
 assign ball3_reach_left = (TABLE_IN_L >= ball3_x_l) ? 1 : 0;
 assign ball3_reach_right = (TABLE_IN_R <= ball3_x_r) ? 1 : 0;
 
 
-//°ø °£ Ãæµ¹ °ËÃâ
-//ball1 ±âÁØ
-assign Crash_ball1_to_ball2_x_l = ((ball2_x_l <= ball1_x_l) && (ball1_x_l <= ball2_x_r)) ? 1 : 0; // 1?? ?? x????? 2???? x???? ?????? ????
-assign Crash_ball1_to_ball2_x_r = ((ball2_x_l <= ball1_x_r) && (ball1_x_r <= ball2_x_r)) ? 1 : 0; // 1?? ?? x????? 2???? x???? ?????? ????
-assign Crash_ball1_to_ball2_y_t = ((ball2_y_t <= ball1_y_t) && (ball1_y_t <= ball2_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
-assign Crash_ball1_to_ball2_y_b = ((ball2_y_t <= ball1_y_b) && (ball1_y_b <= ball2_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+//ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½
+//L,xC,R, T,yC,B ï¿½ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ball12_L ï¿½Ì¸ï¿½ Ball2ï¿½ï¿½ Ball1 ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½Ò´Ù´ï¿½ ï¿½Ç¹ï¿½
 
-assign Crash_ball1_to_ball3_x_l = ((ball3_x_l <= ball1_x_l) && (ball1_x_l <= ball3_x_r)) ? 1 : 0; // 1?? ?? x????? 2???? x???? ?????? ????
-assign Crash_ball1_to_ball3_x_r = ((ball3_x_l <= ball1_x_r) && (ball1_x_r <= ball3_x_r)) ? 1 : 0; // 1?? ?? x????? 2???? x???? ?????? ????
-assign Crash_ball1_to_ball3_y_t = ((ball3_y_t <= ball1_y_t) && (ball1_y_t <= ball3_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
-assign Crash_ball1_to_ball3_y_b = ((ball3_y_t <= ball1_y_b) && (ball1_y_b <= ball3_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+//12
+assign ball12_L = ((ball1_x_l <= ball2_x_r) && (ball2_x_r <= ball1_x_c)) ? 1 : 0;
+assign ball12_xC = ((ball1_x_l + 3*(BALL_SIZE/6) <= ball2_x_c) && (ball2_x_c <= ball1_x_c  + 3*(BALL_SIZE/6))) ? 1 : 0;
+assign ball12_R = ((ball1_x_c <= ball2_x_l) && (ball2_x_l <= ball1_x_r)) ? 1 : 0;
 
-//ball2 ±âÁØ
-assign Crash_ball2_to_ball1_x_l = ((ball1_x_l <= ball2_x_l) && (ball2_x_l <= ball1_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball2_to_ball1_x_r = ((ball1_x_l <= ball2_x_r) && (ball2_x_r <= ball1_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball2_to_ball1_y_t = ((ball1_y_t <= ball2_y_t) && (ball2_y_t <= ball1_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
-assign Crash_ball2_to_ball1_y_b = ((ball1_y_t <= ball2_y_b) && (ball2_y_b <= ball1_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+assign ball12_T = ((ball1_y_c <= ball2_y_t) && (ball2_y_t <= ball1_y_b)) ? 1 : 0;
+assign ball12_yC = ((ball1_y_t + 3*(BALL_SIZE/6) <= ball2_y_c) && (ball2_y_c <= ball1_y_b  + 3*(BALL_SIZE/6))) ? 1 : 0;
+assign ball12_B = ((ball1_y_t <= ball2_y_b) && (ball2_y_b <= ball1_y_c)) ? 1 : 0;
 
-assign Crash_ball2_to_ball3_x_l = ((ball3_x_l <= ball2_x_l) && (ball2_x_l <= ball3_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball2_to_ball3_x_r = ((ball3_x_l <= ball2_x_r) && (ball2_x_r <= ball3_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball2_to_ball3_y_t = ((ball3_y_t <= ball2_y_t) && (ball2_y_t <= ball3_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
-assign Crash_ball2_to_ball3_y_b = ((ball3_y_t <= ball2_y_b) && (ball2_y_b <= ball3_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+assign ball12_LTRB = ball12_L && ball12_T;
+assign ball12_RTLB = ball12_R && ball12_B;
 
-//ball3 ±âÁØ
-assign Crash_ball3_to_ball1_x_l = ((ball1_x_l <= ball3_x_l) && (ball3_x_l <= ball1_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball3_to_ball1_x_r = ((ball1_x_l <= ball3_x_r) && (ball3_x_r <= ball1_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball3_to_ball1_y_t = ((ball1_y_t <= ball3_y_t) && (ball3_y_t <= ball1_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
-assign Crash_ball3_to_ball1_y_b = ((ball1_y_t <= ball3_y_b) && (ball3_y_b <= ball1_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+assign ball12_LBRT = ball12_L && ball12_B;
+assign ball12_RBLT = ball12_R && ball12_B;
 
-assign Crash_ball3_to_ball2_x_l = ((ball2_x_l <= ball3_x_l) && (ball3_x_l <= ball2_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball3_to_ball2_x_r = ((ball2_x_l <= ball3_x_r) && (ball3_x_r <= ball2_x_r)) ? 1 : 0; // 2?? ?? x????? 1???? x???? ?????? ????
-assign Crash_ball3_to_ball2_y_t = ((ball2_y_t <= ball3_y_t) && (ball3_y_t <= ball2_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
-assign Crash_ball3_to_ball2_y_b = ((ball2_y_t <= ball3_y_b) && (ball3_y_b <= ball2_y_b)) ? 1 : 0; // 2?? ?? y????? 1???? y???? ?????? ????
+assign ball12_LCRC = ball12_L && ball12_yC;
+assign ball12_RCLC = ball12_R && ball12_yC;
 
-//Ãæµ¹ FLAG
-assign Crash_ball1_to_ball2 = (Crash_ball1_to_ball2_x_l && Crash_ball1_to_ball2_y_t) ||
-                              (Crash_ball1_to_ball2_x_l && Crash_ball1_to_ball2_y_b) ||
-                              (Crash_ball1_to_ball2_x_r && Crash_ball1_to_ball2_y_t) ||
-                              (Crash_ball1_to_ball2_x_r && Crash_ball1_to_ball2_y_b);
-                              
-assign Crash_ball1_to_ball3 = (Crash_ball1_to_ball3_x_l && Crash_ball1_to_ball3_y_t) ||
-                              (Crash_ball1_to_ball3_x_l && Crash_ball1_to_ball3_y_b) ||
-                              (Crash_ball1_to_ball3_x_r && Crash_ball1_to_ball3_y_t) ||
-                              (Crash_ball1_to_ball3_x_r && Crash_ball1_to_ball3_y_b);
+assign ball12_CTCB = ball12_xC && ball12_B;
+assign ball12_CBCT = ball12_xC && ball12_T;
 
-assign Crash_ball2_to_ball1 = (Crash_ball2_to_ball1_x_l && Crash_ball2_to_ball1_y_t) || 
-                              (Crash_ball2_to_ball1_x_l && Crash_ball2_to_ball1_y_b) ||
-                              (Crash_ball2_to_ball1_x_r && Crash_ball2_to_ball1_y_t) || 
-                              (Crash_ball2_to_ball1_x_r && Crash_ball2_to_ball1_y_b);
-                              
-assign Crash_ball2_to_ball3 = (Crash_ball2_to_ball3_x_l && Crash_ball2_to_ball3_y_t) || 
-                              (Crash_ball2_to_ball3_x_l && Crash_ball2_to_ball3_y_b) ||
-                              (Crash_ball2_to_ball3_x_r && Crash_ball2_to_ball3_y_t) || 
-                              (Crash_ball2_to_ball3_x_r && Crash_ball2_to_ball3_y_b);
-                              
-assign Crash_ball3_to_ball1 = (Crash_ball3_to_ball1_x_l && Crash_ball3_to_ball1_y_t) || 
-                              (Crash_ball3_to_ball1_x_l && Crash_ball3_to_ball1_y_b) ||
-                              (Crash_ball3_to_ball1_x_r && Crash_ball3_to_ball1_y_t) || 
-                              (Crash_ball3_to_ball1_x_r && Crash_ball3_to_ball1_y_b);
-                              
-assign Crash_ball3_to_ball2 = (Crash_ball3_to_ball2_x_l && Crash_ball3_to_ball2_y_t) || 
-                              (Crash_ball3_to_ball2_x_l && Crash_ball3_to_ball2_y_b) ||
-                              (Crash_ball3_to_ball2_x_r && Crash_ball3_to_ball2_y_t) || 
-                              (Crash_ball3_to_ball2_x_r && Crash_ball3_to_ball2_y_b);
-// °ø1 ¹æÇâ ¾÷µ¥ÀÌÆ®
+//13
+
+assign ball13_L = ((ball1_x_l <= ball3_x_r) && (ball3_x_r <= ball1_x_c)) ? 1 : 0;
+assign ball13_xC = ((ball1_x_l + 3*(BALL_SIZE/6) <= ball3_x_c) && (ball3_x_c <= ball1_x_c  + 3*(BALL_SIZE/6))) ? 1 : 0;
+assign ball13_R = ((ball1_x_c <= ball3_x_l) && (ball3_x_l <= ball1_x_r)) ? 1 : 0;
+
+assign ball13_T = ((ball1_y_c <= ball3_y_t) && (ball3_y_t <= ball1_y_b)) ? 1 : 0;
+assign ball13_yC = ((ball1_y_t + 3*(BALL_SIZE/6) <= ball3_y_c) && (ball3_y_c <= ball1_y_b  + 3*(BALL_SIZE/6))) ? 1 : 0;
+assign ball13_B = ((ball1_y_t <= ball3_y_b) && (ball3_y_b <= ball1_y_c)) ? 1 : 0;
+
+assign ball13_LTRB = ball13_L && ball13_T;
+assign ball13_RTLB = ball13_R && ball13_B;
+
+assign ball13_LBRT = ball13_L && ball13_B;
+assign ball13_RBLT = ball13_R && ball13_B;
+
+assign ball13_LCRC = ball13_L && ball13_yC;
+assign ball13_RCLC = ball13_R && ball13_yC;
+
+assign ball13_CTCB = ball13_xC && ball13_B;
+assign ball13_CBCT = ball13_xC && ball13_T;
+
+//23
+assign ball23_L = ((ball2_x_l <= ball3_x_r) && (ball3_x_r <= ball2_x_c)) ? 1 : 0;
+assign ball23_xC = ((ball2_x_l + 3*(BALL_SIZE/6) <= ball3_x_c) && (ball3_x_c <= ball2_x_c  + 3*(BALL_SIZE/6))) ? 1 : 0;
+assign ball23_R = ((ball2_x_c <= ball3_x_l) && (ball3_x_l <= ball2_x_r)) ? 1 : 0;
+
+assign ball23_T = ((ball2_y_c <= ball3_y_t) && (ball3_y_t <= ball2_y_b)) ? 1 : 0;
+assign ball23_yC = ((ball2_y_t + 3*(BALL_SIZE/6) <= ball3_y_c) && (ball3_y_c <= ball2_y_b  + 3*(BALL_SIZE/6))) ? 1 : 0;
+assign ball23_B = ((ball2_y_t <= ball3_y_b) && (ball3_y_b <= ball2_y_c)) ? 1 : 0;
+
+assign ball23_LTRB = ball13_L && ball13_T;
+assign ball23_RTLB = ball13_R && ball13_B;
+
+assign ball23_LBRT = ball13_L && ball13_B;
+assign ball23_RBLT = ball13_R && ball13_B;
+
+assign ball23_LCRC = ball13_L && ball13_yC;
+assign ball23_RCLC = ball13_R && ball13_yC;
+
+assign ball23_CTCB = ball13_xC && ball13_B;
+assign ball23_CBCT = ball13_xC && ball13_T;
+
+// ï¿½ï¿½1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball1_vx_reg <= -1*BALL_1Vx; //gameÀÌ ¸ØÃß¸é ¿ÞÂÊÀ¸·Î 
-        ball1_vy_reg <= BALL_1Vy; //gameÀÌ ¸ØÃß¸é ¾Æ·¡·Î
-    end else begin
-        if (ball1_reach_top) ball1_vy_reg <= BALL_1Vy; //ÃµÀå¿¡ ºÎµúÈ÷¸é ¤¤¾Æ·¡·Î..
-        else if (ball1_reach_bottom) ball1_vy_reg <= -1*BALL_1Vy; //¹Ù´Ú¿¡ ºÎµúÈ÷¸é À§·Î
-        else if (ball1_reach_left) ball1_vx_reg <= BALL_1Vx; //º®¿¡ ºÎµúÈ÷¸é ¿À¸¥ÂÊÀ¸·Î
-        else if (ball1_reach_right) ball1_vx_reg <= -1*BALL_1Vx; //¹Ù¿¡ Æ¨±â¸é ¿ÞÂÊÀ¸·Î
-        else if ( Crash_ball1_to_ball2 || Crash_ball1_to_ball3 ||
-                  Crash_ball2_to_ball1 || Crash_ball3_to_ball1) begin //Crash_ball1_to_ball2 || Crash_ball2_to_ball1
-            ball1_vx_reg <= -1 * ball1_vx_reg;
-            ball1_vy_reg <= -1 * ball1_vy_reg;
+        BALL_1_Dx <= -1;
+        BALL_1_Dy <= 1;
+        ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+        ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+    end
+    else begin
+        if (ball1_reach_top) begin//ball1_vy_reg <= BALL_1Vy; //Ãµï¿½å¿¡ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½..
+            BALL_1_Dy <= 1;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end 
+        else if (ball1_reach_bottom) begin//ball1_vy_reg <= -1*BALL_1Vy; //ï¿½Ù´Ú¿ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            BALL_1_Dy <= -1;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball1_reach_left) begin//ball1_vx_reg <= BALL_1Vx; //ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            BALL_1_Dx <= 1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+        end
+        else if (ball1_reach_right) begin//ball1_vx_reg <= -1*BALL_1Vx; //ï¿½Ù¿ï¿½ Æ¨ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            BALL_1_Dx <= -1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+        end
+        else if (ball13_LTRB) begin 
+            BALL_1_Dx <= 1;
+            BALL_1_Dy <= 1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball13_RTLB) begin 
+            BALL_1_Dx <= -1;
+            BALL_1_Dy <= 1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball13_LBRT) begin 
+            BALL_1_Dx <= 1;
+            BALL_1_Dy <= -1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball13_RBLT) begin 
+            BALL_1_Dx <= -1;
+            BALL_1_Dy <= -1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball13_LCRC) begin 
+            BALL_1_Dx <= 1;
+            BALL_1_Dy <= 1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball13_RCLC) begin 
+            BALL_1_Dx <= -1;
+            BALL_1_Dy <= 1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball13_CTCB) begin 
+            BALL_1_Dx <= 1;
+            BALL_1_Dy <= 1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
+        end
+        else if (ball13_CBCT) begin 
+            BALL_1_Dx <= -1;
+            BALL_1_Dy <= 1;
+            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
+            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
         end
     end  
 end
 
-// °ø2 ¹æÇâ ¾÷µ¥ÀÌÆ®
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball2_vx_reg <= BALL_2Vx; ////gameÀÌ ¸ØÃß¸é ¿ÞÂÊÀ¸·Î 
-        ball2_vy_reg <= -1*BALL_2Vy; //gameÀÌ ¸ØÃß¸é ¾Æ·¡·Î
-    end else begin
-        if (ball2_reach_top) ball2_vy_reg <= BALL_2Vy; //ÃµÀå¿¡ ºÎµúÈ÷¸é ¾Æ·¡·Î
-        else if (ball2_reach_bottom) ball2_vy_reg <= -1*BALL_2Vy; //.¹Ù´Ú¿¡ ºÎµúÈ÷¸é À§·Î
-        else if (ball2_reach_left) ball2_vx_reg <= BALL_2Vx; //º®¿¡ ºÎµúÈ÷¸é ¿À¸¥ÂÊÀ¸·Î
-        else if (ball2_reach_right) ball2_vx_reg <= -1*BALL_2Vx; //¹Ù¿¡ Æ¨±â¸é ¿ÞÂÊÀ¸·Î
-        else if (Crash_ball2_to_ball1 || Crash_ball2_to_ball3 ||
-                 Crash_ball1_to_ball2 || Crash_ball3_to_ball2) begin //Crash_ball1_to_ball2 || Crash_ball2_to_ball1
-            //ball2_vx_reg <= -1 * ball2_vx_reg;
-            //ball2_vy_reg <= -1 * ball2_vy_reg;
-        end
+        ball2_vx_reg <= BALL_2Vx; ////gameï¿½ï¿½ ï¿½ï¿½ï¿½ß¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+        ball2_vy_reg <= -1*BALL_2Vy; //gameï¿½ï¿½ ï¿½ï¿½ï¿½ß¸ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½
+    end
+    else begin
+        if (ball2_reach_top) ball2_vy_reg <= BALL_2Vy; //Ãµï¿½å¿¡ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½
+        else if (ball2_reach_bottom) ball2_vy_reg <= -1*BALL_2Vy; //.ï¿½Ù´Ú¿ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        else if (ball2_reach_left) ball2_vx_reg <= BALL_2Vx; //ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        else if (ball2_reach_right) ball2_vx_reg <= -1*BALL_2Vx; //ï¿½Ù¿ï¿½ Æ¨ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     end  
 end
 
-// °ø3 ¹æÇâ ¾÷µ¥ÀÌÆ®
+// ï¿½ï¿½3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball3_vx_reg <= BALL_3Vx; ////gameÀÌ ¸ØÃß¸é ¿ÞÂÊÀ¸·Î 
-        ball3_vy_reg <= BALL_3Vy; //gameÀÌ ¸ØÃß¸é ¾Æ·¡·Î
-    end else begin
-        if (ball3_reach_top) ball3_vy_reg <= BALL_3Vy; //ÃµÀå¿¡ ºÎµúÈ÷¸é ¾Æ·¡·Î
-        else if (ball3_reach_bottom) ball3_vy_reg <= -1*BALL_3Vy; //.¹Ù´Ú¿¡ ºÎµúÈ÷¸é À§·Î
-        else if (ball3_reach_left) ball3_vx_reg <= BALL_3Vx; //º®¿¡ ºÎµúÈ÷¸é ¿À¸¥ÂÊÀ¸·Î
-        else if (ball3_reach_right) ball3_vx_reg <= -1*BALL_3Vx; //¹Ù¿¡ Æ¨±â¸é ¿ÞÂÊÀ¸·Î
-        else if ( Crash_ball3_to_ball1 || Crash_ball3_to_ball2 ||
-                  Crash_ball1_to_ball3 || Crash_ball2_to_ball3) begin //Crash_ball1_to_ball2 || Crash_ball2_to_ball1 || Crash_ball2_to_ball3
-            //ball3_vx_reg <= -1 * ball3_vx_reg;
-            //ball3_vy_reg <= -1 * ball3_vy_reg;
+        ball3_vx_reg <= BALL_3Vx; ////game?? ????? ???????? 
+        ball3_vy_reg <= BALL_3Vy; //game?? ????? ?????
+    end
+    else begin
+        if (ball3_reach_top) begin//ball3_vy_reg <= BALL_1Vy; //??? ?ï¿½ï¿½????? ???????..
+            BALL_3_Dy <= 1;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end 
+        else if (ball3_reach_bottom) begin//ball3_vy_reg <= -1*BALL_3Vy; //???? ?ï¿½ï¿½????? ????
+            BALL_3_Dy <= -1;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball3_reach_left) begin//ball3_vx_reg <= BALL_3Vx; //???? ?ï¿½ï¿½????? ??????????
+            BALL_3_Dx <= 1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+        end
+        else if (ball3_reach_right) begin//ball3_vx_reg <= -1*BALL_3Vx; //??? ???? ????????
+            BALL_3_Dx <= -1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+        end
+        else if (ball13_LTRB) begin 
+            BALL_3_Dx <= -1;
+            BALL_3_Dy <= -1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball13_RTLB) begin 
+            BALL_3_Dx <= 1;
+            BALL_3_Dy <= -1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball13_LBRT) begin 
+            BALL_3_Dx <= -1;
+            BALL_3_Dy <= 1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball13_RBLT) begin 
+            BALL_3_Dx <= 1;
+            BALL_3_Dy <= 1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball13_LCRC) begin 
+            BALL_3_Dx <= -1;
+            BALL_3_Dy <= -1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball13_RCLC) begin 
+            BALL_3_Dx <= 1;
+            BALL_3_Dy <= -1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball13_CTCB) begin 
+            BALL_3_Dx <= -1;
+            BALL_3_Dy <= -1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
+        end
+        else if (ball13_CBCT) begin 
+            BALL_3_Dx <= 1;
+            BALL_3_Dy <= -1;
+            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
+            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
         end
     end  
 end
-
-
-// °ø 1,2 ÁÂÇ¥¾÷µ¥ÀÌÆ®
+// ï¿½ï¿½ 1,2 ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball1_x_reg <= 150; ball2_x_reg <= 300;  ball3_x_reg <= 450;// gameÀÌ ¸ØÃß¸é Áß°£¿¡¼­ ½ÃÀÛ
-        ball1_y_reg <= MAX_Y/2; ball2_y_reg <= MAX_Y/2; ball3_y_reg <= MAX_Y/2;// eÀÌ ¸ØÃß¸é Áß°£¿¡¼­ ½ÃÀÛ
+        ball1_x_reg <= 150; ball2_x_reg <= 300;  ball3_x_reg <= 450;// gameï¿½ï¿½ ï¿½ï¿½ï¿½ß¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        ball1_y_reg <= MAX_Y/2; ball2_y_reg <= MAX_Y/2; ball3_y_reg <= MAX_Y/2;// eï¿½ï¿½ ï¿½ï¿½ï¿½ß¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     end else if (refr_tick) begin
-        ball1_x_reg <= ball1_x_reg + ball1_vx_reg;  //¸Å ÇÁ·¹ÀÓ¸¶´Ù ball_vx_reg¸¸Å­ ¿òÁ÷ÀÓ
-        ball1_y_reg <= ball1_y_reg + ball1_vy_reg;  //¸Å ÇÁ·¹ÀÓ¸¶´Ù ball_vy_reg¸¸Å­ ¿òÁ÷ÀÓ
+        ball1_x_reg <= ball1_x_reg + ball1_vx_reg;  //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ball_vx_regï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        ball1_y_reg <= ball1_y_reg + ball1_vy_reg;  //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ball_vy_regï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         ball2_x_reg <= ball2_x_reg + ball2_vx_reg;
         ball2_y_reg <= ball2_y_reg + ball2_vy_reg;
         ball3_x_reg <= ball3_x_reg + ball3_vx_reg;
@@ -243,7 +378,7 @@ always @ (posedge clk or posedge rst) begin
     end
 end
 
-// ÃÖÁ¾Ãâ·Â
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 assign rgb = (table_out_on == 1 && table_in_on == 0) ? 3'b111 :
              (table_out_on == 1 && table_in_on == 1 && ball1_on == 0 && ball2_on == 0 && ball3_on == 0) ? 3'b000 : 
              (table_out_on == 1 && table_in_on == 1 && ball1_on == 1) ? 3'b001 : 

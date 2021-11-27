@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu Nov 25 20:07:38 2021
-# Process ID: 17100
+# Start of session at: Sun Nov 28 00:33:25 2021
+# Process ID: 4264
 # Current directory: C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.vds
@@ -15,13 +15,13 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 21184 
+INFO: Helper process launched with PID 16688 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 368.051 ; gain = 98.500
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 367.336 ; gain = 98.609
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-17100-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-17100-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-4264-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-4264-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'keypad' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
 	Parameter CLK_KHZ bound to: 25175 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'keypad' (2#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
@@ -41,6 +41,10 @@ INFO: [Synth 8-6157] synthesizing module 'graph_mod' [C:/Users/Jongsang/.Xilinx/
 	Parameter TABLE_IN_T bound to: 40 - type: integer 
 	Parameter TABLE_IN_B bound to: 440 - type: integer 
 	Parameter BALL_SIZE bound to: 40 - type: integer 
+WARNING: [Synth 8-5788] Register ball1_vx_reg_reg in module graph_mod is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:209]
+WARNING: [Synth 8-5788] Register ball1_vy_reg_reg in module graph_mod is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:210]
+WARNING: [Synth 8-5788] Register BALL_3_Dy_reg in module graph_mod is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:301]
+WARNING: [Synth 8-5788] Register BALL_3_Dx_reg in module graph_mod is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:309]
 INFO: [Synth 8-6155] done synthesizing module 'graph_mod' (4#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:1]
 INFO: [Synth 8-6157] synthesizing module 'sync_mod' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'sync_mod' (5#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
@@ -58,7 +62,7 @@ WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[0]
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 422.754 ; gain = 153.203
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 422.238 ; gain = 153.512
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -71,10 +75,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 422.754 ; gain = 153.203
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 422.238 ; gain = 153.512
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 422.754 ; gain = 153.203
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 422.238 ; gain = 153.512
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -92,16 +96,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 794.734 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 795.855 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 794.734 ; gain = 525.184
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 795.855 ; gain = 527.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 794.734 ; gain = 525.184
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 795.855 ; gain = 527.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -110,48 +114,38 @@ Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/
 Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for clk_inst. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 794.734 ; gain = 525.184
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 795.855 ; gain = 527.129
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "keypad_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BALL_1_Dy" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball2_vx_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball2_vy_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "ball3_vx_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "ball3_vy_reg" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BALL_3_Dx" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball1_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball2_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball3_on" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball1_reach_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball1_reach_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball13_L" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball13_T" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball13_R" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball13_B" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball13_yC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball13_xC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball1_reach_top" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball1_reach_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball2_x_l" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball2_y_t" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball2_y_b" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball2_x_r" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball3_x_l" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball3_y_t" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball3_y_b" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball1_to_ball3_x_r" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball2_to_ball1_x_l" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball2_to_ball1_y_t" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball2_to_ball1_y_b" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball2_to_ball1_x_r" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball3_to_ball1_x_l" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball3_to_ball1_y_t" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball3_to_ball1_y_b" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Crash_ball3_to_ball1_x_r" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball2_reach_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball2_reach_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball2_reach_top" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball2_reach_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "ball3_reach_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "ball3_reach_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball3_reach_top" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball3_reach_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball3_reach_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball3_reach_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "refr_tick" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "c_v" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 794.734 ; gain = 525.184
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 795.855 ; gain = 527.129
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -165,16 +159,18 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
-	   2 Input     10 Bit       Adders := 14    
+	   2 Input     11 Bit       Adders := 4     
+	   2 Input     10 Bit       Adders := 18    
 +---Registers : 
 	               10 Bit    Registers := 14    
 	                5 Bit    Registers := 5     
 	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 4     
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	  10 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 10    
+	   2 Input     10 Bit        Muxes := 8     
 	   4 Input      5 Bit        Muxes := 4     
 	   5 Input      5 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
@@ -184,12 +180,16 @@ Detailed RTL Component Info :
 	   5 Input      3 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
+	   8 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 2     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
 	   8 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 16    
+	   2 Input      1 Bit        Muxes := 26    
 	   4 Input      1 Bit        Muxes := 2     
 	  10 Input      1 Bit        Muxes := 2     
 	   5 Input      1 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -234,14 +234,20 @@ Detailed RTL Component Info :
 Module graph_mod 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     10 Bit       Adders := 12    
+	   2 Input     11 Bit       Adders := 4     
+	   2 Input     10 Bit       Adders := 16    
 +---Registers : 
 	               10 Bit    Registers := 12    
+	                2 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input     10 Bit        Muxes := 8     
+	   2 Input     10 Bit        Muxes := 6     
 	   6 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 8     
+	   8 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 2     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 18    
+	   7 Input      1 Bit        Muxes := 2     
 Module sync_mod 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -268,14 +274,10 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-DSP Report: Generating DSP ball1_vx_reg0, operation Mode is: (A:0x3ff)*B.
-DSP Report: operator ball1_vx_reg0 is absorbed into DSP ball1_vx_reg0.
-DSP Report: Generating DSP ball1_vy_reg0, operation Mode is: (A:0x3ff)*B.
-DSP Report: operator ball1_vy_reg0 is absorbed into DSP ball1_vy_reg0.
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "sync_inst/c_v" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c_v" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3331] design graph_mod has unconnected port key[4]
 WARNING: [Synth 8-3331] design graph_mod has unconnected port key[3]
 WARNING: [Synth 8-3331] design graph_mod has unconnected port key[2]
@@ -288,9 +290,10 @@ WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[1]
 WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[0]
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/BALL_3_Dx_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/BALL_1_Dy_reg[0] )
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vy_reg_reg[0]' (FDCE) to 'graph_inst/ball3_vy_reg_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball3_vy_reg_reg[1] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball3_vy_reg_reg[2] )
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vy_reg_reg[3]' (FDCE) to 'graph_inst/ball3_vy_reg_reg[9]'
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vy_reg_reg[4]' (FDCE) to 'graph_inst/ball3_vy_reg_reg[9]'
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vy_reg_reg[5]' (FDCE) to 'graph_inst/ball3_vy_reg_reg[9]'
@@ -299,7 +302,6 @@ INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vy_reg_reg[7]' (FDCE) to
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vy_reg_reg[8]' (FDCE) to 'graph_inst/ball3_vy_reg_reg[9]'
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vx_reg_reg[0]' (FDCE) to 'graph_inst/ball3_vx_reg_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball3_vx_reg_reg[1] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball3_vx_reg_reg[2] )
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vx_reg_reg[3]' (FDCE) to 'graph_inst/ball3_vx_reg_reg[4]'
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vx_reg_reg[4]' (FDCE) to 'graph_inst/ball3_vx_reg_reg[5]'
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball3_vx_reg_reg[5]' (FDCE) to 'graph_inst/ball3_vx_reg_reg[6]'
@@ -324,14 +326,23 @@ INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[5]' (FDCE) to
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[6]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[7]'
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[7]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[8]'
 INFO: [Synth 8-3886] merging instance 'graph_inst/ball2_vx_reg_reg[8]' (FDCE) to 'graph_inst/ball2_vx_reg_reg[9]'
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball3_vy_reg_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball3_vy_reg_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball3_vx_reg_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball3_vx_reg_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vy_reg_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vy_reg_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vx_reg_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vx_reg_reg[1]) is unused and will be removed from module top.
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[0]' (FDCE) to 'graph_inst/ball1_vy_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_vy_reg_reg[1] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[3]' (FDCPE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[4]' (FDCPE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[5]' (FDCPE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[6]' (FDCPE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[7]' (FDCPE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vy_reg_reg[8]' (FDCPE) to 'graph_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[0]' (FDCE) to 'graph_inst/ball1_vx_reg_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_vx_reg_reg[1] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[3]' (FDCPE) to 'graph_inst/ball1_vx_reg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[4]' (FDCPE) to 'graph_inst/ball1_vx_reg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[5]' (FDCPE) to 'graph_inst/ball1_vx_reg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[6]' (FDCPE) to 'graph_inst/ball1_vx_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[7]' (FDCPE) to 'graph_inst/ball1_vx_reg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball1_vx_reg_reg[8]' (FDCPE) to 'graph_inst/ball1_vx_reg_reg[9]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball1_vy_reg_reg[2] )
 WARNING: [Synth 8-3332] Sequential element (keypad_inst/pressed_reg) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (keypad_inst/keypad_out_reg[4]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (keypad_inst/keypad_out_reg[3]) is unused and will be removed from module top.
@@ -358,31 +369,27 @@ WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][3]) is
 WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][2]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][1]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (debounce_inst/btn_in_d_reg[4][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vx_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/BALL_1_Dy_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vy_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vy_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball3_vy_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/BALL_3_Dx_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball3_vx_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball3_vx_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vy_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vy_reg_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vx_reg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball2_vx_reg_reg[1]) is unused and will be removed from module top.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball3_x_reg0_inferred /\graph_inst/ball3_x_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_x_reg0_inferred /\graph_inst/ball1_x_reg_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball3_y_reg0_inferred /\graph_inst/ball3_y_reg_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball2_y_reg0_inferred /\graph_inst/ball2_y_reg_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball2_x_reg0_inferred /\graph_inst/ball2_x_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball1_y_reg0_inferred /\graph_inst/ball1_y_reg_reg[0] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 794.734 ; gain = 525.184
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 795.855 ; gain = 527.129
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-DSP: Preliminary Mapping  Report (see note below)
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|graph_mod   | (A:0x3ff)*B | 10     | 10     | -      | -      | 20     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|graph_mod   | (A:0x3ff)*B | 10     | 10     | -      | -      | 20     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:179]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:180]
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -395,13 +402,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_inst/clk_out1' to pin 'clk_inst/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 831.090 ; gain = 561.539
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 795.855 ; gain = 527.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 882.438 ; gain = 612.887
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 828.539 ; gain = 559.812
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -412,10 +419,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:179]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:180]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -439,7 +444,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -452,7 +457,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -464,25 +469,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -500,17 +505,17 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
-|2     |CARRY4    |    94|
-|3     |DSP48E1   |     2|
-|4     |LUT1      |     7|
-|5     |LUT2      |   112|
-|6     |LUT3      |    40|
-|7     |LUT4      |   190|
-|8     |LUT5      |   120|
-|9     |LUT6      |   188|
-|10    |FDCE      |    79|
-|11    |FDPE      |    33|
-|12    |FDRE      |    20|
+|2     |CARRY4    |    63|
+|3     |LUT1      |     6|
+|4     |LUT2      |    60|
+|5     |LUT3      |    43|
+|6     |LUT4      |   109|
+|7     |LUT5      |   133|
+|8     |LUT6      |   184|
+|9     |FDCE      |    69|
+|10    |FDPE      |    29|
+|11    |FDRE      |    23|
+|12    |LDC       |     3|
 |13    |IBUF      |     1|
 |14    |OBUF      |    18|
 +------+----------+------+
@@ -519,31 +524,32 @@ Report Instance Areas:
 +------+--------------+----------+------+
 |      |Instance      |Module    |Cells |
 +------+--------------+----------+------+
-|1     |top           |          |   906|
-|2     |  graph_inst  |graph_mod |   569|
-|3     |  keypad_inst |keypad    |   127|
-|4     |  sync_inst   |sync_mod  |   189|
+|1     |top           |          |   743|
+|2     |  graph_inst  |graph_mod |   414|
+|3     |  keypad_inst |keypad    |   128|
+|4     |  sync_inst   |sync_mod  |   180|
 +------+--------------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 837.105 ; gain = 568.379
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 46 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 892.797 ; gain = 251.266
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 892.797 ; gain = 623.246
+Synthesis finished with 0 errors, 0 critical warnings and 50 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 837.105 ; gain = 194.762
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 837.105 ; gain = 568.379
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 97 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 67 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 3 instances were transformed.
+  LDC => LDCE: 3 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-112 Infos, 58 Warnings, 0 Critical Warnings and 0 Errors encountered.
+117 Infos, 66 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 892.797 ; gain = 628.641
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 837.105 ; gain = 574.156
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 892.797 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 25 20:08:19 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 837.105 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 28 00:34:00 2021...
