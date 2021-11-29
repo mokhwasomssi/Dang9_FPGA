@@ -1,273 +1,992 @@
-always @ (posedge clk or posedge rst) begin
-    if(rst) begin
-        BALL_1_Dx <= -1;
-        BALL_1_Dy <= 1;
-        ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-        ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-    end
-    else begin
-        if (ball1_reach_top) begin//ball1_vy_reg <= BALL_1Vy; //õ�忡 �ε����� ���Ʒ���..
-            BALL_1_Dy <= 1;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end 
-        else if (ball1_reach_bottom) begin//ball1_vy_reg <= -1*BALL_1Vy; //�ٴڿ� �ε����� ����
-            BALL_1_Dy <= -1;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball1_reach_left) begin//ball1_vx_reg <= BALL_1Vx; //���� �ε����� ����������
-            BALL_1_Dx <= 1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-        end
-        else if (ball1_reach_right) begin//ball1_vx_reg <= -1*BALL_1Vx; //�ٿ� ƨ��� ��������
-            BALL_1_Dx <= -1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-        end
-        //with ball
-        else if (ball13_LTRB || ball12_LTRB) begin 
-            BALL_1_Dx <= 1;
-            BALL_1_Dy <= 1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball13_RTLB || ball12_RTLB) begin 
-            BALL_1_Dx <= -1;
-            BALL_1_Dy <= 1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball13_LBRT || ball12_LBRT) begin 
-            BALL_1_Dx <= 1;
-            BALL_1_Dy <= -1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball13_RBLT || ball12_RBLT) begin 
-            BALL_1_Dx <= -1;
-            BALL_1_Dy <= -1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball13_LCRC || ball12_LCRC) begin 
-            BALL_1_Dx <= 1;
-            BALL_1_Dy <= 1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball13_RCLC || ball12_RCLC) begin 
-            BALL_1_Dx <= -1;
-            BALL_1_Dy <= 1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball13_CTCB || ball12_CTCB) begin 
-            BALL_1_Dx <= 1;
-            BALL_1_Dy <= 1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-        else if (ball13_CBCT || ball12_CBCT) begin 
-            BALL_1_Dx <= -1;
-            BALL_1_Dy <= 1;
-            ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
-            ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
-        end
-    end  
-end
+reg [9:0] deg, Vx, Vy, Dx, Dy, R;
 
-always @ (posedge clk or posedge rst) begin
+always @(posedge clk or posedge rst)
     if(rst) begin
-        ball2_vx_reg <= BALL_2Vx; ////game�� ���߸� �������� 
-        ball2_vy_reg <= -1*BALL_2Vy; //game�� ���߸� �Ʒ���
     end
     else begin
-        if (ball2_reach_top) begin//ball2_vy_reg <= BALL_2Vy; //õ�忡 �ε����� ���Ʒ���..
-            BALL_2_Dy <= 1;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end 
-        else if (ball2_reach_bottom) begin//ball2_vy_reg <= -1*BALL_2Vy; //�ٴڿ� �ε����� ����
-            BALL_2_Dy <= -1;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball2_reach_left) begin//ball2_vx_reg <= BALL_2Vx; //���� �ε����� ����������
-            BALL_2_Dx <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-        end
-        else if (ball2_reach_right) begin//ball2_vx_reg <= -1*BALL_2Vx; //�ٿ� ƨ��� ��������
-            BALL_2_Dx <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-        end
-        //with ball
-        else if (ball23_LTRB) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball23_RTLB) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball23_LBRT) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball23_RBLT) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball23_LCRC) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball23_RCLC) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball23_CTCB) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball23_CBCT) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        //반전
-        else if (ball12_LTRB) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball12_RTLB) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball12_LBRT) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball12_RBLT) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= 1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball12_LCRC) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball12_RCLC) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball12_CTCB) begin 
-            BALL_2_Dx <= -1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-        else if (ball12_CBCT) begin 
-            BALL_2_Dx <= 1;
-            BALL_2_Dy <= -1;
-            ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
-            ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
-        end
-    end  
-end
+        case(R)
+            12 : case(deg)
+                0	:	begin	Vx	=	12	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	3	;	Vy	=	12	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	11	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	10	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	4	;	Vy	=	10	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	11	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	1	;	Vy	=	12	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	11	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	9	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	6	;	Vy	=	10	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	11	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	12	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	12	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	7	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	7	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	11	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	2	;	Vy	=	12	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	12	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	6	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	8	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	10	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	3	;	Vy	=	12	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	12	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	4	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	9	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	9	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	5	;	Vy	=	12	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	12	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                140	:	begin	Vx	=	3	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	10	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	8	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	6	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	12	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	11	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	7	;	Vy	=	10	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	8	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	12	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	11	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	11	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	5	;	Vy	=	11	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	9	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	11	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	2	;	Vy	=	11	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	11	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                225	:	begin	Vx	=	4	;	Vy	=	12	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	10	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	10	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	3	;	Vy	=	11	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	11	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	2	;	Vy	=	12	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	11	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	9	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	5	;	Vy	=	10	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	11	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	1	;	Vy	=	12	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	12	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	8	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	6	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	11	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	12	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	12	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	7	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	8	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	10	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	2	;	Vy	=	12	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	12	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	5	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	9	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	10	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	4	;	Vy	=	12	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	12	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	4	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	-1	;	end
+            endcase
+            11 : case(deg)
+                0	:	begin	Vx	=	11	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	3	;	Vy	=	11	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	10	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	9	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	4	;	Vy	=	10	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	10	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	1	;	Vy	=	11	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	10	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	8	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	5	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	10	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	11	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	11	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	7	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	6	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	10	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	2	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	11	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	5	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	8	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	9	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	3	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	11	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	4	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	8	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	8	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	5	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	11	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	3	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	9	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	7	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	6	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	11	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	10	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	6	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	7	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	11	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	10	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	10	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	5	;	Vy	=	10	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	8	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	10	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	2	;	Vy	=	10	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	10	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	4	;	Vy	=	11	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	9	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	9	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	3	;	Vy	=	10	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	10	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	2	;	Vy	=	11	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	10	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	9	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	4	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	10	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	1	;	Vy	=	11	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	11	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	7	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	6	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	10	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	11	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	6	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	7	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	9	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	2	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	11	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	5	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	8	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	9	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	4	;	Vy	=	11	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	11	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	4	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	-1	;	end
 
-// ��3 ���� ������Ʈ
-always @ (posedge clk or posedge rst) begin
-    if(rst) begin
-        ball3_vx_reg <= BALL_3Vx; ////game�� ���߸� �������� 
-        ball3_vy_reg <= BALL_3Vy; //game�� ���߸� �Ʒ���
+            endcase
+            10 : case(deg)
+                0	:	begin	Vx	=	10	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	2	;	Vy	=	10	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	9	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	8	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	4	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	9	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	1	;	Vy	=	10	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	10	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	7	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	5	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	9	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	10	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	10	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	6	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	6	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	9	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	2	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	10	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	5	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	7	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	8	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	3	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	10	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	4	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	8	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	7	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	4	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	10	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	2	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	8	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	6	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	5	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	10	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	9	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	5	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	6	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	10	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	9	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	4	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	7	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	9	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	1	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	9	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	3	;	Vy	=	10	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	8	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	9	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	3	;	Vy	=	9	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	9	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	2	;	Vy	=	10	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	9	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	8	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	4	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	9	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	1	;	Vy	=	10	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	10	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	7	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	5	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	9	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	10	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	6	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	6	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	9	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	2	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	10	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	5	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	7	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	8	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	3	;	Vy	=	10	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	10	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	3	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	-1	;	end
+
+            endcase
+            9 : case(deg)
+                0	:	begin	Vx	=	9	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	2	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	8	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	3	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	8	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	1	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	9	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	7	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	4	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	8	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	9	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	9	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	6	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	5	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	8	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	9	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	5	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	6	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	3	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	9	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	3	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	7	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	4	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	9	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	2	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	7	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	6	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	5	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	9	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	8	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	5	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	6	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	9	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	8	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	4	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	7	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	8	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	1	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	8	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	3	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	8	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	8	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	2	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	8	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	2	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	8	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	7	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	4	;	Vy	=	8	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	8	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	9	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	9	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	6	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	5	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	8	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	9	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	5	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	6	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	8	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	2	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	9	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	4	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	3	;	Vy	=	9	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	9	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	3	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	-1	;	end
+            endcase
+            8 : case(deg)
+                0	:	begin	Vx	=	8	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	2	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	3	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	7	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	1	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	8	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	4	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	7	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	8	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	8	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	5	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	5	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	7	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	8	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	4	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	5	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	2	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	8	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	3	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	3	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	8	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	2	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	7	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	5	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	4	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	8	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	7	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	4	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	5	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	8	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	7	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	3	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	6	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	8	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	1	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	7	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	2	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	7	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	2	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	7	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	1	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	7	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	3	;	Vy	=	7	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	7	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	8	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	8	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	6	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	4	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	7	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	8	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	5	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	5	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	7	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	2	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	8	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	4	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	3	;	Vy	=	8	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	8	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	3	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	-1	;	end
+
+            endcase
+            7 : case(deg)
+                0	:	begin	Vx	=	7	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	1	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	6	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	1	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	7	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	5	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	7	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	7	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	4	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	4	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	6	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	7	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	4	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	2	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	7	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	3	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	5	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	3	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	7	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	6	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	4	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	4	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	7	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	4	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	5	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	7	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	6	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	3	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	5	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	7	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	1	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	6	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	2	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	6	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	6	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	1	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	7	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	3	;	Vy	=	6	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	7	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	7	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	5	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	6	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	7	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	4	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	4	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	6	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	2	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	7	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	3	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	2	;	Vy	=	7	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	7	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	-1	;	end
+
+            endcase
+            6 : case(deg)
+                0	:	begin	Vx	=	6	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	1	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	5	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	0	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	6	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	6	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	4	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	5	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	4	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	6	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	4	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	3	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	6	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	4	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	3	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	6	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	4	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	5	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	5	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	5	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	1	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	6	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	6	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	6	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	4	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	6	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	4	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	4	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	5	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	1	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	6	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	5	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	2	;	Vy	=	6	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	6	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	-1	;	end
+
+            endcase
+            5 : case(deg)
+                0	:	begin	Vx	=	5	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	5	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	0	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	5	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	5	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	5	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	3	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                200	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	4	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	0	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	4	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	4	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	5	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	5	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	5	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	1	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	2	;	Vy	=	5	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	5	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	-1	;	end
+
+            endcase
+            4 : case(deg)
+                0	:	begin	Vx	=	4	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	0	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	4	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	4	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	4	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	3	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	3	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                200	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	0	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	3	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	0	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	4	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	4	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	4	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	1	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	2	;	Vy	=	4	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	4	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	-1	;	end
+
+            endcase
+            3 : case(deg)
+                0	:	begin	Vx	=	3	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	0	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	0	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	3	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	3	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                150	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	3	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                175	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	2	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	2	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                200	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	3	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                215	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	2	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	0	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	3	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	3	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	1	;	Vy	=	3	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	3	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	-1	;	end
+            endcase
+            2 : case(deg)
+                0	:	begin	Vx	=	2	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                20	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                25	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                45	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                50	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                70	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                75	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                95	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                100	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                120	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                125	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	2	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                145	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                150	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	2	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                170	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                175	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	2	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                195	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                200	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	2	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                215	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                220	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                240	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                245	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	2	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                265	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                270	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                290	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                295	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                315	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                320	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+                340	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	1	;	Dy	=	-1	;	end
+                345	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	1	;	Vy	=	2	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	2	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	-1	;	end
+            endcase
+            1 : case(deg)
+                0	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                20	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                25	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                45	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                50	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                70	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                75	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                95	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                100	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                120	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                125	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                145	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                150	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                165	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                170	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                175	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                195	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                200	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                215	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                220	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                240	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                245	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                265	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                270	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                290	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                295	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                315	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                320	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+                340	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                345	:	begin	Vx	=	0	;	Vy	=	1	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	1	;	Vy	=	1	;	Dx	=	-1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	1	;	Vy	=	0	;	Dx	=	-1	;	Dy	=	1	;	end
+            endcase
+            0 : case(deg)
+                0	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                5	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                10	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                15	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                20	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                25	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                30	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                35	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                40	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                45	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                50	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                55	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	0	;	Dy	=	1	;	end
+                60	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                65	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                70	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                75	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                80	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                85	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                90	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                95	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                100	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                105	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                110	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                115	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                120	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                125	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                130	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                135	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                140	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                145	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                150	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                155	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                160	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                165	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                170	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                175	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                180	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                185	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                190	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                195	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                200	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                205	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                210	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                215	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                220	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                225	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                230	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                235	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                240	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                245	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                250	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                255	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                260	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                265	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                270	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                275	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                280	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                285	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                290	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                295	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                300	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                305	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                310	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                315	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                320	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                325	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                330	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                335	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                340	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                345	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                350	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                355	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+                360	:	begin	Vx	=	0	;	Vy	=	0	;	Dx	=	1	;	Dy	=	1	;	end
+            endcase
+        endcase
     end
-    else begin
-        if (ball3_reach_top) begin//ball3_vy_reg <= BALL_3Vy; //õ�忡 �ε����� ���Ʒ���..
-            BALL_3_Dy <= 1;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end 
-        else if (ball3_reach_bottom) begin//ball3_vy_reg <= -1*BALL_3Vy; //�ٴڿ� �ε����� ����
-            BALL_3_Dy <= -1;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball3_reach_left) begin//ball3_vx_reg <= BALL_3Vx; //���� �ε����� ����������
-            BALL_3_Dx <= 1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-        end
-        else if (ball3_reach_right) begin//ball3_vx_reg <= -1*BALL_3Vx; //�ٿ� ƨ��� ��������
-            BALL_3_Dx <= -1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-        end
-        //with ball
-        else if (ball23_LTRB || ball13_LTRB) begin 
-            BALL_3_Dx <= -1;
-            BALL_3_Dy <= 1;
-            ball3_vx_reg -<= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball23_RTLB || ball13_RTLB) begin 
-            BALL_3_Dx <= 1;
-            BALL_3_Dy <= -1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball23_LBRT || ball13_LBRT) begin 
-            BALL_3_Dx <= -1;
-            BALL_3_Dy <= 1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball23_RBLT || ball13_RBLT) begin 
-            BALL_3_Dx <= 1;
-            BALL_3_Dy <= 1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball23_LCRC || ball13_LCRC) begin 
-            BALL_3_Dx <= -1;
-            BALL_3_Dy <= -1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball23_RCLC || ball13_RCLC) begin 
-            BALL_3_Dx <= 1;
-            BALL_3_Dy <= -1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball23_CTCB || ball13_CTCB) begin 
-            BALL_3_Dx <= -1;
-            BALL_3_Dy <= -1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-        else if (ball23_CBCT || ball13_CBCT) begin 
-            BALL_3_Dx <= 1;
-            BALL_3_Dy <= -1;
-            ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
-            ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
-        end
-    end  
 end
