@@ -141,15 +141,15 @@ assign ball3_reach_right = (TABLE_IN_R <= ball3_x_r) ? 1 : 0;
 
 //12
 assign ball12_L = ((ball1_x_l <= ball2_x_r) && (ball2_x_r <= ball1_x_c)) ? 1 : 0;
-assign ball12_xC = ((ball1_x_l + 2*(BALL_SIZE/6) <= ball2_x_c) && (ball2_x_c <= ball1_x_c  + 2*(BALL_SIZE/6))) ? 1 : 0;
+assign ball12_xC = ((ball1_x_l + 2*(BALL_SIZE/6) <= ball2_x_c) && (ball2_x_c <= ball1_x_r - 2*(BALL_SIZE/6))) ? 1 : 0;
 assign ball12_R = ((ball1_x_c <= ball2_x_l) && (ball2_x_l <= ball1_x_r)) ? 1 : 0;
 
-assign ball12_T = ((ball1_y_c <= ball2_y_t) && (ball2_y_t <= ball1_y_b)) ? 1 : 0;
-assign ball12_yC = ((ball1_y_t + 2*(BALL_SIZE/6) <= ball2_y_c) && (ball2_y_c <= ball1_y_b  + 2*(BALL_SIZE/6))) ? 1 : 0;
-assign ball12_B = ((ball1_y_t <= ball2_y_b) && (ball2_y_b <= ball1_y_c)) ? 1 : 0;
+assign ball12_T = ((ball1_y_t <= ball2_y_b) && (ball2_y_b <= ball1_y_c)) ? 1 : 0;
+assign ball12_yC = ((ball1_y_t + 2*(BALL_SIZE/6) <= ball2_y_c) && (ball2_y_c <= ball1_y_b - 2*(BALL_SIZE/6))) ? 1 : 0;
+assign ball12_B = ((ball1_y_c <= ball2_y_t) && (ball2_y_t <= ball1_y_b)) ? 1 : 0;
 
 assign ball12_LTRB = ball12_L && ball12_T;
-assign ball12_RTLB = ball12_R && ball12_B;
+assign ball12_RTLB = ball12_R && ball12_T;
 
 assign ball12_LBRT = ball12_L && ball12_B;
 assign ball12_RBLT = ball12_R && ball12_B;
@@ -162,15 +162,15 @@ assign ball12_CBCT = ball12_xC && ball12_T;
 
 //13
 assign ball13_L = ((ball1_x_l <= ball3_x_r) && (ball3_x_r <= ball1_x_c)) ? 1 : 0;
-assign ball13_xC = ((ball1_x_l + 2*(BALL_SIZE/6) <= ball3_x_c) && (ball3_x_c <= ball1_x_c  + 2*(BALL_SIZE/6))) ? 1 : 0;
+assign ball13_xC = ((ball1_x_l + 2*(BALL_SIZE/6) <= ball3_x_c) && (ball3_x_c <= ball1_x_r - 2*(BALL_SIZE/6))) ? 1 : 0;
 assign ball13_R = ((ball1_x_c <= ball3_x_l) && (ball3_x_l <= ball1_x_r)) ? 1 : 0;
 
-assign ball13_T = ((ball1_y_c <= ball3_y_t) && (ball3_y_t <= ball1_y_b)) ? 1 : 0;
-assign ball13_yC = ((ball1_y_t + 2*(BALL_SIZE/6) <= ball3_y_c) && (ball3_y_c <= ball1_y_b  + 2*(BALL_SIZE/6))) ? 1 : 0;
-assign ball13_B = ((ball1_y_t <= ball3_y_b) && (ball3_y_b <= ball1_y_c)) ? 1 : 0;
+assign ball13_T = ((ball1_y_t <= ball3_y_b) && (ball3_y_b <= ball1_y_c)) ? 1 : 0;
+assign ball13_yC = ((ball1_y_t + 2*(BALL_SIZE/6) <= ball3_y_c) && (ball3_y_c <= ball1_y_b - 2*(BALL_SIZE/6))) ? 1 : 0;
+assign ball13_B = ((ball1_y_c <= ball3_y_t) && (ball3_y_t <= ball1_y_b)) ? 1 : 0;
 
 assign ball13_LTRB = ball13_L && ball13_T;
-assign ball13_RTLB = ball13_R && ball13_B;
+assign ball13_RTLB = ball13_R && ball13_T;
 
 assign ball13_LBRT = ball13_L && ball13_B;
 assign ball13_RBLT = ball13_R && ball13_B;
@@ -183,15 +183,15 @@ assign ball13_CBCT = ball13_xC && ball13_T;
 
 //23
 assign ball23_L = ((ball2_x_l <= ball3_x_r) && (ball3_x_r <= ball2_x_c)) ? 1 : 0;
-assign ball23_xC = ((ball2_x_l + 1*(BALL_SIZE/6) <= ball3_x_c) && (ball3_x_c <= ball2_x_c  + 1*(BALL_SIZE/6))) ? 1 : 0;
+assign ball23_xC = ((ball2_x_l + 1*(BALL_SIZE/6) <= ball3_x_c) && (ball3_x_c <= ball2_x_r - 2*(BALL_SIZE/6))) ? 1 : 0;
 assign ball23_R = ((ball2_x_c <= ball3_x_l) && (ball3_x_l <= ball2_x_r)) ? 1 : 0;
 
-assign ball23_T = ((ball2_y_c <= ball3_y_t) && (ball3_y_t <= ball2_y_b)) ? 1 : 0;
-assign ball23_yC = ((ball2_y_t + 2*(BALL_SIZE/6) <= ball3_y_c) && (ball3_y_c <= ball2_y_b  + 2*(BALL_SIZE/6))) ? 1 : 0;
-assign ball23_B = ((ball2_y_t <= ball3_y_b) && (ball3_y_b <= ball2_y_c)) ? 1 : 0;
+assign ball23_T = ((ball2_y_t <= ball3_y_b) && (ball3_y_b <= ball2_y_c)) ? 1 : 0;
+assign ball23_yC = ((ball2_y_t + 2*(BALL_SIZE/6) <= ball3_y_c) && (ball3_y_c <= ball2_y_b - 2*(BALL_SIZE/6))) ? 1 : 0;
+assign ball23_B = ((ball2_y_c <= ball3_y_t) && (ball3_y_t <= ball2_y_b)) ? 1 : 0;
 
 assign ball23_LTRB = ball23_L && ball23_T;
-assign ball23_RTLB = ball23_R && ball23_B;
+assign ball23_RTLB = ball23_R && ball23_T;
 
 assign ball23_LBRT = ball23_L && ball23_B;
 assign ball23_RBLT = ball23_R && ball23_B;

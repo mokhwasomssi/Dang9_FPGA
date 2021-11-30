@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Nov 30 21:42:21 2021
-# Process ID: 10784
+# Start of session at: Tue Nov 30 22:05:27 2021
+# Process ID: 17252
 # Current directory: C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.vds
@@ -15,13 +15,13 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 14428 
+INFO: Helper process launched with PID 16840 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 369.594 ; gain = 99.816
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 368.297 ; gain = 98.688
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-10784-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-10784-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-17252-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-17252-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'keypad' [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
 	Parameter CLK_KHZ bound to: 25175 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'keypad' (2#1) [C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
@@ -82,7 +82,7 @@ WARNING: [Synth 8-3331] design graph_mod has unconnected port key_pulse[0]
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 423.828 ; gain = 154.051
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 423.203 ; gain = 153.594
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -95,10 +95,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 423.828 ; gain = 154.051
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 423.203 ; gain = 153.594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 423.828 ; gain = 154.051
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 423.203 ; gain = 153.594
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -116,16 +116,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 798.266 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 797.031 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 798.266 ; gain = 528.488
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 797.031 ; gain = 527.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 798.266 ; gain = 528.488
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 797.031 ; gain = 527.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -134,7 +134,7 @@ Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/
 Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for clk_inst. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 798.266 ; gain = 528.488
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 797.031 ; gain = 527.422
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "keypad_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "BALL_2_Dx" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -149,8 +149,8 @@ INFO: [Synth 8-5544] ROM "ball13_T" won't be mapped to Block RAM because address
 INFO: [Synth 8-5544] ROM "ball12_L" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball12_T" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball13_R" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "ball13_B" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball12_R" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball13_B" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball12_B" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball13_yC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball12_yC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -175,7 +175,7 @@ INFO: [Synth 8-5544] ROM "ball3_reach_right" won't be mapped to Block RAM becaus
 INFO: [Synth 8-5544] ROM "refr_tick" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "c_v" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 798.266 ; gain = 528.488
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 797.031 ; gain = 527.422
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -188,8 +188,8 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 8     
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input     11 Bit       Adders := 4     
 	   2 Input     10 Bit       Adders := 20    
 +---Registers : 
 	               10 Bit    Registers := 14    
@@ -210,19 +210,17 @@ Detailed RTL Component Info :
 	   5 Input      3 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   8 Input      2 Bit        Muxes := 1     
-	   9 Input      2 Bit        Muxes := 2     
-	  15 Input      2 Bit        Muxes := 1     
-	  16 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 2     
+	  17 Input      2 Bit        Muxes := 1     
+	  18 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
-	   8 Input      1 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 4     
 	   2 Input      1 Bit        Muxes := 28    
 	   4 Input      1 Bit        Muxes := 2     
-	  10 Input      1 Bit        Muxes := 2     
+	  10 Input      1 Bit        Muxes := 3     
 	   5 Input      1 Bit        Muxes := 1     
-	  14 Input      1 Bit        Muxes := 2     
-	   7 Input      1 Bit        Muxes := 3     
-	   9 Input      1 Bit        Muxes := 1     
+	  16 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -267,7 +265,8 @@ Detailed RTL Component Info :
 Module graph_mod 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     11 Bit       Adders := 8     
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input     11 Bit       Adders := 4     
 	   2 Input     10 Bit       Adders := 18    
 +---Registers : 
 	               10 Bit    Registers := 12    
@@ -275,14 +274,14 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     10 Bit        Muxes := 2     
 	   6 Input      3 Bit        Muxes := 1     
-	   8 Input      2 Bit        Muxes := 1     
-	   9 Input      2 Bit        Muxes := 2     
-	  15 Input      2 Bit        Muxes := 1     
-	  16 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 2     
+	  17 Input      2 Bit        Muxes := 1     
+	  18 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 20    
-	  14 Input      1 Bit        Muxes := 2     
-	   7 Input      1 Bit        Muxes := 3     
-	   9 Input      1 Bit        Muxes := 1     
+	  16 Input      1 Bit        Muxes := 2     
+	   8 Input      1 Bit        Muxes := 3     
+	  10 Input      1 Bit        Muxes := 1     
 Module sync_mod 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -424,7 +423,7 @@ WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vx_reg_reg[1]_LDC) 
 WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vx_reg_reg[1]_C) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (graph_inst/ball1_vx_reg_reg[1]_P) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 798.266 ; gain = 528.488
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 797.031 ; gain = 527.422
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -438,13 +437,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_inst/clk_out1' to pin 'clk_inst/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 798.266 ; gain = 528.488
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 797.031 ; gain = 527.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 850.723 ; gain = 580.945
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 862.258 ; gain = 592.648
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -456,7 +455,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -480,7 +479,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -493,7 +492,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -505,25 +504,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -541,13 +540,13 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
-|2     |CARRY4    |   115|
+|2     |CARRY4    |   123|
 |3     |LUT1      |     9|
-|4     |LUT2      |   126|
-|5     |LUT3      |    70|
-|6     |LUT4      |   167|
-|7     |LUT5      |   209|
-|8     |LUT6      |   244|
+|4     |LUT2      |   162|
+|5     |LUT3      |    84|
+|6     |LUT4      |   238|
+|7     |LUT5      |   235|
+|8     |LUT6      |   257|
 |9     |FDCE      |    67|
 |10    |FDPE      |    25|
 |11    |FDRE      |    26|
@@ -560,19 +559,19 @@ Report Instance Areas:
 +------+--------------+----------+------+
 |      |Instance      |Module    |Cells |
 +------+--------------+----------+------+
-|1     |top           |          |  1083|
-|2     |  graph_inst  |graph_mod |   746|
+|1     |top           |          |  1251|
+|2     |  graph_inst  |graph_mod |   858|
 |3     |  keypad_inst |keypad    |   128|
-|4     |  sync_inst   |sync_mod  |   188|
+|4     |  sync_inst   |sync_mod  |   244|
 +------+--------------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 861.586 ; gain = 591.809
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 50 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 861.586 ; gain = 217.371
-Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 861.586 ; gain = 591.809
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 876.668 ; gain = 233.230
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 876.668 ; gain = 607.059
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 120 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 128 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -583,9 +582,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 142 Infos, 72 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 861.586 ; gain = 597.840
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 876.668 ; gain = 613.645
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 861.586 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Nov 30 21:42:59 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 876.668 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 30 22:06:06 2021...
