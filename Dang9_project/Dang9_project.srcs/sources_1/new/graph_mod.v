@@ -20,19 +20,23 @@ parameter TABLE_IN_R = 600;
 parameter TABLE_IN_T = 40;
 parameter TABLE_IN_B = 440;
 
+// cue size
+parameter CUE_X_SIZE = 72;
+parameter CUE_Y_SIZE = 16;
+
 // ball size
 parameter BALL_SIZE = 24;
 
-reg signed [9:0] BALL_1Vx   = 10;
-reg signed [9:0] BALL_1Vy   = 0;
+reg signed [9:0] BALL_1Vx   = 4;
+reg signed [9:0] BALL_1Vy   = 4;
 reg signed [1:0] BALL_1_Dx  = 1;
 reg signed [1:0] BALL_1_Dy  = 1;
-reg signed [9:0] BALL_2Vx   = 8;
-reg signed [9:0] BALL_2Vy   = 2;
+reg signed [9:0] BALL_2Vx   = 4;
+reg signed [9:0] BALL_2Vy   = 4;
 reg signed [1:0] BALL_2_Dx  = 1;
 reg signed [1:0] BALL_2_Dy  = 1;
-reg signed [9:0] BALL_3Vx   = 1;
-reg signed [9:0] BALL_3Vy   = 1;
+reg signed [9:0] BALL_3Vx   = 4;
+reg signed [9:0] BALL_3Vy   = 4;
 reg signed [1:0] BALL_3_Dx  = 1;
 reg signed [1:0] BALL_3_Dy  = 1;
 
@@ -503,12 +507,38 @@ always @ (posedge clk or posedge rst) begin
     end
 end
 
+// cue variables
+wire cue_on;
+reg [9:0]  cue_x_reg, cue_y_reg;
+wire [9:0] cue_x_l, cue_x_r, cue_y_t, cue_y_b;
+
+// cue coordinate
+assign cue_x_l = cue_x_r - CUE_X_SIZE;
+assign cue_x_r = ball1_x_c - 15;
+assign cue_y_t = ball1_y_c - (CUE_Y_SIZE/2);
+assign cue_y_b = ball1_y_c + (CUE_Y_SIZE/2);
+
+// cue rgb flag
+assign cue_on = ( x>=cue_x_l && x<=cue_x_r && y>=cue_y_t && y<=cue_y_b ) ? 1 : 0; 
+
+// update cue coordinate
+always @(posedge clk or posedge rst) begin
+    if(rst) begin
+        cue_x_reg <= 240;
+        cue_y_reg <= 240;
+    end
+    else if (refr_tick) begin
+        cue_x_reg <= 240;
+        cue_y_reg <= 240;
+    end
+end
+
 // final output
-assign rgb = (table_out_on == 1 && table_in_on == 0) ? 3'b111 : // table - white
-             (table_out_on == 1 && table_in_on == 1 && ball1_on == 0 && ball2_on == 0 && ball3_on == 0) ? 3'b000 : 
-             (table_out_on == 1 && table_in_on == 1 && ball1_on == 1) ? 3'b111 : // ball1 - white
-             (table_out_on == 1 && table_in_on == 1 && ball2_on == 1) ? 3'b100 : // ball2 - red
-             (table_out_on == 1 && table_in_on == 1 && ball3_on == 1) ? 3'b110 : 3'b000; // ball3 - yellow
+assign rgb = (cue_on == 1) ? 3'b011 : // cue : mint
+             (ball1_on == 1) ? 3'b111 :  // ball1 : white
+             (ball2_on == 1) ? 3'b100 :  // ball2 : red
+             (ball3_on == 1) ? 3'b110 :  // ball3 : yellow
+             (table_out_on == 1 && table_in_on == 0) ? 3'b111 : 3'b000; // table : white
 
 // angle calculation
 // reference of Vx, Vy, dirX, dirY
