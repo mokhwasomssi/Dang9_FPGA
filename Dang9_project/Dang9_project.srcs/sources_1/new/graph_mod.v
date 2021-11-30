@@ -5,11 +5,11 @@ input [9:0] x, y;
 input [4:0] key, key_pulse; 
 output [2:0] rgb; 
 
-// È­ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// VGA resolution : 640x480
 parameter MAX_X = 640; 
 parameter MAX_Y = 480;  
 
-// tableï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ 
+// table coordinate
 parameter TABLE_OUT_L = 20;
 parameter TABLE_OUT_R = 620;
 parameter TABLE_OUT_T = 20;
@@ -20,7 +20,7 @@ parameter TABLE_IN_R = 600;
 parameter TABLE_IN_T = 40;
 parameter TABLE_IN_B = 440;
 
-// ballï¿½ï¿½ ï¿½Óµï¿½, Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ball size
 parameter BALL_SIZE = 24;
 
 reg signed [9:0] BALL_1Vx   = 10;
@@ -36,15 +36,16 @@ reg signed [9:0] BALL_3Vy   = 1;
 reg signed [1:0] BALL_3_Dx  = 1;
 reg signed [1:0] BALL_3_Dy  = 1;
 
+// 60Hz tick
 wire refr_tick; 
-assign refr_tick = (y==MAX_Y-1 && x==MAX_X-1)? 1 : 0; // ?? ????????? ?? clk ????? 1?? ??. 
+assign refr_tick = (y==MAX_Y-1 && x==MAX_X-1)? 1 : 0; 
 
-// table
+// table rgb flag
 wire table_out_on, table_in_on;
 assign table_out_on = (x >= TABLE_OUT_L && x <= TABLE_OUT_R - 1 && y >= TABLE_OUT_T && y <= TABLE_OUT_B - 1);
 assign table_in_on = (x >= TABLE_IN_L && x <= TABLE_IN_R - 1 && y >= TABLE_IN_T && y <= TABLE_IN_B - 1);
 
-// ball
+// ball variables
 wire ball1_reach_top, ball1_reach_bottom, ball1_reach_left, ball1_reach_right;
 wire ball2_reach_top, ball2_reach_bottom, ball2_reach_left, ball2_reach_right;
 wire ball3_reach_top, ball3_reach_bottom, ball3_reach_left, ball3_reach_right;
@@ -67,7 +68,7 @@ reg [9:0]  ball3_x_reg, ball3_y_reg;
 wire [9:0] ball3_x_l, ball3_x_r, ball3_y_t, ball3_y_b;
 wire [9:0] ball3_x_c, ball3_y_c;
 
-//FLAG
+// collision flag of ball
 //12
 wire ball12_L, ball12_xC, ball12_R, ball12_T, ball12_yC, ball12_B;
 wire ball12_LTRB, ball12_RTLB, ball12_LBRT, ball12_RBLT;
@@ -83,59 +84,60 @@ wire ball23_L, ball23_xC, ball23_R, ball23_T, ball23_yC, ball23_B;
 wire ball23_LTRB, ball23_RTLB, ball23_LBRT, ball23_RBLT;
 wire ball23_LCRC, ball23_RCLC, ball23_CTCB,  ball23_CBCT;
 
-// ï¿½ï¿½1 ï¿½ï¿½ï¿½ï¿½
-assign ball1_x_l = ball1_x_reg; //ballï¿½ï¿½ left
-assign ball1_x_r = ball1_x_reg + BALL_SIZE - 1; //ballï¿½ï¿½ right
-assign ball1_y_t = ball1_y_reg; //ballï¿½ï¿½ top
-assign ball1_y_b = ball1_y_reg + BALL_SIZE - 1; //ballï¿½ï¿½ bottom
+// ball1 coordinate
+assign ball1_x_l = ball1_x_reg; // ball1 left coordinate
+assign ball1_x_r = ball1_x_reg + BALL_SIZE - 1; // ball1 right coordinate
+assign ball1_y_t = ball1_y_reg; // ball1 top coordinate
+assign ball1_y_b = ball1_y_reg + BALL_SIZE - 1; // ball1 bottom coordinate
 
 assign ball1_x_c = ball1_x_reg + (BALL_SIZE/2) - 1;
 assign ball1_y_c = ball1_y_reg + (BALL_SIZE/2) - 1;
 
-// ï¿½ï¿½2 ï¿½ï¿½ï¿½ï¿½
-assign ball2_x_l = ball2_x_reg; //ballï¿½ï¿½ left
-assign ball2_x_r = ball2_x_reg + BALL_SIZE - 1; //ballï¿½ï¿½ right
-assign ball2_y_t = ball2_y_reg; //ballï¿½ï¿½ top
-assign ball2_y_b = ball2_y_reg + BALL_SIZE - 1; //ballï¿½ï¿½ bottom
+// ball2 coordinate
+assign ball2_x_l = ball2_x_reg; // ball2 left coordinate
+assign ball2_x_r = ball2_x_reg + BALL_SIZE - 1; // ball2 right coordinate
+assign ball2_y_t = ball2_y_reg; // ball2 top coordinate
+assign ball2_y_b = ball2_y_reg + BALL_SIZE - 1; // ball2 bottom coordinate
 
 assign ball2_x_c = ball2_x_reg + (BALL_SIZE/2) - 1;
 assign ball2_y_c = ball2_y_reg + (BALL_SIZE/2) - 1;
 
-//ï¿½ï¿½3 ï¿½ï¿½ï¿½ï¿½
-assign ball3_x_l = ball3_x_reg; //ballï¿½ï¿½ left
-assign ball3_x_r = ball3_x_reg + BALL_SIZE - 1; //ballï¿½ï¿½ right
-assign ball3_y_t = ball3_y_reg; //ballï¿½ï¿½ top
-assign ball3_y_b = ball3_y_reg + BALL_SIZE - 1; //ballï¿½ï¿½ bottom
+// ball3 coordinate
+assign ball3_x_l = ball3_x_reg; // ball3 left coordinate
+assign ball3_x_r = ball3_x_reg + BALL_SIZE - 1; // ball3 right coordinate
+assign ball3_y_t = ball3_y_reg; // ball3 top coordinate
+assign ball3_y_b = ball3_y_reg + BALL_SIZE - 1; // ball3 bottom coordinate
 
 assign ball3_x_c = ball3_x_reg + (BALL_SIZE/2) - 1;
 assign ball3_y_c = ball3_y_reg + (BALL_SIZE/2) - 1;
 
-assign ball1_on = (x>=ball1_x_l && x<=ball1_x_r && y>=ball1_y_t && y<=ball1_y_b)? 1 : 0; //ball1ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
-assign ball2_on = (x>=ball2_x_l && x<=ball2_x_r && y>=ball2_y_t && y<=ball2_y_b)? 1 : 0; //ball2ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
-assign ball3_on = (x>=ball3_x_l && x<=ball3_x_r && y>=ball3_y_t && y<=ball3_y_b)? 1 : 0; //ball2ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ball rgb flag
+assign ball1_on = (x>=ball1_x_l && x<=ball1_x_r && y>=ball1_y_t && y<=ball1_y_b)? 1 : 0; 
+assign ball2_on = (x>=ball2_x_l && x<=ball2_x_r && y>=ball2_y_t && y<=ball2_y_b)? 1 : 0; 
+assign ball3_on = (x>=ball3_x_l && x<=ball3_x_r && y>=ball3_y_t && y<=ball3_y_b)? 1 : 0; 
 
-// ï¿½ï¿½1 ï¿½æµ¹ ï¿½Î½ï¿½
+// collision between ball1 and table
 assign ball1_reach_top = (TABLE_IN_T >= ball1_y_t) ? 1 : 0;
 assign ball1_reach_bottom = (TABLE_IN_B <= ball1_y_b) ? 1 : 0;
 assign ball1_reach_left = (TABLE_IN_L >= ball1_x_l) ? 1 : 0;
 assign ball1_reach_right = (TABLE_IN_R <= ball1_x_r) ? 1 : 0;
 
-// ï¿½ï¿½2 ï¿½æµ¹ ï¿½Î½ï¿½
+// collision between ball2 and table
 assign ball2_reach_top = (TABLE_IN_T >= ball2_y_t) ? 1 : 0;
 assign ball2_reach_bottom = (TABLE_IN_B <= ball2_y_b) ? 1 : 0;
 assign ball2_reach_left = (TABLE_IN_L >= ball2_x_l) ? 1 : 0;
 assign ball2_reach_right = (TABLE_IN_R <= ball2_x_r) ? 1 : 0;
 
-// ï¿½ï¿½3 ï¿½æµ¹ ï¿½Î½ï¿½
+// collision between ball3 and table
 assign ball3_reach_top = (TABLE_IN_T >= ball3_y_t) ? 1 : 0;
 assign ball3_reach_bottom = (TABLE_IN_B <= ball3_y_b) ? 1 : 0;
 assign ball3_reach_left = (TABLE_IN_L >= ball3_x_l) ? 1 : 0;
 assign ball3_reach_right = (TABLE_IN_R <= ball3_x_r) ? 1 : 0;
 
 
-//ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½
-//L,xC,R, T,yC,B ï¿½ï¿½ï¿½? ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-//ball12_L ï¿½Ì¸ï¿½ Ball2ï¿½ï¿½ Ball1 ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½Ò´Ù´ï¿½? ï¿½Ç¹ï¿½
+// collision between ball and ball
+// L,xC,R, T,yC,B ¸ðµÎ ¾Õ¿¡ °øÀÌ ±âÁØÀÓ
+// ball12_L ÀÌ¸é Ball2°¡ Ball1 ¿ÞÂÊ¿¡ ´ê¾Ò´Ù´Â ÀÇ¹Ì
 
 //12
 assign ball12_L = ((ball1_x_l <= ball2_x_r) && (ball2_x_r <= ball1_x_c)) ? 1 : 0;
@@ -159,7 +161,6 @@ assign ball12_CTCB = ball12_xC && ball12_B;
 assign ball12_CBCT = ball12_xC && ball12_T;
 
 //13
-
 assign ball13_L = ((ball1_x_l <= ball3_x_r) && (ball3_x_r <= ball1_x_c)) ? 1 : 0;
 assign ball13_xC = ((ball1_x_l + 2*(BALL_SIZE/6) <= ball3_x_c) && (ball3_x_c <= ball1_x_c  + 2*(BALL_SIZE/6))) ? 1 : 0;
 assign ball13_R = ((ball1_x_c <= ball3_x_l) && (ball3_x_l <= ball1_x_r)) ? 1 : 0;
@@ -201,28 +202,30 @@ assign ball23_RCLC = ball23_R && ball23_yC;
 assign ball23_CTCB = ball23_xC && ball23_B;
 assign ball23_CBCT = ball23_xC && ball23_T;
 
-//ï¿½ï¿½1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® B
+// update direction and speed of ball1
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
+        // initial direction and speed
         BALL_1_Dx <= -1;
         BALL_1_Dy <= 1;
         ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
         ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
     end
     else begin
-        if (ball1_reach_top) begin//ball1_vy_reg <= BALL_1Vy; //??? ?ï¿½ï¿½????? ???????..
+        // with table
+        if (ball1_reach_top) begin
             BALL_1_Dy <= 1;
             ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
         end 
-        else if (ball1_reach_bottom) begin//ball1_vy_reg <= -1*BALL_1Vy; //???? ?ï¿½ï¿½????? ????
+        else if (ball1_reach_bottom) begin
             BALL_1_Dy <= -1;
             ball1_vy_reg <= BALL_1_Dy * BALL_1Vy;
         end
-        else if (ball1_reach_left) begin//ball1_vx_reg <= BALL_1Vx; //???? ?ï¿½ï¿½????? ??????????
+        else if (ball1_reach_left) begin
             BALL_1_Dx <= 1;
             ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
         end
-        else if (ball1_reach_right) begin//ball1_vx_reg <= -1*BALL_1Vx; //??? ???? ????????
+        else if (ball1_reach_right) begin
             BALL_1_Dx <= -1;
             ball1_vx_reg <= BALL_1_Dx * BALL_1Vx;
         end
@@ -278,26 +281,28 @@ always @ (posedge clk or posedge rst) begin
     end  
 end
 
-//ï¿½ï¿½2 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® R
+// update direction and speed of ball2
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball2_vx_reg <= BALL_2Vx; ////game?? ????? ???????? 
-        ball2_vy_reg <= -1*BALL_2Vy; //game?? ????? ?????
+        // initial direction and speed
+        ball2_vx_reg <= BALL_2Vx; 
+        ball2_vy_reg <= -1*BALL_2Vy;
     end
     else begin
-        if (ball2_reach_top) begin//ball2_vy_reg <= BALL_2Vy; //??? ?ï¿½ï¿½????? ???????..
+        // with table
+        if (ball2_reach_top) begin
             BALL_2_Dy <= 1;
             ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
         end 
-        else if (ball2_reach_bottom) begin//ball2_vy_reg <= -1*BALL_2Vy; //???? ?ï¿½ï¿½????? ????
+        else if (ball2_reach_bottom) begin
             BALL_2_Dy <= -1;
             ball2_vy_reg <= BALL_2_Dy * BALL_2Vy;
         end
-        else if (ball2_reach_left) begin//ball2_vx_reg <= BALL_2Vx; //???? ?ï¿½ï¿½????? ??????????
+        else if (ball2_reach_left) begin
             BALL_2_Dx <= 1;
             ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
         end
-        else if (ball2_reach_right) begin//ball2_vx_reg <= -1*BALL_2Vx; //??? ???? ????????
+        else if (ball2_reach_right) begin
             BALL_2_Dx <= -1;
             ball2_vx_reg <= BALL_2_Dx * BALL_2Vx;
         end
@@ -401,26 +406,27 @@ always @ (posedge clk or posedge rst) begin
     end  
 end
 
-//ï¿½ï¿½3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® G
+// update direction and speed of ball3
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball3_vx_reg <= BALL_3Vx; ////game?? ????? ???????? 
-        ball3_vy_reg <= BALL_3Vy; //game?? ????? ?????
+        // initial direction and speed
+        ball3_vx_reg <= BALL_3Vx; 
+        ball3_vy_reg <= BALL_3Vy; 
     end
     else begin
-        if (ball3_reach_top) begin//ball3_vy_reg <= BALL_3Vy; //??? ?ï¿½ï¿½????? ???????..
+        if (ball3_reach_top) begin
             BALL_3_Dy <= 1;
             ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
         end 
-        else if (ball3_reach_bottom) begin//ball3_vy_reg <= -1*BALL_3Vy; //???? ?ï¿½ï¿½????? ????
+        else if (ball3_reach_bottom) begin
             BALL_3_Dy <= -1;
             ball3_vy_reg <= BALL_3_Dy * BALL_3Vy;
         end
-        else if (ball3_reach_left) begin//ball3_vx_reg <= BALL_3Vx; //???? ?ï¿½ï¿½????? ??????????
+        else if (ball3_reach_left) begin
             BALL_3_Dx <= 1;
             ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
         end
-        else if (ball3_reach_right) begin//ball3_vx_reg <= -1*BALL_3Vx; //??? ???? ????????
+        else if (ball3_reach_right) begin
             BALL_3_Dx <= -1;
             ball3_vx_reg <= BALL_3_Dx * BALL_3Vx;
         end
@@ -476,30 +482,36 @@ always @ (posedge clk or posedge rst) begin
     end  
 end
 
-// ï¿½ï¿½ 1,2 ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+// update coordinate of ball1, ball2, ball3 using current speed
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
-        ball1_x_reg <= 150; ball2_x_reg <= 300;  ball3_x_reg <= 450;// gameï¿½ï¿½ ï¿½ï¿½ï¿½ß¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-        ball1_y_reg <= MAX_Y/2; ball2_y_reg <= MAX_Y/2; ball3_y_reg <= MAX_Y/2;// eï¿½ï¿½ ï¿½ï¿½ï¿½ß¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        // start coordinate
+        ball1_x_reg <= 150; // ball1
+        ball1_y_reg <= MAX_Y/2; 
+        ball2_x_reg <= 300; // ball2
+        ball2_y_reg <= MAX_Y/2; 
+        ball3_x_reg <= 450; // ball3
+        ball3_y_reg <= MAX_Y/2;
     end else if (refr_tick) begin
-        ball1_x_reg <= ball1_x_reg + ball1_vx_reg;  //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ball_vx_regï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-        ball1_y_reg <= ball1_y_reg + ball1_vy_reg;  //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ball_vy_regï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-        ball2_x_reg <= ball2_x_reg + ball2_vx_reg;
+        // update coordinate of ball as 60hz period
+        ball1_x_reg <= ball1_x_reg + ball1_vx_reg; // ball1
+        ball1_y_reg <= ball1_y_reg + ball1_vy_reg;
+        ball2_x_reg <= ball2_x_reg + ball2_vx_reg; // ball2
         ball2_y_reg <= ball2_y_reg + ball2_vy_reg;
-        ball3_x_reg <= ball3_x_reg + ball3_vx_reg;
+        ball3_x_reg <= ball3_x_reg + ball3_vx_reg; // ball3
         ball3_y_reg <= ball3_y_reg + ball3_vy_reg;
     end
 end
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
-assign rgb = (table_out_on == 1 && table_in_on == 0) ? 3'b111 :
+// final output
+assign rgb = (table_out_on == 1 && table_in_on == 0) ? 3'b111 : // table - white
              (table_out_on == 1 && table_in_on == 1 && ball1_on == 0 && ball2_on == 0 && ball3_on == 0) ? 3'b000 : 
-             (table_out_on == 1 && table_in_on == 1 && ball1_on == 1) ? 3'b111 : 
-             (table_out_on == 1 && table_in_on == 1 && ball2_on == 1) ? 3'b100 :
-             (table_out_on == 1 && table_in_on == 1 && ball3_on == 1) ? 3'b110 : 3'b000;
+             (table_out_on == 1 && table_in_on == 1 && ball1_on == 1) ? 3'b111 : // ball1 - white
+             (table_out_on == 1 && table_in_on == 1 && ball2_on == 1) ? 3'b100 : // ball2 - red
+             (table_out_on == 1 && table_in_on == 1 && ball3_on == 1) ? 3'b110 : 3'b000; // ball3 - yellow
 
-//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½?
-//ï¿½ï¿½ï¿½ï¿½ Vx,Vy, dirX,dir Y ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½Þ¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½.
+// angle calculation
+// reference of Vx, Vy, dirX, dirY
 reg [9:0] deg, Vx, Vy, Dx, Dy, R ;
 
 always @(posedge clk or posedge rst)
