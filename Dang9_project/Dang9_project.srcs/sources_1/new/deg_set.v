@@ -24,20 +24,28 @@ module deg_set(
     input clk,
     input rst,
     input [9:0] R,
-    input [9:0] deg,
-    output [9:0] Vx,
-    output [9:0] Vy,
-    output [1:0] Dx,
-    output [1:0] Dy
+    input [9:0] DEG,
+    output [9:0] V_x,
+    output [9:0] V_y,
+    output [1:0] D_x,
+    output [1:0] D_y
     );
     
-    reg signed [9:0] R,deg,Vx, Vy;
+    reg signed [9:0] r,deg, Vx, Vy;
     reg signed [1:0] Dx, Dy;
+    
+    assign R = r;
+    assign DEG = deg;
+    assign V_x =Vx;
+    assign V_y =Vy;
+    assign D_x =Dx;
+    assign D_x =Dy;
+    
     always @(posedge clk or posedge rst)
         if(rst) begin     
         end
         else begin
-            case(R)
+            case(r)
                 12 : case(deg)
                     0    :    begin    Vx    =    12    ;    Vy    =    0    ;    Dx    =    1    ;    Dy    =    1    ;    end
                     5    :    begin    Vx    =    11    ;    Vy    =    1    ;    Dx    =    1    ;    Dy    =    -1    ;    end
@@ -340,7 +348,7 @@ module deg_set(
                     360    :    begin    Vx    =    9    ;    Vy    =    1    ;    Dx    =    1    ;    Dy    =    1    ;    end
     
                 endcase
-                    8 : case(deg)
+                8 : case(deg)
                     0    :    begin    Vx    =    8    ;    Vy    =    0    ;    Dx    =    1    ;    Dy    =    1    ;    end
                     5    :    begin    Vx    =    7    ;    Vy    =    0    ;    Dx    =    1    ;    Dy    =    1    ;    end
                     10    :    begin    Vx    =    7    ;    Vy    =    1    ;    Dx    =    1    ;    Dy    =    -1    ;    end
