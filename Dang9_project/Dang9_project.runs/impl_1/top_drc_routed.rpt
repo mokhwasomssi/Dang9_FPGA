@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Fri Dec  3 14:18:40 2021
+| Date         : Fri Dec  3 14:29:12 2021
 | Host         : DESKTOP-00TQ7BI running 64-bit major release  (build 9200)
 | Command      : report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
 | Design       : top
@@ -24,16 +24,17 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 29
-+--------+----------+---------------------------------+------------+
-| Rule   | Severity | Description                     | Violations |
-+--------+----------+---------------------------------+------------+
-| DPIP-1 | Warning  | Input pipelining                | 12         |
-| DPOP-1 | Warning  | PREG Output pipelining          | 6          |
-| DPOP-2 | Warning  | MREG Output pipelining          | 6          |
-| RPBF-3 | Warning  | IO port buffering is incomplete | 4          |
-| ZPS7-1 | Warning  | PS7 block required              | 1          |
-+--------+----------+---------------------------------+------------+
+             Violations found: 38
++----------+----------+---------------------------------+------------+
+| Rule     | Severity | Description                     | Violations |
++----------+----------+---------------------------------+------------+
+| DPIP-1   | Warning  | Input pipelining                | 12         |
+| DPOP-1   | Warning  | PREG Output pipelining          | 6          |
+| DPOP-2   | Warning  | MREG Output pipelining          | 6          |
+| PDRC-153 | Warning  | Gated clock check               | 5          |
+| RPBF-3   | Warning  | IO port buffering is incomplete | 8          |
+| ZPS7-1   | Warning  | PS7 block required              | 1          |
++----------+----------+---------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -157,6 +158,31 @@ MREG Output pipelining
 DSP graph_inst/ball1_on3__4 multiplier stage graph_inst/ball1_on3__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
+PDRC-153#1 Warning
+Gated clock check  
+Net graph_inst/ball1_vy_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin graph_inst/ball1_vy_reg[0]_LDC_i_1/O, cell graph_inst/ball1_vy_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net graph_inst/ball1_vy_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin graph_inst/ball1_vy_reg[1]_LDC_i_1/O, cell graph_inst/ball1_vy_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net graph_inst/ball1_vy_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin graph_inst/ball1_vy_reg[2]_LDC_i_1/O, cell graph_inst/ball1_vy_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net graph_inst/ball1_vy_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin graph_inst/ball1_vy_reg[3]_LDC_i_1/O, cell graph_inst/ball1_vy_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net graph_inst/ball1_vy_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin graph_inst/ball1_vy_reg[4]_LDC_i_1/O, cell graph_inst/ball1_vy_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
 RPBF-3#1 Warning
 IO port buffering is incomplete  
 Device port key_io[0] expects both input and output buffering but the buffers are incomplete.
@@ -175,6 +201,26 @@ Related violations: <none>
 RPBF-3#4 Warning
 IO port buffering is incomplete  
 Device port key_io[3] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#5 Warning
+IO port buffering is incomplete  
+Device port key_io[4] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#6 Warning
+IO port buffering is incomplete  
+Device port key_io[5] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#7 Warning
+IO port buffering is incomplete  
+Device port key_io[6] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#8 Warning
+IO port buffering is incomplete  
+Device port key_io[7] expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 ZPS7-1#1 Warning
