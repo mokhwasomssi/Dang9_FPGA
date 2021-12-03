@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="45cee40d481a4b238c4cac7b2ce9d9ac"/>
