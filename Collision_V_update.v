@@ -22,19 +22,6 @@
 module Collision_V_update(
     input clk,
     input rst,
-
-    input ball1_Falg;
-    input ball2_Falg;
-    input ball3_Falg;
-
-    input lXflag;
-    input cXflag;
-    input rXflag;
-
-    input tYflag;
-    input cYflag;
-    input bYflag;
-
     input [1:0] V1x_NOW,
     input [1:0] V1y_NOW,
     input [1:0] V2x_NOW,
@@ -83,37 +70,7 @@ module Collision_V_update(
     reg ball23_RCLC; 
     reg ball23_CTCB;
     reg ball23_CBCT;
-
-    assign ball12_LTRB = ball1_Falg && ball2_Falg && lXflag && tYflag;
-    assign ball12_RTLB = ball1_Falg && ball2_Falg && rXflag && tYflag;
-    assign ball12_LBRT = ball1_Falg && ball2_Falg && lXflag && bYflag;
-    assign ball12_RBLT = ball1_Falg && ball2_Falg && rXflag && bYflag;
-
-    assign ball12_LCRC = ball1_Falg && ball2_Falg && lXflag && cYflag;
-    assign ball12_RCLC = ball1_Falg && ball2_Falg && rXflag && cYflag;
-    assign ball12_CTCB = ball1_Falg && ball2_Falg && cXflag && tYflag;
-    assign ball12_CBCT = ball1_Falg && ball2_Falg && cXflag && bYflag;
-
-    assign ball13_LTRB = ball1_Falg && ball3_Falg && lXflag && tYflag;
-    assign ball13_RTLB = ball1_Falg && ball3_Falg && rXflag && tYflag;
-    assign ball13_LBRT = ball1_Falg && ball3_Falg && lXflag && bYflag;
-    assign ball13_RBLT = ball1_Falg && ball3_Falg && rXflag && bYflag;
-
-    assign ball13_LCRC = ball1_Falg && ball3_Falg && lXflag && cYflag;
-    assign ball13_RCLC = ball1_Falg && ball3_Falg && rXflag && cYflag;
-    assign ball13_CTCB = ball1_Falg && ball3_Falg && cXflag && tYflag;
-    assign ball13_CBCT = ball1_Falg && ball3_Falg && cXflag && bYflag;
-
-    assign ball23_LTRB = ball2_Falg && ball3_Falg && lXflag && tYflag;
-    assign ball23_RTLB = ball2_Falg && ball3_Falg && rXflag && tYflag;
-    assign ball23_LBRT = ball2_Falg && ball3_Falg && lXflag && bYflag;
-    assign ball23_RBLT = ball2_Falg && ball3_Falg && rXflag && bYflag;
-
-    assign ball23_LCRC = ball2_Falg && ball3_Falg && lXflag && cYflag;
-    assign ball23_RCLC = ball2_Falg && ball3_Falg && rXflag && cYflag;
-    assign ball23_CTCB = ball2_Falg && ball3_Falg && cXflag && tYflag;
-    assign ball23_CBCT = ball2_Falg && ball3_Falg && cXflag && bYflag;
-
+    
     always @(posedge clk or posedge rst) begin
         if(rst) begin
         end
