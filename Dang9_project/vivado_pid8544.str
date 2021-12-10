@@ -422,3 +422,736 @@ selectCodeEditor("graph_mod.v", 275, 202); // ce (w, ck)
 // TclEventType: DG_GRAPH_STALE
 // TclEventType: FILE_SET_CHANGE
 // TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 400 seconds
+selectCodeEditor("graph_mod.v", 743, 119); // ce (w, ck)
+// Elapsed time: 37 seconds
+selectCodeEditor("graph_mod.v", 275, 184); // ce (w, ck)
+// Elapsed time: 67 seconds
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (ay, ck)
+closeTask("Program and Debug", "Hardware Manager", "DesignTask.PROGRAM_DEBUG");
+// A (ck): Confirm Close: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+// TclEventType: HW_OBJECT_DELETE
+dismissDialog("Confirm Close"); // A (ck)
+// TclEventType: HW_SERVER_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SESSION_CLOSE
+// Tcl Message: close_hw 
+// bx (ck):  CLose Hardware Manager : addNotify
+dismissDialog("CLose Hardware Manager"); // bx (ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, ballCollision_mod.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, ballCollision_mod.v]", 2, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 275, 330); // ce (w, ck)
+// Elapsed time: 26 seconds
+selectCodeEditor("ballCollision_mod.v", 173, 355); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 144, 357); // ce (w, ck)
+// Elapsed time: 20 seconds
+selectCodeEditor("ballCollision_mod.v", 84, 181); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 84, 181, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 327, 468); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 326, 431); // ce (w, ck)
+// Elapsed time: 105 seconds
+selectCodeEditor("ballCollision_mod.v", 284, 181); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 238, 231); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 238, 231, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 64, 337); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 173, 241); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 173, 241, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("ballCollision_mod.v", 115, 241); // ce (w, ck)
+// Elapsed time: 15 seconds
+selectCodeEditor("ballCollision_mod.v", 489, 273); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 111, 223); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 159, 287); // ce (w, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mode (abs_mod.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mode (abs_mod.v)]", 13, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("abs_mod.v", 280, 280); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("abs_mod.v", 202, 135); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 87, 6); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 498, 136); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("abs_mod.v", 187, 129); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "graph_mod.v", 1); // k (j, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 2); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 133, 264); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 123, 243); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ballCollision_mod.v", 142, 372); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("ballCollision_mod.v", 161, 351); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 161, 351, false, false, false, false, true); // ce (w, ck) - Double Click
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 387, 370); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("ballCollision_mod.v", 232, 317); // ce (w, ck)
+// Elapsed time: 104 seconds
+selectCodeEditor("ballCollision_mod.v", 97, 454); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 99, 458, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 152, 180); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 152, 180, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 159, 181); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 192, 311); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 157, 293); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'c'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 154, 318); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 154, 328); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 157, 345); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 158, 368); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 158, 393); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 156, 406); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 158, 426); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 293, 369); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ballCollision_mod.v", 272, 461); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 276, 476); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 13 seconds
+selectCodeEditor("ballCollision_mod.v", 394, 460); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 394, 460); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 224, 231); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 224, 231, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 202, 320); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 189, 393); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 137, 238); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 137, 238, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 244, 254); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 240, 254); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 243, 276); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 23, 240); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 559, 349); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 559, 349); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 170, 49); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 222, 58); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 301, 243); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ballCollision_mod.v", 316, 255); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 276, 106, false, true, false, false, false); // ce (w, ck) - Control Key
+selectCodeEditor("ballCollision_mod.v", 348, 170); // ce (w, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ballCollision_mod (ballCollision_mod.v)]", 14, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, deg_set (deg_set.v)]", 15, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("abs_mod.v", 204, 204); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 112, 4); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 112, 4, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("abs_mod.v", 154, 6); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 154, 6, false, false, false, false, true); // ce (w, ck) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 2); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 199, 234); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 199, 234, false, false, false, false, true); // ce (w, ck) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs_mod.v", 3); // k (j, ck)
+selectCodeEditor("abs_mod.v", 61, 49); // ce (w, ck)
+typeControlKey((HResource) null, "abs_mod.v", 'c'); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 2); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 56, 196); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 54, 198, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("ballCollision_mod.v", 314, 337); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 240, 236); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 240, 236, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 192, 238); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 192, 238, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 140, 376); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 130, 364); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 104, 350); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 102, 232); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 174, 359); // ce (w, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa (aj, ck)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa (aj, ck)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa (aj, ck)
+selectCodeEditor("ballCollision_mod.v", 270, 274); // ce (w, ck)
+// Elapsed time: 34 seconds
+selectCodeEditor("ballCollision_mod.v", 116, 229); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 116, 229, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 20 seconds
+selectCodeEditor("ballCollision_mod.v", 82, 220); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 82, 220, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 19 seconds
+selectCodeEditor("ballCollision_mod.v", 314, 429); // ce (w, ck)
+// Elapsed time: 71 seconds
+selectCodeEditor("ballCollision_mod.v", 695, 101); // ce (w, ck)
+// Elapsed time: 101 seconds
+selectCodeEditor("ballCollision_mod.v", 762, 266); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 392, 139); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 314, 526); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 341, 461); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 268, 493); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 183 seconds
+selectCodeEditor("ballCollision_mod.v", 278, 299); // ce (w, ck)
+// Elapsed time: 233 seconds
+selectCodeEditor("ballCollision_mod.v", 647, 376); // ce (w, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,371 MB. GUI used memory: 60 MB. Current time: 12/10/21 11:36:15 PM KST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 179 seconds
+selectCodeEditor("ballCollision_mod.v", 240, 301); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 298, 394); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 16 seconds
+selectCodeEditor("ballCollision_mod.v", 162, 235); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 162, 235, false, false, false, false, true); // ce (w, ck) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 189 seconds
+selectCodeEditor("ballCollision_mod.v", 629, 217); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "graph_mod.v", 1); // k (j, ck)
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+// PAResourceOtoP.PAViews_CODE: Code: close view
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, graph_mod.v]", 3, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, graph_mod.v]", 3, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("graph_mod.v", 305, 331); // ce (w, ck)
+selectCodeEditor("graph_mod.v", 274, 259); // ce (w, ck)
+selectCodeEditor("graph_mod.v", 287, 255); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 33 seconds
+selectCodeEditor("graph_mod.v", 406, 250); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 14 seconds
+selectCodeEditor("graph_mod.v", 193, 258); // ce (w, ck)
+selectCodeEditor("graph_mod.v", 193, 258, false, false, false, false, true); // ce (w, ck) - Double Click
+// TclEventType: DG_GRAPH_GENERATED
+typeControlKey((HResource) null, "graph_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("graph_mod.v", 261, 199); // ce (w, ck)
+selectCodeEditor("graph_mod.v", 260, 331); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("graph_mod.v", 265, 307); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("graph_mod.v", 262, 303); // ce (w, ck)
+selectCodeEditor("graph_mod.v", 262, 254); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 24 seconds
+selectCodeEditor("graph_mod.v", 654, 368); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, ballCollision_mod.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, ballCollision_mod.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, ballCollision_mod.v]", 2, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 400, 291); // ce (w, ck)
+// Elapsed time: 15 seconds
+selectCodeEditor("ballCollision_mod.v", 812, 392); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 513, 435); // ce (w, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectCheckBox(PAResourceQtoS.RemoveSourcesDialog_ALSO_DELETE, "Also delete the project local file/directory from disk", true); // g (Q, aE): TRUE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+// 'c' command handler elapsed time: 3 seconds
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mod.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mod.v 
+// Tcl Message: file delete -force C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mod.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 14 seconds
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B (f, ck)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (ck): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton (j, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (C, c)
+// F (c): Create Source File: addNotify
+// Elapsed time: 11 seconds
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "abs"); // X (Q, F)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (F)
+dismissDialog("Create Source File"); // F (c)
+selectButton("FINISH", "Finish"); // JButton (j, c)
+// 'h' command handler elapsed time: 14 seconds
+dismissDialog("Add Sources"); // c (ck)
+// Tcl Message: close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs.v w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs.v 
+// I (ck): Define Module: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (I)
+// TclEventType: FILE_SET_CHANGE
+selectButton("PAResourceAtoD.DefineModulesDialog_YOU_HAVE_MADE_CHANGES_TO_MODULE_Yes", "Yes"); // JButton (A, H)
+dismissDialog("Define Module"); // I (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs (abs.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs (abs.v)]", 13, false, false, false, false, false, true); // B (D, ck) - Double Click
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("abs.v", 356, 170); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+typeControlKey((HResource) null, "abs.v", 'v'); // ce (w, ck)
+selectCodeEditor("abs.v", 354, 203); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 118, 231); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("ballCollision_mod.v", 248, 305); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs.v", 2); // k (j, ck)
+selectCodeEditor("abs.v", 347, 122); // ce (w, ck)
+selectCodeEditor("abs.v", 156, 117); // ce (w, ck)
+selectCodeEditor("abs.v", 109, 9); // ce (w, ck)
+selectCodeEditor("abs.v", 109, 9, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("abs.v", 160, 9); // ce (w, ck)
+selectCodeEditor("abs.v", 160, 9, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("abs.v", 182, 103); // ce (w, ck)
+selectCodeEditor("abs.v", 251, 108); // ce (w, ck)
+selectCodeEditor("abs.v", 263, 104); // ce (w, ck)
+selectCodeEditor("abs.v", 314, 141); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 224, 304); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs.v", 2); // k (j, ck)
+selectCodeEditor("abs.v", 223, 88); // ce (w, ck)
+selectCodeEditor("abs.v", 196, 121); // ce (w, ck)
+selectCodeEditor("abs.v", 356, 118); // ce (w, ck)
+selectCodeEditor("abs.v", 361, 96); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("abs.v", 336, 258); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("ballCollision_mod.v", 252, 290); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 167, 401); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 206, 232); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 206, 232, false, false, false, false, true); // ce (w, ck) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs.v", 2); // k (j, ck)
+selectCodeEditor("abs.v", 57, 10); // ce (w, ck)
+selectCodeEditor("abs.v", 57, 10, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "abs.v", 'c'); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 82, 346); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 82, 346, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 85, 362); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 85, 362, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 201, 296); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 187, 446); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs.v", 2); // k (j, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("abs.v", 57, 3); // ce (w, ck)
+selectCodeEditor("abs.v", 82, 9); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("abs.v", 153, 103); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 112, 350); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 220, 382); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ballCollision_mod.v", 265, 440); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 145, 239); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 321, 317); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs.v", 2); // k (j, ck)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs (abs.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs (abs.v)]", 13, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs.v 
+// Tcl Message: file delete -force C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B (f, ck)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (ck): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton (j, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (C, c)
+// F (c): Create Source File: addNotify
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "abs_mode"); // X (Q, F)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (F)
+dismissDialog("Create Source File"); // F (c)
+selectButton("FINISH", "Finish"); // JButton (j, c)
+// 'h' command handler elapsed time: 6 seconds
+dismissDialog("Add Sources"); // c (ck)
+// Tcl Message: close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mode.v w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mode.v 
+// I (ck): Define Module: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (I)
+// TclEventType: FILE_SET_CHANGE
+selectButton("PAResourceAtoD.DefineModulesDialog_YOU_HAVE_MADE_CHANGES_TO_MODULE_Yes", "Yes"); // JButton (A, H)
+dismissDialog("Define Module"); // I (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 13 seconds
+selectCodeEditor("ballCollision_mod.v", 287, 216); // ce (w, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mode (abs_mode.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mode (abs_mode.v)]", 13, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("abs_mode.v", 113, 411); // ce (w, ck)
+selectCodeEditor("abs_mode.v", 123, 15); // ce (w, ck)
+// k (ck): Text Changed: addNotify
+// Elapsed time: 13 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B (k, ck)
+selectButton(RDIResource.ConfirmSaveTextEditsDialog_NO, "No"); // a (k)
+dismissDialog("Text Changed"); // k (ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mode (abs_mode.v)]", 13, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa (aj, ck)
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mode.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mode.v 
+// Tcl Message: file delete -force C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mode.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B (f, ck)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (ck): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton (j, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (C, c)
+// F (c): Create Source File: addNotify
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "abs_mod"); // X (Q, F)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (F)
+dismissDialog("Create Source File"); // F (c)
+selectButton("FINISH", "Finish"); // JButton (j, c)
+// 'h' command handler elapsed time: 6 seconds
+dismissDialog("Add Sources"); // c (ck)
+// Tcl Message: close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mod.v w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mod.v 
+// I (ck): Define Module: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (I)
+// TclEventType: FILE_SET_CHANGE
+selectButton("PAResourceAtoD.DefineModulesDialog_YOU_HAVE_MADE_CHANGES_TO_MODULE_Yes", "Yes"); // JButton (A, H)
+dismissDialog("Define Module"); // I (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("abs_mod.v", 148, 144); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+typeControlKey((HResource) null, "abs_mod.v", 'v'); // ce (w, ck)
+selectButton("RDIResource.HInputHandler_UNICODE_QUOTES_DOUBLE_QUOTES_OR_DASHES_Yes", "Yes"); // JButton (A, G)
+selectCodeEditor("abs_mod.v", 227, 133); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("abs_mod.v", 126, 27); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("abs_mod.v", 179, 138); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 87, 14); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("ballCollision_mod.v", 310, 397); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 88, 252); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 101, 245); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 101, 245, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'c'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 90, 263); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 90, 263, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 124, 333); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 244, 188); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ballCollision_mod.v", 379, 147); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 373, 320); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs_mod.v", 2); // k (j, ck)
+selectCodeEditor("abs_mod.v", 268, 22); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("abs_mod.v", 334, 122); // ce (w, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, ballCollision_mod.v]", 2, false); // B (D, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sources_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 16, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.srcs\sources_1\new\ballCollision_mod.v;-;;-;16;-;line;-;66;-;;-;16;-;"); // ah (O, ck)
+// Elapsed time: 12 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, synth_1, [Synth 8-2611] redeclaration of ansi port ball2_center_x is not allowed [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v:33]. ]", 23, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.srcs\sources_1\new\red_ball.v;-;;-;16;-;line;-;33;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sources_1, [HDL 9-870] Macro <BALL_SIZE> is not defined. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 15, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.srcs\sources_1\new\ballCollision_mod.v;-;;-;16;-;line;-;66;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sources_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 16, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.srcs\sources_1\new\ballCollision_mod.v;-;;-;16;-;line;-;66;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sources_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 16, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.srcs\sources_1\new\ballCollision_mod.v;-;;-;16;-;line;-;66;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 19, true); // ah (O, ck) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 19, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.srcs\sources_1\new\ballCollision_mod.v;-;;-;16;-;line;-;66;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 19, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.srcs\sources_1\new\ballCollision_mod.v;-;;-;16;-;line;-;66;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. , [HDL 9-806] Syntax error near abs_mod. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:77]. ]", 21, false, false, false, false, false, true); // ah (O, ck) - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. , [HDL 9-806] Syntax error near abs_mod. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:77]. ]", 21, false); // ah (O, ck)
+collapseTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [HDL 9-806] Syntax error near ;. [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v:66]. ]", 19); // ah (O, ck)
+selectCodeEditor("ballCollision_mod.v", 285, 351); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 182, 241); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 182, 241, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 187, 241); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 187, 241, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 222, 356); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 222, 356, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 15 seconds
+selectCodeEditor("ballCollision_mod.v", 375, 341); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 268, 255); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 268, 255, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 155, 216); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 155, 216, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 235, 301); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 235, 301, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 238, 307); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 238, 307, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 146, 108); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 146, 108, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'c'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 251, 255); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 251, 255, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 297, 159); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 270, 372); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("ballCollision_mod.v", 271, 408); // ce (w, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("ballCollision_mod.v", 246, 336); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 246, 336, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 248, 346); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 248, 346, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 249, 361); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs_mod.v", 2); // k (j, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false); // B (D, ck)
+selectCodeEditor("abs_mod.v", 287, 283); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 309, 103); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 71, 108); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 71, 108, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("abs_mod.v", 370, 108); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 274, 27); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 273, 23, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("abs_mod.v", 274, 16); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 333, 238); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 264, 21); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 264, 19, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("abs_mod.v", 92, 13); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 19 seconds
+selectCodeEditor("abs_mod.v", 13, 86); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 16, 88, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("abs_mod.v", 15, 103); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 289, 258); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 253, 189); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 214, 405); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 93, 242); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 93, 242, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 179, 241); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 179, 241, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 162, 244); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 162, 244, false, false, false, false, true); // ce (w, ck) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs_mod.v", 2); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+// Elapsed time: 34 seconds
+selectCodeEditor("ballCollision_mod.v", 278, 404); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 397, 172); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 399, 389); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 777, 363); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 641, 384); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 665, 348); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 242, 307); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs_mod.v", 2); // k (j, ck)
+selectCodeEditor("abs_mod.v", 261, 314); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 850, 397); // ce (w, ck)
+// Elapsed time: 122 seconds
+selectCodeEditor("abs_mod.v", 471, 259); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 1); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 374, 248); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 197, 230); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 197, 230, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("ballCollision_mod.v", 264, 390); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 383, 383); // ce (w, ck)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, abs_mod (abs_mod.v)]", 13, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectCodeEditor("abs_mod.v", 213, 198); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 211, 211); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 201, 288); // ce (w, ck)
+// Elapsed time: 11 seconds
+selectCodeEditor("abs_mod.v", 640, 260); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 63, 66); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 141, 195); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "graph_mod.v", 0); // k (j, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ballCollision_mod (ballCollision_mod.v)]", 14, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ballCollision_mod (ballCollision_mod.v)]", 14, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "abs_mod.v", 1); // k (j, ck)
+selectCodeEditor("abs_mod.v", 66, 7); // ce (w, ck)
+selectCodeEditor("abs_mod.v", 66, 7, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "abs_mod.v", 'c'); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "graph_mod.v", 0); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ballCollision_mod.v", 2); // k (j, ck)
+selectCodeEditor("ballCollision_mod.v", 102, 230); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 102, 230, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 97, 261); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 97, 261, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 104, 323); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 102, 337); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 102, 337, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 102, 350); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 102, 350, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "ballCollision_mod.v", 'v'); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 171, 237); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ballCollision_mod.v", 341, 156); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 311, 346); // ce (w, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 23 seconds
+selectCodeEditor("ballCollision_mod.v", 898, 89); // ce (w, ck)
+selectCodeEditor("ballCollision_mod.v", 797, 203); // ce (w, ck)

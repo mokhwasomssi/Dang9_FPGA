@@ -11,8 +11,9 @@ module red_ball(
     output red_ball_on
     );
 
-
-parameter MAX_HIT_FORCE = 20;
+// 시작지점
+parameter START_X = `MAX_X/2;
+parameter START_Y = `MAX_Y/2;
 
 // 60Hz clock
 wire refr_tick; 
@@ -78,8 +79,8 @@ end
 // 빨간공 중심 좌표 업데이트
 always @(posedge clk or posedge rst) begin
     if(rst) begin
-        ball2_center_x <= `MAX_X/2;
-        ball2_center_y <= `MAX_Y/2;
+        ball2_center_x <= START_X;
+        ball2_center_y <= START_Y;
     end
     else if(refr_tick) begin
         ball2_center_x <= ball2_center_x + ball2_vx_reg;

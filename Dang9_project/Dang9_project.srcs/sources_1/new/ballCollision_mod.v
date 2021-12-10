@@ -38,32 +38,33 @@ module ballCollision_mod(
     output reg [9:0] Vx_UPDATE_b,
     output reg [9:0] Vy_UPDATE_b,
 
-    output reg [9:0] Dx_UPDATE_a,
-    output reg [9:0] Dy_UPDATE_a,
-    output reg [9:0] Dx_UPDATE_b,
-    output reg [9:0] Dy_UPDATE_b
+    output reg signed [9:0] Dx_UPDATE_a,
+    output reg signed [9:0] Dy_UPDATE_a,
+    output reg signed [9:0] Dx_UPDATE_b,
+    output reg signed [9:0] Dy_UPDATE_b
     );
-    parameter BALL_SIZE = 30;
+    //parameter BALL_SIZE = 30;
+    
     reg cos, sin;
     reg VaXp, VaYp;
     reg VbXp, VbYp;
-    reg VaX,  VaY;
-    reg VbX,  VbY; 
+    reg [9:0] VaX,  VaY;
+    reg [9:0] VbX,  VbY; 
 
     always @(posedge clk or rst) begin
         if (rst == 1'b1) begin
-            Vx_UPDATE_a = z;
-            Vy_UPDATE_a = z;
-            Vx_UPDATE_b = z;
-            Vy_UPDATE_b = z;
-            Dx_UPDATE_a = z;
-            Dy_UPDATE_a = z;
-            Dx_UPDATE_b = z;
-            Dy_UPDATE_b = z;
+            Vx_UPDATE_a = 9'bz;
+            Vy_UPDATE_a = 9'bz;
+            Vx_UPDATE_b = 9'bz;
+            Vy_UPDATE_b = 9'bz;
+            Dx_UPDATE_a = 9'bz;
+            Dy_UPDATE_a = 9'bz;
+            Dx_UPDATE_b = 9'bz;
+            Dy_UPDATE_b = 9'bz;
         end
         else begin
-            cos = (yBall_b - yBall_a) / BALL_SIZE;
-            sin = (xBall_b - xBall_a) / BALL_SIZE;
+            cos = (yBall_b - yBall_a) / `BALL_SIZE;
+            sin = (xBall_b - xBall_a) / `BALL_SIZE;
             
             //need to check Human error (eq)
             VaXp = Vx_NOW_b*cos + Vy_NOW_b*sin;
@@ -74,7 +75,7 @@ module ballCollision_mod(
             VaX = VaXp*cos - VaYp*sin;
             VaY = VaXp*sin + VaYp*cos;
             abs_mod abs_inst1 (VaX,Vx_UPDATE_a); //Balla Vx
-            abs_mod abs_inst2 (VaY,Vx_UPDATE_a); //Balla Vy
+            abs_mod abs_inst2 (VaY,Vy_UPDATE_a); //Balla Vy
             
             VbX = VbXp * cos - VbYp * sin;
             VbY = VbXp * sin + VbYp * cos;
