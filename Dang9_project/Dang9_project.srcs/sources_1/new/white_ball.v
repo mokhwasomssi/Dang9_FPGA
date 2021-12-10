@@ -8,8 +8,8 @@ module white_ball(
     input [4:0] key, 
     input [4:0] key_pulse, 
 
-    output [9:0] ball1_center_x,
-    output [9:0] ball1_center_y,
+    output [9:0] center_x,
+    output [9:0] center_y,
     
     output white_ball_on
     );
@@ -21,47 +21,47 @@ parameter MAX_HIT_FORCE = 20;
 wire refr_tick; 
 assign refr_tick = (y==`MAX_Y-1 && x==`MAX_X-1)? 1 : 0; 
 
-// 공1 변수
-reg signed [1:0] ball1_dir_x;
-reg signed [1:0] ball1_dir_y;
+// 하얀공 변수
+reg signed [1:0] dir_x;
+reg signed [1:0] dir_y;
+
+reg signed [4:0] vx;
+reg signed [4:0] vy;
+
+reg signed [9:0] vx_reg;
+reg signed [9:0] vy_reg;
+
+reg [9:0] center_x;
+reg [9:0] center_y;
 
 reg [5:0] hit_force;
 
-reg signed [4:0] ball1_vx;
-reg signed [4:0] ball1_vy;
+// 하얀공-테이블 충돌 플래그
+wire reach_top, reach_bottom, reach_left, reach_right;
 
-reg signed [9:0] ball1_vx_reg;
-reg signed [9:0] ball1_vy_reg;
-
-reg [9:0] ball1_center_x;
-reg [9:0] ball1_center_y;
-
-// 공1-테이블 충돌 플래그
-wire ball1_reach_top, ball1_reach_bottom, ball1_reach_left, ball1_reach_right;
-
-assign ball1_reach_top = (`TABLE_IN_T >= (ball1_center_y - `BALL_SIZE)) ? 1 : 0;
-assign ball1_reach_bottom = (`TABLE_IN_B <= (ball1_center_y + `BALL_SIZE)) ? 1 : 0;
-assign ball1_reach_left = (`TABLE_IN_L >= (ball1_center_x - `BALL_SIZE)) ? 1 : 0;
-assign ball1_reach_right = (`TABLE_IN_R <= (ball1_center_x + `BALL_SIZE)) ? 1 : 0;
+assign reach_top = (`TABLE_IN_T >= (center_y - `BALL_SIZE)) ? 1 : 0;
+assign reach_bottom = (`TABLE_IN_B <= (center_y + `BALL_SIZE)) ? 1 : 0;
+assign reach_left = (`TABLE_IN_L >= (center_x - `BALL_SIZE)) ? 1 : 0;
+assign reach_right = (`TABLE_IN_R <= (center_x + `BALL_SIZE)) ? 1 : 0;
 
 // 테이블에 부딪혔을 때 방향 업데이트
 always @(posedge clk or posedge rst) begin
     if(rst) begin
-        ball1_dir_x <= 1;
-        ball1_dir_y <= -1;
+        dir_x <= 1;
+        dir_y <= -1;
     end
     else begin
-        if(ball1_reach_top) begin
-            ball1_dir_y <= 1;
+        if(reach_top) begin
+            dir_y <= 1;
         end
-        else if (ball1_reach_bottom) begin
-            ball1_dir_y <= -1;
+        else if (reach_bottom) begin
+            dir_y <= -1;
         end
-        else if (ball1_reach_left) begin
-            ball1_dir_x <= 1;
+        else if (reach_left) begin
+            dir_x <= 1;
         end
-        else if (ball1_reach_right) begin 
-            ball1_dir_x <= -1;
+        else if (reach_right) begin 
+            dir_x <= -1;
         end
     end
 end
@@ -90,14 +90,14 @@ end
 reg [6:0] cnt2;
 
 always @(posedge clk or posedge rst) begin
-    if(rst | key_pulse == 5'h10) begin // 0번키를 누르면 치는 힘을 공에 전가해줌. 레지스터 특성상 0으로 초기화되기 전 값이 ball1_vx에 들어감.
-        ball1_vx <= hit_force;
-        ball1_vy <= hit_force;
+    if(rst | key_pulse == 5'h10) begin // 0번키를 누르면 치는 힘을 공에 전가해줌. 레지스터 특성상 0으로 초기화되기 전 값이 vx에 들어감.
+        vx <= hit_force;
+        vy <= hit_force;
     end
     else if(refr_tick) begin
         if(cnt2 == 20) begin // 0.3초마다 속력 감소
-            if(ball1_vx > 0) ball1_vx <= ball1_vx - 1;
-            if(ball1_vy > 0) ball1_vy <= ball1_vy - 1;
+            if(vx > 0) vx <= vx - 1;
+            if(vy > 0) vy <= vy - 1;
             cnt2 <= 0;
         end
         else begin
@@ -109,28 +109,28 @@ end
 // 최종 속도
 always @(posedge clk or posedge rst) begin
     if(rst) begin
-        ball1_vx_reg <= 0;
-        ball1_vy_reg <= 0;
+        vx_reg <= 0;
+        vy_reg <= 0;
     end
     else begin
-        ball1_vx_reg <= ball1_dir_x*ball1_vx;
-        ball1_vy_reg <= ball1_dir_y*ball1_vy;
+        vx_reg <= dir_x*vx;
+        vy_reg <= dir_y*vy;
     end
 end
 
-// 공1 중심 좌표 업데이트
+// 하얀공 중심 좌표 업데이트
 always @(posedge clk or posedge rst) begin
     if(rst) begin
-        ball1_center_x <= `MAX_X/2;
-        ball1_center_y <= `MAX_Y/2;
+        center_x <= `MAX_X/2;
+        center_y <= `MAX_Y/2;
     end
     else if(refr_tick) begin
-        ball1_center_x <= ball1_center_x + ball1_vx_reg;
-        ball1_center_y <= ball1_center_y + ball1_vy_reg;
+        center_x <= center_x + vx_reg;
+        center_y <= center_y + vy_reg;
     end
 end
 
-// 공1 그리기
-assign white_ball_on = (`BALL_SIZE*`BALL_SIZE >= (x-ball1_center_x)*(x-ball1_center_x) + (y-ball1_center_y)*(y-ball1_center_y)) ? 1 : 0;
+// 하얀공 그리기
+assign white_ball_on = (`BALL_SIZE*`BALL_SIZE >= (x-center_x)*(x-center_x) + (y-center_y)*(y-center_y)) ? 1 : 0;
 
 endmodule
