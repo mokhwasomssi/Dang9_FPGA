@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project/Dang9_project.runs/impl_1'
+HD_PWD='C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

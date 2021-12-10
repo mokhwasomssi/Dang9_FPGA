@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Fri Dec  3 14:29:14 2021
+| Date             : Fri Dec 10 23:05:44 2021
 | Host             : DESKTOP-00TQ7BI running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.228        |
+| Total On-Chip Power (W)  | 0.230        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.118        |
+| Dynamic (W)              | 0.120        |
 | Device Static (W)        | 0.110        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 82.4         |
-| Junction Temperature (C) | 27.6         |
+| Max Ambient (C)          | 82.3         |
+| Junction Temperature (C) | 27.7         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        5 |       --- |             --- |
-| Slice Logic    |    <0.001 |      676 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      389 |     53200 |            0.73 |
-|   CARRY4       |    <0.001 |       40 |     13300 |            0.30 |
-|   Register     |    <0.001 |      179 |    106400 |            0.17 |
+| Slice Logic    |    <0.001 |      979 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      597 |     53200 |            1.12 |
+|   CARRY4       |    <0.001 |       88 |     13300 |            0.66 |
+|   Register     |    <0.001 |      202 |    106400 |            0.19 |
 |   F7/F8 Muxes  |    <0.001 |        1 |     53200 |           <0.01 |
-|   Others       |     0.000 |       11 |       --- |             --- |
-| Signals        |    <0.001 |      729 |       --- |             --- |
+|   Others       |     0.000 |       19 |       --- |             --- |
+| Signals        |    <0.001 |     1375 |       --- |             --- |
 | MMCM           |     0.115 |        1 |         4 |           25.00 |
-| DSPs           |    <0.001 |        6 |       220 |            2.73 |
+| DSPs           |     0.002 |       18 |       220 |            8.18 |
 | I/O            |    <0.001 |       24 |       200 |           12.00 |
 | Static Power   |     0.110 |          |           |                 |
-| Total          |     0.228 |          |           |                 |
+| Total          |     0.230 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.010 |       0.003 |      0.008 |
+| Vccint    |       1.000 |     0.012 |       0.004 |      0.008 |
 | Vccaux    |       1.800 |     0.074 |       0.064 |      0.011 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.001 |       0.000 |      0.001 |
@@ -149,16 +149,19 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-----------------+-----------+
-| Name            | Power (W) |
-+-----------------+-----------+
-| top             |     0.118 |
-|   clk_inst      |     0.115 |
-|     inst        |     0.115 |
-|   debounce_inst |    <0.001 |
-|   graph_inst    |     0.002 |
-|   keypad_inst   |    <0.001 |
-|   sync_inst     |    <0.001 |
-+-----------------+-----------+
++----------------------------+-----------+
+| Name                       | Power (W) |
++----------------------------+-----------+
+| top                        |     0.120 |
+|   clk_inst                 |     0.115 |
+|     inst                   |     0.115 |
+|   debounce_inst            |    <0.001 |
+|   graph_inst               |     0.003 |
+|     collision_dectect_inst |    <0.001 |
+|     red_ball_inst          |     0.001 |
+|     white_ball_inst        |     0.002 |
+|   keypad_inst              |    <0.001 |
+|   sync_inst                |    <0.001 |
++----------------------------+-----------+
 
 

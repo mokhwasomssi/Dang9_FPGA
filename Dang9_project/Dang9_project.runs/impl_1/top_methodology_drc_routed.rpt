@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Fri Dec  3 14:29:13 2021
+| Date         : Fri Dec 10 23:05:44 2021
 | Host         : DESKTOP-00TQ7BI running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 21
+             Violations found: 33
 +-----------+----------+------------------------------+------------+
 | Rule      | Severity | Description                  | Violations |
 +-----------+----------+------------------------------+------------+
 | LUTAR-1   | Warning  | LUT drives async reset alert | 10         |
-| SYNTH-10  | Warning  | Wide multiplier              | 6          |
+| SYNTH-10  | Warning  | Wide multiplier              | 18         |
 | TIMING-20 | Warning  | Non-clocked latch            | 5          |
 +-----------+----------+------------------------------+------------+
 
@@ -36,107 +36,167 @@ Table of Contents
 -----------------
 LUTAR-1#1 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[0]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[0]_P/PRE, graph_inst/ball1_vy_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[0]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[0]_P/PRE, graph_inst/white_ball_inst/ball1_vy_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#2 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[0]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[0]_C/CLR, graph_inst/ball1_vy_reg[0]_C/CLR, graph_inst/ball1_vy_reg[0]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[0]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[0]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[0]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[0]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#3 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[1]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[1]_P/PRE, graph_inst/ball1_vy_reg[1]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[1]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[1]_P/PRE, graph_inst/white_ball_inst/ball1_vy_reg[1]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#4 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[1]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[1]_C/CLR, graph_inst/ball1_vy_reg[1]_C/CLR, graph_inst/ball1_vy_reg[1]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[1]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[1]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[1]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[1]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#5 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[2]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[2]_P/PRE, graph_inst/ball1_vy_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[2]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[2]_P/PRE, graph_inst/white_ball_inst/ball1_vy_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#6 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[2]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[2]_C/CLR, graph_inst/ball1_vy_reg[2]_C/CLR, graph_inst/ball1_vy_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[2]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[2]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[2]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#7 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[3]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[3]_P/PRE, graph_inst/ball1_vy_reg[3]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[3]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[3]_P/PRE, graph_inst/white_ball_inst/ball1_vy_reg[3]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#8 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[3]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[3]_C/CLR, graph_inst/ball1_vy_reg[3]_C/CLR, graph_inst/ball1_vy_reg[3]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[3]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[3]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[3]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[3]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#9 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[4]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[4]_P/PRE, graph_inst/ball1_vy_reg[4]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[4]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[4]_P/PRE, graph_inst/white_ball_inst/ball1_vy_reg[4]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#10 Warning
 LUT drives async reset alert  
-LUT cell graph_inst/ball1_vy_reg[4]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/ball1_vx_reg[4]_C/CLR, graph_inst/ball1_vy_reg[4]_C/CLR, graph_inst/ball1_vy_reg[4]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell graph_inst/white_ball_inst/ball1_vy_reg[4]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) graph_inst/white_ball_inst/ball1_vx_reg[4]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[4]_C/CLR, graph_inst/white_ball_inst/ball1_vy_reg[4]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 SYNTH-10#1 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball1_on3 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/collision_dectect_inst/collision3 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#2 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball1_on3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/collision_dectect_inst/collision3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#3 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball1_on3__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/collision_dectect_inst/collision3__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#4 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball1_on3__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/collision_dectect_inst/collision3__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#5 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball1_on3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/collision_dectect_inst/collision3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#6 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball1_on3__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/collision_dectect_inst/collision3__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#7 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/red_ball_inst/red_ball_on3 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#8 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/red_ball_inst/red_ball_on3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#9 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/red_ball_inst/red_ball_on3__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#10 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/red_ball_inst/red_ball_on3__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#11 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/red_ball_inst/red_ball_on3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#12 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/red_ball_inst/red_ball_on3__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#13 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/white_ball_inst/white_ball_on3 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#14 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/white_ball_inst/white_ball_on3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#15 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/white_ball_inst/white_ball_on3__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#16 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/white_ball_inst/white_ball_on3__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#17 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/white_ball_inst/white_ball_on3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#18 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/white_ball_inst/white_ball_on3__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 TIMING-20#1 Warning
 Non-clocked latch  
-The latch graph_inst/ball1_vy_reg[0]_LDC cannot be properly analyzed as its control pin graph_inst/ball1_vy_reg[0]_LDC/G is not reached by a timing clock
+The latch graph_inst/white_ball_inst/ball1_vy_reg[0]_LDC cannot be properly analyzed as its control pin graph_inst/white_ball_inst/ball1_vy_reg[0]_LDC/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#2 Warning
 Non-clocked latch  
-The latch graph_inst/ball1_vy_reg[1]_LDC cannot be properly analyzed as its control pin graph_inst/ball1_vy_reg[1]_LDC/G is not reached by a timing clock
+The latch graph_inst/white_ball_inst/ball1_vy_reg[1]_LDC cannot be properly analyzed as its control pin graph_inst/white_ball_inst/ball1_vy_reg[1]_LDC/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#3 Warning
 Non-clocked latch  
-The latch graph_inst/ball1_vy_reg[2]_LDC cannot be properly analyzed as its control pin graph_inst/ball1_vy_reg[2]_LDC/G is not reached by a timing clock
+The latch graph_inst/white_ball_inst/ball1_vy_reg[2]_LDC cannot be properly analyzed as its control pin graph_inst/white_ball_inst/ball1_vy_reg[2]_LDC/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#4 Warning
 Non-clocked latch  
-The latch graph_inst/ball1_vy_reg[3]_LDC cannot be properly analyzed as its control pin graph_inst/ball1_vy_reg[3]_LDC/G is not reached by a timing clock
+The latch graph_inst/white_ball_inst/ball1_vy_reg[3]_LDC cannot be properly analyzed as its control pin graph_inst/white_ball_inst/ball1_vy_reg[3]_LDC/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#5 Warning
 Non-clocked latch  
-The latch graph_inst/ball1_vy_reg[4]_LDC cannot be properly analyzed as its control pin graph_inst/ball1_vy_reg[4]_LDC/G is not reached by a timing clock
+The latch graph_inst/white_ball_inst/ball1_vy_reg[4]_LDC cannot be properly analyzed as its control pin graph_inst/white_ball_inst/ball1_vy_reg[4]_LDC/G is not reached by a timing clock
 Related violations: <none>
 
 

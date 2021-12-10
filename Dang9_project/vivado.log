@@ -11,3 +11,9 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/mokhw/Desktop/GitHub/Dang9_FPGA/Dang9_project' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
