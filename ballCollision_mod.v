@@ -33,44 +33,58 @@ module ballCollision_mod(
     input [9:0] Vx_NOW_b,
     input [9:0] Vy_NOW_b,
 
-    output [9:0] Vx_UPDATE_a,
-    output [9:0] Vy_UPDATE_a,
-    output [9:0] Vx_UPDATE_b,
-    output [9:0] Vy_UPDATE_b,
+    output reg [9:0] Vx_UPDATE_a,
+    output reg [9:0] Vy_UPDATE_a,
+    output reg [9:0] Vx_UPDATE_b,
+    output reg [9:0] Vy_UPDATE_b,
 
-    output [9:0] Dx_UPDATE_a,
-    output [9:0] Dy_UPDATE_a,
-    output [9:0] Dx_UPDATE_b,
-    output [9:0] Dy_UPDATE_b
+    output reg [9:0] Dx_UPDATE_a,
+    output reg [9:0] Dy_UPDATE_a,
+    output reg [9:0] Dx_UPDATE_b,
+    output reg [9:0] Dy_UPDATE_b
     );
     parameter BALL_SIZE = 30;
-    wire cos, sin;
-    wire VaXp, VaYp;
-    wire VbXp, VbYp;
-    wire VaX,  VaY;
-    wire VbX,  VbY; 
+    reg cos, sin;
+    reg VaXp, VaYp;
+    reg VbXp, VbYp;
+    reg VaX,  VaY;
+    reg VbX,  VbY; 
 
-    assign cos = (yBall_b - yBall_a) / BALL_SIZE;
-    assign sin = (xBall_b - xBall_a) / BALL_SIZE;
-    
-    //need to check Human error (eq)
-    assign VaXp = Vx_NOW_b*cos + Vy_NOW_b*sin;
-    assign VaYp = Vy_NOW_a*cos - Vx_NOW_a*sin;
-    assign VbXp = Vx_NOW_a*cos + Vy_NOW_a*sin;
-    assign VbYp = Vy_NOW_b*cos - Vx_NOW_b*sin;
+    always @(posedge clk or rst) begin
+        if (rst == 1b'1) begin
+            Vx_UPDATE_a = z;
+            Vy_UPDATE_a = z;
+            Vx_UPDATE_b = z;
+            Vy_UPDATE_b = z;
+            Dx_UPDATE_a = z;
+            Dy_UPDATE_a = z;
+            Dx_UPDATE_b = z;
+            Dy_UPDATE_b = z;
+        end
+        else begin
+            cos = (yBall_b - yBall_a) / BALL_SIZE;
+            sin = (xBall_b - xBall_a) / BALL_SIZE;
+            
+            //need to check Human error (eq)
+            VaXp = Vx_NOW_b*cos + Vy_NOW_b*sin;
+            VaYp = Vy_NOW_a*cos - Vx_NOW_a*sin;
+            VbXp = Vx_NOW_a*cos + Vy_NOW_a*sin;
+            VbYp = Vy_NOW_b*cos - Vx_NOW_b*sin;
 
-    assign VaX = VaXp*cos - VaYp*sin;
-    assign VaY = VaXp*sin + VaYp*cos;
-    abs_mod abs_inst1 (VaX,Vx_UPDATE_a); //Balla Vx
-    abs_mod abs_inst2 (VaY,Vx_UPDATE_a); //Balla Vy
-    
-    assign VbX = VbXp * cos - VbYp * sin;
-    assign VbY = VbXp * sin + VbYp * cos;
-    abs_mod abs_inst3 (VbX,Vx_UPDATE_b); //Ballb Vx
-    abs_mod abs_inst4 (VbY,Vy_UPDATE_b); //Ballb Vy
+            VaX = VaXp*cos - VaYp*sin;
+            VaY = VaXp*sin + VaYp*cos;
+            abs_mod abs_inst1 (VaX,Vx_UPDATE_a); //Balla Vx
+            abs_mod abs_inst2 (VaY,Vx_UPDATE_a); //Balla Vy
+            
+            VbX = VbXp * cos - VbYp * sin;
+            VbY = VbXp * sin + VbYp * cos;
+            abs_mod abs_inst3 (VbX,Vx_UPDATE_b); //Ballb Vx
+            abs_mod abs_inst4 (VbY,Vy_UPDATE_b); //Ballb Vy
 
-    assign Dx_UPDATE_a = (VaX/Vx_UPDATE_a);
-    assign Dy_UPDATE_a = (VaY/Vy_UPDATE_a);
-    assign Dx_UPDATE_b = (VbX/Vx_UPDATE_b);
-    assign Dy_UPDATE_b = (VbY/Vy_UPDATE_b);
+            Dx_UPDATE_a = (VaX/Vx_UPDATE_a);
+            Dy_UPDATE_a = (VaY/Vy_UPDATE_a);
+            Dx_UPDATE_b = (VbX/Vx_UPDATE_b);
+            Dy_UPDATE_b = (VbY/Vy_UPDATE_b);
+        end
+    end
 endmodule
