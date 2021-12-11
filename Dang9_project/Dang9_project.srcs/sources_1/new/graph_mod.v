@@ -35,7 +35,7 @@ wire [9:0] y2; // red_ball_center_y
 //red_ball   red_ball_inst   (clk, rst, x, y, x2, y2, red_ball_on);
 table_mod  table_inst      (clk, rst, x, y, table_rgb);
 
-ball white_ball (clk, rst, x, y, ball_rgb);
+ball ball_inst (clk, rst, x, y, ball_rgb);
 
 
 //collision collision_inst (clk, rst, x1, y1, x2, y2, collision_on);
