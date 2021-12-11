@@ -47,6 +47,11 @@ reg signed [9:0] vay_p;
 reg signed [9:0] vbx_p;
 reg signed [9:0] vby_p;
 
+reg signed [9:0] vax_buf;
+reg signed [9:0] vay_buf;
+reg signed [9:0] vbx_buf;
+reg signed [9:0] vby_buf;
+
 // 충돌 시 공의 중심좌표 저장 
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
@@ -66,15 +71,13 @@ always @ (`COS(delta_x) or `SIN(delta_y)) begin
     vbx_p = vax*`COS(delta_x) + vay*`SIN(delta_y);
     vby_p = vby*`COS(delta_x) - vbx*`SIN(delta_y);
     
+    /*
     vax_new = vax_p*`COS(delta_x) - vay_p*`SIN(delta_y);
     vay_new = vax_p*`SIN(delta_y) + vay_p*`COS(delta_x);
     vbx_new = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
     vby_new = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
+    */
     
-    //속도와 속력을 분해해서 쓸거면 이 친구들도 절대값 씌워야하는 거 아닌가요?
-    //그 점을 놓친거라면 va_new 시리즈들 주석 처리후
-    //아래 코드 사용하면 됩니다.
-    /*
     vax_buf = vax_p*`COS(delta_x) - vay_p*`SIN(delta_y);
     vay_buf = vax_p*`SIN(delta_y) + vay_p*`COS(delta_x);
     vbx_buf = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
@@ -84,7 +87,7 @@ always @ (`COS(delta_x) or `SIN(delta_y)) begin
     vay_new = vay_buf[9]? ~(vay_buf-1):vay_buf;
     vbx_new = vbx_buf[9]? ~(vbx_buf-1):vbx_buf;
     vby_new = vby_buf[9]? ~(vby_buf-1):vby_buf;
-    */
+    
 end
 
 //update direction
