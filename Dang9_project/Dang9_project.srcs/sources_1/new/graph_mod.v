@@ -59,7 +59,8 @@ wire collision_on;
 
 collision_dectect collision_dectect_inst (wbc_x, wbc_y, rbc_x, rbc_y, collision_on);
 
-// ÃÖÁ¾ Ãâ·Â
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+//test
 assign rgb = (white_ball_on == 1) ? `WHITE : 
              (red_ball_on == 1)   ? `RED : 
              (table_on == 1)      ? `WHITE : 
