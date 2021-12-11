@@ -70,6 +70,67 @@ always @ (`COS(delta_x) or `SIN(delta_y)) begin
     vay_new = vax_p*`SIN(delta_y) + vay_p*`COS(delta_x);
     vbx_new = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
     vby_new = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
+    
+    //속도와 속력을 분해해서 쓸거면 이 친구들도 절대값 씌워야하는 거 아닌가요?
+    //그 점을 놓친거라면 va_new 시리즈들 주석 처리후
+    //아래 코드 사용하면 됩니다.
+    /*
+    vax_buf = vax_p*`COS(delta_x) - vay_p*`SIN(delta_y);
+    vay_buf = vax_p*`SIN(delta_y) + vay_p*`COS(delta_x);
+    vbx_buf = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
+    vby_buf = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
+
+    vax_new = vax_buf[9]? ~(vax_buf-1):vax_buf;
+    vay_new = vay_buf[9]? ~(vay_buf-1):vay_buf;
+    vbx_new = vbx_buf[9]? ~(vbx_buf-1):vbx_buf;
+    vby_new = vby_buf[9]? ~(vby_buf-1):vby_buf;
+    */
+end
+
+//update direction
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+    end
+    else begin
+        if(delta_x > 0) begin //std Ball2, Hit R
+            if (delta_y > 0) begin //std Ball2, Hit T -> RT
+                dax_new <=  1;  day_new <= -1;
+                dbx_new <= -1;  dby_new <=  1;
+            end
+            else if (delta_y < 0) begin//std Ball2, Hit B -> RB
+                dax_new <=  1;  day_new <=  1;
+                dbx_new <= -1;  dby_new <= -1;
+            end
+            else if (delta_y == 0) begin//std Ball2, Hit C -> RC
+                dax_new <=  1;  day_new <= -1;
+                dbx_new <= -1;  dby_new <=  1;
+                
+        end
+        else if (delta_x < 0) begin //std Ball2, Hit L
+            if (delta_y > 0) begin //std Ball2, Hit T -> LT
+                dax_new <= -1;  day_new <= -1;
+                dbx_new <=  1;  dby_new <=  1;
+            end
+            else if (delta_y < 0) begin//std Ball2, Hit B -> LB
+                dax_new <= -1;  day_new <=  1;
+                dbx_new <=  1;  dby_new <= -1;
+            end
+            else if (delta_y == 0) begin//std Ball2, Hit C -> LC
+                dax_new <= -1;  day_new <= -1;
+                dbx_new <=  1;  dby_new <=  1;
+            end
+        end
+        else if (delta_x == 0) begin//std Ball2, Hit C
+            if (delta_y > 0) begin //std Ball2, Hit T -> CT
+                dax_new <= -1;  day_new <= -1;
+                dbx_new <=  1;  dby_new <=  1;
+            end
+            else if (delta_y < 0) begin//std Ball2, Hit B -> CB
+                dax_new <= -1;   day_new <=  1;
+                dbx_new <=  1;   dby_new <= -1;
+            end
+        end
+    end
 end
 
 endmodule
