@@ -5,8 +5,8 @@ module red_ball(
     input [9:0] x, 
     input [9:0] y, 
     
-    output [9:0] center_x,
-    output [9:0] center_y,
+    output reg [9:0] center_x,
+    output reg [9:0] center_y,
     
     output red_ball_on
     );
@@ -29,16 +29,13 @@ reg signed [4:0] vy = 8*3/5;
 reg signed [9:0] vx_reg;
 reg signed [9:0] vy_reg;
 
-reg [9:0] center_x;
-reg [9:0] center_y;
-
 // 빨간공-테이블 충돌 플래그
 wire reach_top, reach_bottom, reach_left, reach_right;
 
-assign reach_top = (`TABLE_IN_T >= (center_y - `BALL_SIZE)) ? 1 : 0;
-assign reach_bottom = (`TABLE_IN_B <= (center_y + `BALL_SIZE)) ? 1 : 0;
-assign reach_left = (`TABLE_IN_L >= (center_x - `BALL_SIZE)) ? 1 : 0;
-assign reach_right = (`TABLE_IN_R <= (center_x + `BALL_SIZE)) ? 1 : 0;
+assign reach_top = (`TABLE_IN_T >= (center_y - `BALL_R)) ? 1 : 0;
+assign reach_bottom = (`TABLE_IN_B <= (center_y + `BALL_R)) ? 1 : 0;
+assign reach_left = (`TABLE_IN_L >= (center_x - `BALL_R)) ? 1 : 0;
+assign reach_right = (`TABLE_IN_R <= (center_x + `BALL_R)) ? 1 : 0;
 
 // 테이블에 부딪혔을 때 방향 업데이트
 always @(posedge clk or posedge rst) begin
@@ -87,6 +84,6 @@ always @(posedge clk or posedge rst) begin
 end
 
 // 빨간공 그리기
-assign red_ball_on = (`BALL_SIZE*`BALL_SIZE >= (x-center_x)*(x-center_x) + (y-center_y)*(y-center_y)) ? 1 : 0;
+assign red_ball_on = (`BALL_R*`BALL_R >= (x-center_x)*(x-center_x) + (y-center_y)*(y-center_y)) ? 1 : 0;
 
 endmodule

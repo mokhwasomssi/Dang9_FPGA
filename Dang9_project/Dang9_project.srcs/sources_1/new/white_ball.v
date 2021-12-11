@@ -39,10 +39,10 @@ reg [5:0] hit_force;
 // 하얀공-테이블 충돌 플래그
 wire reach_top, reach_bottom, reach_left, reach_right;
 
-assign reach_top = (`TABLE_IN_T >= (center_y - `BALL_SIZE)) ? 1 : 0;
-assign reach_bottom = (`TABLE_IN_B <= (center_y + `BALL_SIZE)) ? 1 : 0;
-assign reach_left = (`TABLE_IN_L >= (center_x - `BALL_SIZE)) ? 1 : 0;
-assign reach_right = (`TABLE_IN_R <= (center_x + `BALL_SIZE)) ? 1 : 0;
+assign reach_top = (`TABLE_IN_T >= (center_y - `BALL_R)) ? 1 : 0;
+assign reach_bottom = (`TABLE_IN_B <= (center_y + `BALL_R)) ? 1 : 0;
+assign reach_left = (`TABLE_IN_L >= (center_x - `BALL_R)) ? 1 : 0;
+assign reach_right = (`TABLE_IN_R <= (center_x + `BALL_R)) ? 1 : 0;
 
 // 테이블에 부딪혔을 때 방향 업데이트
 always @(posedge clk or posedge rst) begin
@@ -131,6 +131,6 @@ always @(posedge clk or posedge rst) begin
 end
 
 // 하얀공 그리기
-assign white_ball_on = (`BALL_SIZE*`BALL_SIZE >= (x-center_x)*(x-center_x) + (y-center_y)*(y-center_y)) ? 1 : 0;
+assign white_ball_on = (`BALL_R*`BALL_R >= (x-center_x)*(x-center_x) + (y-center_y)*(y-center_y)) ? 1 : 0;
 
 endmodule
