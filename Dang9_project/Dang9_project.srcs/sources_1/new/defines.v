@@ -20,5 +20,5 @@
 `define TABLE_IN_T 40
 `define TABLE_IN_B 440
 
-`define COS(dx) (dx/(12*2)) // 충돌 각도의 cos, sin
-`define SIN(dy) (dy/(12*2))
+`define COS(dx) (dx/24) // 충돌 각도의 cos, sin
+`define SIN(dy) (dy/24)
