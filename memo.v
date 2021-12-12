@@ -1,58 +1,56 @@
-`define COS(dx) (dx/(12*2)) // 충돌 각도의 cos, sin
-`define SIN(dy) (dy/(12*2))
-
-`define BALL_D 24
+`include "defines.v"
 
 module collision(
     input clk,
     input rst, 
 
-    input [9:0] x1, // 현재 공의 중심좌표
+    input [9:0] x1, // ���� ���� �߽���ǥ
     input [9:0] y1,
     input [9:0] x2,
     input [9:0] y2,
 
-    input [9:0] vax, // 현재 공의 속도
-    input [9:0] vay,
-    input [9:0] vbx,
-    input [9:0] vby,
+    input signed [4:0] vax, // ���� ���� �ӵ�
+    input signed [4:0] vay,
+    input signed [4:0] vbx,
+    input signed [4:0] vby,
 
-    input [9:0] dax, // 현재 공의 방향
-    input [9:0] day,
-    input [9:0] dbx,
-    input [9:0] dby,
+    input signed [1:0] dax, // ���� ���� ����
+    input signed [1:0] day,
+    input signed [1:0] dbx,
+    input signed [1:0] dby,
 
-    output reg signed [9:0] vax_new, // 충돌 후 공의 속도
-    output reg signed [9:0] vay_new,
-    output reg signed [9:0] vbx_new,
-    output reg signed [9:0] vby_new,
+    output reg signed [4:0] vax_new, // �浹 �� ���� �ӵ�
+    output reg signed [4:0] vay_new,
+    output reg signed [4:0] vbx_new,
+    output reg signed [4:0] vby_new,
 
-    output reg signed [9:0] dax_new, // 충돌 후 공의 방향
-    output reg signed [9:0] day_new,
-    output reg signed [9:0] dbx_new,
-    output reg signed [9:0] dby_new,
+    output reg signed [1:0] dax_new, // �浹 �� ���� ����
+    output reg signed [1:0] day_new,
+    output reg signed [1:0] dbx_new,
+    output reg signed [1:0] dby_new,
 
     output collision
     );
 
 
-// 충돌 플래그
+// �浹 �÷���
 assign collision = (`BALL_D*`BALL_D >= (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)) ? 1 : 0;
 
-reg signed [9:0] delta_x;
-reg signed [9:0] delta_y;
+real signed [9:0] delta_x;
+real signed [9:0] delta_y;
 
-reg signed [9:0] vax_p;
-reg signed [9:0] vay_p;
-reg signed [9:0] vbx_p;
-reg signed [9:0] vby_p;
+real signed [9:0] vax_p;
+real signed [9:0] vay_p;
+real signed [9:0] vbx_p;
+real signed [9:0] vby_p;
 
-reg signed [9:0] vax_buf;
-reg signed [9:0] vay_buf;
-reg signed [9:0] vbx_buf;
-reg signed [9:0] vby_buf;
+real signed [9:0] vax_buf;
+real signed [9:0] vay_buf;
+real signed [9:0] vbx_buf;
+real signed [9:0] vby_buf;
 
-// 충돌 시 공의 중심좌표 저장 
+
+// �浹 �� ���� �߽���ǥ ���� 
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
         delta_x <= 0;
@@ -64,34 +62,33 @@ always @ (posedge clk or posedge rst) begin
     end 
 end
 
-// 충돌 각도가 업데이트 되면 충돌 후 속도 계산
-always @ (`COS(delta_x) or `SIN(delta_y)) begin
-    vax_p = vbx*`COS(delta_x) + vby*`SIN(delta_y);
-    vay_p = vay*`COS(delta_x) - vax*`SIN(delta_y);
-    vbx_p = vax*`COS(delta_x) + vay*`SIN(delta_y);
-    vby_p = vby*`COS(delta_x) - vbx*`SIN(delta_y);
+// �浹 ������ ������Ʈ �Ǹ� �浹 �� �ӵ� ���
+always @ (*) begin
+    vax_p = dbx*vbx*(delta_x/24) + dby*vby*(delta_y/24);
+    vay_p = day*vay*(delta_x/24) - dax*vax*(delta_y/24);
+    vbx_p = dax*vax*(delta_x/24) + day*vay*(delta_y/24);
+    vby_p = dby*vby*(delta_x/24) - dbx*vbx*(delta_y/24);
     
+    vax_buf = vax_p*(delta_x/24) - vay_p*(delta_y/24);
+    vay_buf = vax_p*(delta_y/24) + vay_p*(delta_x/24);
+    vbx_buf = vbx_p*(delta_x/24) - vby_p*(delta_y/24);
+    vby_buf = vbx_p*(delta_y/24) + vby_p*(delta_x/24);
+
     /*
-    vax_new = vax_p*`COS(delta_x) - vay_p*`SIN(delta_y);
-    vay_new = vax_p*`SIN(delta_y) + vay_p*`COS(delta_x);
-    vbx_new = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
-    vby_new = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
+    vax_new = vax_buf[9]? ~(vax_buf-1):vax_buf;
+    vay_new = vay_buf[9]? ~(vay_buf-1):vay_buf;
+    vbx_new = vbx_buf[9]? ~(vbx_buf-1):vbx_buf;
+    vby_new = vby_buf[9]? ~(vby_buf-1):vby_buf;
     */
-        
-    vax_buf = vax_p*`COS(delta_x) - vay_p*`SIN(delta_y);
-    vay_buf = vax_p*`SIN(delta_y) + vay_p*`COS(delta_x);
-    vbx_buf = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
-    vby_buf = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
+    if (vax_buf[9] == 1'b1) vax_new =  int'(-1 * vax_buf);
+    else vax_new = int'(vax_buf);
+    if (vay_buf[9] == 1'b1) vay_new =  int'(-1 * vay_buf);
+    else vay_new = int'(vay_buf);
 
-    if (vax_buf[9] == 1'b1) vax_new = -1 * vax_buf;
-    else vax_new = vax_buf;
-    if (vay_buf[9] == 1'b1) vay_new = -1 * vay_buf;
-    else vay_new = vay_buf;
-
-    if (vbx_buf[9] == 1'b1) vbx_new = -1 * vbx_buf;
-    else vbx_new = vbx_buf;
-    if (vby_buf[9] == 1'b1) vby_new = -1 * vby_buf;
-    else vby_new = vby_buf;
+    if (vbx_buf[9] == 1'b1) vbx_new = int'(-1 * vbx_buf);
+    else vbx_new = int'(vbx_buf);
+    if (vby_buf[9] == 1'b1) vby_new = int'(-1 * vby_buf);
+    else vby_new = int'(vby_buf);
 end
 
 //update direction
@@ -139,4 +136,5 @@ always @(posedge clk or posedge rst) begin
         end
     end
 end
+
 endmodule

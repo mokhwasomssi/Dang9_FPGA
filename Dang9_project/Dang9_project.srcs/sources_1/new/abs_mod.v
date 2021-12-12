@@ -6,6 +6,6 @@ module abs_mod(
   // output [9:0] abs_out;  // absolute unit output 10bit
    //if abs_in MSB is '0' then abs_in = positive
    //   abs_in MSB is '1' then abs_in = negative
-   assign abs_out = abs_in[9]?~(abs_in-1):abs_in;
+   assign abs_out = abs_in[9]? ~(abs_in-1):abs_in;
    
 endmodule
