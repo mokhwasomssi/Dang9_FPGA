@@ -77,7 +77,7 @@ always @ (`COS(delta_x) or `SIN(delta_y)) begin
     vbx_new = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
     vby_new = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
     */
-    
+        
     vax_buf = vax_p*`COS(delta_x) - vay_p*`SIN(delta_y);
     vay_buf = vax_p*`SIN(delta_y) + vay_p*`COS(delta_x);
     vbx_buf = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);

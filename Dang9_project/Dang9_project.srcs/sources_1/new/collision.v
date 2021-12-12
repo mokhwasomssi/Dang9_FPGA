@@ -4,27 +4,27 @@ module collision(
     input clk,
     input rst, 
 
-    input [9:0] x1, // ÇöÀç °øÀÇ Áß½ÉÁÂÇ¥
+    input [9:0] x1, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½Ç¥
     input [9:0] y1,
     input [9:0] x2,
     input [9:0] y2,
 
-    input signed [4:0] vax, // ÇöÀç °øÀÇ ¼Óµµ
+    input signed [4:0] vax, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
     input signed [4:0] vay,
     input signed [4:0] vbx,
     input signed [4:0] vby,
 
-    input signed [1:0] dax, // ÇöÀç °øÀÇ ¹æÇâ
+    input signed [1:0] dax, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     input signed [1:0] day,
     input signed [1:0] dbx,
     input signed [1:0] dby,
 
-    output reg signed [4:0] vax_new, // Ãæµ¹ ÈÄ °øÀÇ ¼Óµµ
+    output reg signed [4:0] vax_new, // ï¿½æµ¹ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
     output reg signed [4:0] vay_new,
     output reg signed [4:0] vbx_new,
     output reg signed [4:0] vby_new,
 
-    output reg signed [1:0] dax_new, // Ãæµ¹ ÈÄ °øÀÇ ¹æÇâ
+    output reg signed [1:0] dax_new, // ï¿½æµ¹ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     output reg signed [1:0] day_new,
     output reg signed [1:0] dbx_new,
     output reg signed [1:0] dby_new,
@@ -33,7 +33,7 @@ module collision(
     );
 
 
-// Ãæµ¹ ÇÃ·¡±×
+// ï¿½æµ¹ ï¿½Ã·ï¿½ï¿½ï¿½
 assign collision = (`BALL_D*`BALL_D >= (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)) ? 1 : 0;
 
 reg signed [9:0] delta_x;
@@ -50,7 +50,7 @@ reg signed [9:0] vbx_buf;
 reg signed [9:0] vby_buf;
 
 
-// Ãæµ¹ ½Ã °øÀÇ Áß½ÉÁÂÇ¥ ÀúÀå 
+// ï¿½æµ¹ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ 
 always @ (posedge clk or posedge rst) begin
     if(rst) begin
         delta_x <= 0;
@@ -62,7 +62,7 @@ always @ (posedge clk or posedge rst) begin
     end 
 end
 
-// Ãæµ¹ °¢µµ°¡ ¾÷µ¥ÀÌÆ® µÇ¸é Ãæµ¹ ÈÄ ¼Óµµ °è»ê
+// ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ç¸ï¿½ ï¿½æµ¹ ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½
 always @ (`COS(delta_x) or `SIN(delta_y)) begin
     vax_p = dbx*vbx*`COS(delta_x) + dby*vby*`SIN(delta_y);
     vay_p = day*vay*`COS(delta_x) - dax*vax*`SIN(delta_y);
@@ -74,11 +74,21 @@ always @ (`COS(delta_x) or `SIN(delta_y)) begin
     vbx_buf = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
     vby_buf = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
 
-    // À½ÀÇ ¼Óµµ ¾ç¼ö·Î º¯È¯. ¹æÇâÀº µû·Î Ã³¸®
+    /*
     vax_new = vax_buf[9]? ~(vax_buf-1):vax_buf;
     vay_new = vay_buf[9]? ~(vay_buf-1):vay_buf;
     vbx_new = vbx_buf[9]? ~(vbx_buf-1):vbx_buf;
     vby_new = vby_buf[9]? ~(vby_buf-1):vby_buf;
+    */
+    if (vax_buf[9] == 1'b1) vax_new = -1 * vax_buf;
+    else vax_new = vax_buf;
+    if (vay_buf[9] == 1'b1) vay_new = -1 * vay_buf;
+    else vay_new = vay_buf;
+
+    if (vbx_buf[9] == 1'b1) vbx_new = -1 * vbx_buf;
+    else vbx_new = vbx_buf;
+    if (vby_buf[9] == 1'b1) vby_new = -1 * vby_buf;
+    else vby_new = vby_buf;
 end
 
 //update direction
