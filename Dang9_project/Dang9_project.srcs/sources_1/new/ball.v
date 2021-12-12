@@ -20,6 +20,7 @@ parameter BB_START_X = `MAX_X/3*2;
 parameter BB_START_Y = `MAX_Y/2;
 
 parameter MAX_HIT_FORCE = 12;
+parameter MAT_HIT_ANGLE = 360;
 
 // 60Hz clock
 wire refr_tick; 
@@ -111,8 +112,11 @@ end
 /*---------------------------------------------------------*/
 reg [6:0] cnt1;
 reg [6:0] cnt2;
+reg [6:0] cnt3;
 reg [5:0] hit_force_t;
 reg [5:0] hit_force;
+reg [8:0] hit_angle_t;
+reg [8:0] hit_angle;
 
 always @(posedge clk or posedge rst) begin // 치는 힘 업데이트
    if(rst) begin
@@ -142,7 +146,37 @@ always @(posedge clk or posedge rst) begin // 치는 힘 업데이트
    end
 end
 
-deg_set deg_set_inst (hit_force, 120, vax, vay, dax, day); // 공속도 출력
+always @(posedge clk or posedge rst) begin // 치는 각도 업데이트
+    if(rst) begin
+        hit_angle <= 0;
+    end
+    else if (refr_tick) begin
+        if (key == 5'h11) begin // 1번키 누르고 있으면 각도 증가
+            if (hit_angle_t < 360 && cnt3 > 5) begin
+                hit_angle_t <= hit_angle_t + 5;
+                cnt3 <= 0;
+            end
+            else begin
+                cnt3 <= cnt3 + 1;
+            end
+        end
+        if (key == 5'h17) begin // 7번키 누르고 있으면 각도 감소
+            if (hit_angle_t > 0 && cnt3 > 5) begin
+                hit_angle_t <= hit_angle_t - 5;
+                cnt3 <= 0;
+            end
+            else begin
+                cnt3 <= cnt3 + 1;
+            end
+        end
+    end 
+    else if(key_pulse == 5'h10) begin// 0번키를 누르면 치는 힘 인가
+        hit_angle <= hit_angle_t;
+        hit_angle_t <= 0;
+    end
+end
+
+deg_set deg_set_inst (hit_force, hit_angle, vax, vay, dax, day); // 공속도 출력
 
 reg collision;
 
