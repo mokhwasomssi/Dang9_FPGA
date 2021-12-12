@@ -19,26 +19,26 @@ module deg_set(
     always @(R or DEG) begin // rom
             case(R)
             12 : case(DEG)
-                 0    :    begin    Vx    =    12    ;    Vy    =    0    ;    Dx    =    1    ;    Dy    =    1    ;    end
-                 5    :    begin    Vx    =    11    ;    Vy    =    1    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                10    :    begin    Vx    =    11    ;    Vy    =    2    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                15    :    begin    Vx    =    11    ;    Vy    =    3    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                20    :    begin    Vx    =    11    ;    Vy    =    4    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                25    :    begin    Vx    =    10    ;    Vy    =    5    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                30    :    begin    Vx    =    10    ;    Vy    =    6    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                35    :    begin    Vx    =    9    ;    Vy    =    6    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                40    :    begin    Vx    =    9    ;    Vy    =    7    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                45    :    begin    Vx    =    8    ;    Vy    =    8    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                50    :    begin    Vx    =    7    ;    Vy    =    9    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                55    :    begin    Vx    =    6    ;    Vy    =    9    ;    Dx    =    0    ;    Dy    =    -1    ;    end
-                60    :    begin    Vx    =    6    ;    Vy    =    10    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                65    :    begin    Vx    =    5    ;    Vy    =    10    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                70    :    begin    Vx    =    4    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                75    :    begin    Vx    =    3    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                80    :    begin    Vx    =    2    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                85    :    begin    Vx    =    1    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                90    :    begin    Vx    =    0    ;    Vy    =    12    ;    Dx    =    1    ;    Dy    =    -1    ;    end
-                95    :    begin    Vx    =    2    ;    Vy    =    11    ;    Dx    =    -1    ;    Dy    =    -1    ;    end
+                  0    :    begin    Vx    =    12    ;    Vy    =    0    ;    Dx    =    1    ;    Dy    =    1    ;    end
+                  5    :    begin    Vx    =    11    ;    Vy    =    1    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 10    :    begin    Vx    =    11    ;    Vy    =    2    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 15    :    begin    Vx    =    11    ;    Vy    =    3    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 20    :    begin    Vx    =    11    ;    Vy    =    4    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 25    :    begin    Vx    =    10    ;    Vy    =    5    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 30    :    begin    Vx    =    10    ;    Vy    =    6    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 35    :    begin    Vx    =    9    ;    Vy    =    6    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 40    :    begin    Vx    =    9    ;    Vy    =    7    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 45    :    begin    Vx    =    8    ;    Vy    =    8    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 50    :    begin    Vx    =    7    ;    Vy    =    9    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 55    :    begin    Vx    =    6    ;    Vy    =    9    ;    Dx    =    0    ;    Dy    =    -1    ;    end
+                 60    :    begin    Vx    =    6    ;    Vy    =    10    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 65    :    begin    Vx    =    5    ;    Vy    =    10    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 70    :    begin    Vx    =    4    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 75    :    begin    Vx    =    3    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 80    :    begin    Vx    =    2    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 85    :    begin    Vx    =    1    ;    Vy    =    11    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 90    :    begin    Vx    =    0    ;    Vy    =    12    ;    Dx    =    1    ;    Dy    =    -1    ;    end
+                 95    :    begin    Vx    =    2    ;    Vy    =    11    ;    Dx    =    -1    ;    Dy    =    -1    ;    end
                 100    :    begin    Vx    =    3    ;    Vy    =    11    ;    Dx    =    -1    ;    Dy    =    -1    ;    end
                 105    :    begin    Vx    =    4    ;    Vy    =    11    ;    Dx    =    -1    ;    Dy    =    -1    ;    end
                 110    :    begin    Vx    =    5    ;    Vy    =    11    ;    Dx    =    -1    ;    Dy    =    -1    ;    end
