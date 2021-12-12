@@ -83,11 +83,15 @@ always @ (`COS(delta_x) or `SIN(delta_y)) begin
     vbx_buf = vbx_p*`COS(delta_x) - vby_p*`SIN(delta_y);
     vby_buf = vbx_p*`SIN(delta_y) + vby_p*`COS(delta_x);
 
-    vax_new = vax_buf[9]? ~(vax_buf-1):vax_buf;
-    vay_new = vay_buf[9]? ~(vay_buf-1):vay_buf;
-    vbx_new = vbx_buf[9]? ~(vbx_buf-1):vbx_buf;
-    vby_new = vby_buf[9]? ~(vby_buf-1):vby_buf;
-    
+    if (vax_buf[9] == 1'b1) vax_new = -1 * vax_buf;
+    else vax_new = vax_buf;
+    if (vay_buf[9] == 1'b1) vay_new = -1 * vay_buf;
+    else vay_new = vay_buf;
+
+    if (vbx_buf[9] == 1'b1) vbx_new = -1 * vbx_buf;
+    else vbx_new = vbx_buf;
+    if (vby_buf[9] == 1'b1) vby_new = -1 * vby_buf;
+    else vby_new = vby_buf;
 end
 
 //update direction
@@ -135,5 +139,4 @@ always @(posedge clk or posedge rst) begin
         end
     end
 end
-
 endmodule
