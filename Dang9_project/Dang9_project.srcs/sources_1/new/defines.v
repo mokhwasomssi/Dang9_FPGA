@@ -22,3 +22,5 @@
 
 `define COS(dx) (dx/24) // 충돌 각도의 cos, sin
 `define SIN(dy) (dy/24)
+
+//`define MAX_HIT_FORCE 12
