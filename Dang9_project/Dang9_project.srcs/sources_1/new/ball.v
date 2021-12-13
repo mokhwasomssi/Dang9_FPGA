@@ -323,32 +323,44 @@ always @ (posedge clk or posedge rst) begin // 공B의 속력
         vbx <= vbx_new;
         vby <= vby_new;
 
-        if (vbx > vby) begin
+        if(vbx == 0)begin
+            flag <= 0;
+        end
+        else if (vby == 0) begin
+            flag <= 1;
+        end
+        else if (vbx > vby) begin
            ratio <= vbx / vby;
-           flag <= 0;
+           flag <= 2;
         end
         else if (vbx < vby) begin
             ratio <= vby / vbx;
-            flag <= 1;
+            flag <= 3;
         end
         else if (vbx == vby) begin
             ratio <= 1;
-            flag <= 2;
+            flag <= 4;
         end
     end
     else if (refr_tick) begin // 시간에 따라 속도 감소
         if ((cnt4 == 20) && (vbx > 0 || vby > 0)) begin
             if (flag == 0) begin
+                vby <= vby - 1;
+            end
+            else if (flag == 1) begin
+                vbx <= vbx - 1;
+            end
+            else if (flag == 2) begin
                 vbx <= vbx - ratio;
                 vby <= vby - 1;
                 cnt4 <= 0;
             end
-            else if (flag == 1) begin
+            else if (flag == 3) begin
                 vbx <= vbx - 1;
                 vby <= vby - ratio;
                 cnt4 <= 0;
             end
-            else if (flag == 2) begin
+            else if (flag == 4) begin
                 vbx <= vbx - 1;
                 vby <= vby - 1;
                 cnt4 <= 0;
