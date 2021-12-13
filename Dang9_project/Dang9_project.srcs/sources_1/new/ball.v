@@ -87,10 +87,10 @@ always @ (*) begin
     vbx_p = dax*vax*(cbx-cax) + day*vay*(cby-cay);
     vby_p = dby*vby*(cbx-cax) - dbx*vbx*(cby-cay);
    
-    vax_buf = vax_p*(cbx-cax) - vay_p*(cbx-cax);
-    vay_buf = vax_p*(cbx-cax) + vay_p*(cbx-cax);
-    vbx_buf = vbx_p*(cbx-cax) - vby_p*(cbx-cax);
-    vby_buf = vbx_p*(cbx-cax) + vby_p*(cbx-cax);
+    vax_buf = vax_p*(cbx-cax) - vay_p*(cby-cay);
+    vay_buf = vax_p*(cby-cay) + vay_p*(cbx-cax);
+    vbx_buf = vbx_p*(cbx-cax) - vby_p*(cby-cay);
+    vby_buf = vbx_p*(cby-cay) + vby_p*(cbx-cax);
 
     // 음의 속도 양수로 변환. 방향은 따로 처리
     if (vax_buf[9] == 1'b1) vax_new = -1 * (vax_buf/12);
@@ -102,7 +102,6 @@ always @ (*) begin
     if (vby_buf[9] == 1'b1) vby_new = -1 * (vby_buf/12);
     else vby_new = (vby_buf/12);
     state = 1;
-    
     end
     else if (ba_bb == 0 && state == 1) begin
         state = 0;
