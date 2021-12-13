@@ -388,11 +388,16 @@ end
 
 /*---------------------------------------------------------*/
 // HOLE A, B, C, D
+// 추후 BALL_R 설정
 /*---------------------------------------------------------*/
-reg [9:0] hole_cax, hole_cay;
-reg [9:0] hole_cbx, hole_cby;
-reg [9:0] hole_ccx, hole_ccy;
-reg [9:0] hole_cdx, hole_cdy;
+parameter HOLE_CA_X = 40;
+parameter HOLE_CA_Y = 40;
+parameter HOLE_CB_X = 600;
+parameter HOLE_CB_Y = 40;
+parameter HOLE_CC_X = 40;
+parameter HOLE_CC_Y = 440;
+parameter HOLE_CD_X = 600;
+parameter HOLE_CD_Y = 440;
 
 reg ha_ba, ha_bb;
 reg hb_ba, hb_bb;
@@ -400,19 +405,14 @@ reg hc_ba, hc_bb;
 reg hd_ba, hd_bb;
 
 always @(posedge clk or posedge rst) begin
-    ha_ba = (`BALL_D*`BALL_D >= (hole_cax-cax)*(hole_cax-cax) + (hole_cay-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
-    ha_bb = (`BALL_D*`BALL_D >= (hole_cax-cbx)*(hole_cax-cbx) + (hole_cay-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
-    
-    hb_ba = (`BALL_D*`BALL_D >= (hole_cbx-cax)*(hole_cax-cax) + (hole_cby-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
-    hb_bb = (`BALL_D*`BALL_D >= (hole_cbx-cbx)*(hole_cax-cbx) + (hole_cby-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
-
-    hc_ba = (`BALL_D*`BALL_D >= (hole_ccx-cax)*(hole_cax-cax) + (hole_ccy-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
-    hc_bb = (`BALL_D*`BALL_D >= (hole_ccx-cbx)*(hole_cax-cbx) + (hole_ccy-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
-    
-    hd_ba = (`BALL_D*`BALL_D >= (hole_cdx-cax)*(hole_cax-cax) + (hole_cdy-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
-    hd_bb = (`BALL_D*`BALL_D >= (hole_cdx-cbx)*(hole_cax-cbx) + (hole_cdy-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
-
-    if(ha_ba || ha_bb || hb_ba || hb_bb || hc_ba || hc_bb || hd_ba || hd_bb) ba_bb = 1; //Just test
+    if (rst) begin
+        
+    end
+    else begin
+        ha_ba = (`BALL_R*`BALL_R >= (HOLE_CA_X-cax)*(HOLE_CA_X-cax) + (HOLE_CA_Y-cay)*(HOLE_CA_Y-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
+        ha_bb = (`BALL_R*`BALL_R >= (HOLE_CA_X-cbx)*(HOLE_CA_X-cbx) + (HOLE_CA_Y-cby)*(HOLE_CA_Y-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
+        if(ha_ba || ha_bb || hb_ba) ba_bb = 1; //Just test
+    end
 end
 
 /*---------------------------------------------------------*/
