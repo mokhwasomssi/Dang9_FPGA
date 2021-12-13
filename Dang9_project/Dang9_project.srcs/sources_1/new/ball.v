@@ -123,26 +123,6 @@ end
 */
 
 /*---------------------------------------------------------*/
-// 공A-공B 충돌 후 공B의 속도
-//
-// <설명>
-//  공A-공B 충돌 후 공B 속도 업데이트
-/*---------------------------------------------------------*/
-reg [5:0] bb_hit_force_t, bb_hit_force;
-reg [8:0] bb_hit_angle_t, bb_hit_angle;
-
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
-        bb_hit_force <= 0;
-        bb_hit_angle <= 0;
-    end
-    else if (ba_bb) begin
-        bb_hit_force <= ba_hit_force;
-        bb_hit_angle <= bb_hit_angle;
-    end
-end
-
-/*---------------------------------------------------------*/
 // 공A 발사
 //
 // <설명>
@@ -162,7 +142,6 @@ end
 reg [6:0] cnt1, cnt2, cnt3; // 키 입력 감도
 reg [5:0] ba_hit_force_t, ba_hit_force;
 reg [8:0] ba_hit_angle_t, ba_hit_angle;
-reg collision;
 
 always @(posedge clk or posedge rst) begin // 치는 힘 업데이트
    if(rst) begin
@@ -232,8 +211,29 @@ always @(posedge clk or posedge rst) begin // 치는 각도 업데이트
     end
 end
 
-deg_set deg_set_inst (ba_hit_force, ba_hit_angle, vax, vay, dax, day); // 치는 힘과 각도를 받아서 공속도 출력
-deg_set deg_set_inst (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // 충돌 시 공B의 속도 업데이트
+deg_set deg_set_ba (ba_hit_force, ba_hit_angle, vax, vay, dax, day); // 치는 힘과 각도를 받아서 공속도 출력
+
+/*---------------------------------------------------------*/
+// 공A-공B 충돌 후 공B의 속도
+//
+// <설명>
+//  공A-공B 충돌 후 공B 속도 업데이트
+/*---------------------------------------------------------*/
+reg [5:0] bb_hit_force_t, bb_hit_force;
+reg [8:0] bb_hit_angle_t, bb_hit_angle;
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        bb_hit_force <= 0;
+        bb_hit_angle <= 0;
+    end
+    else if (ba_bb) begin
+        bb_hit_force <= ba_hit_force;
+        bb_hit_angle <= ba_hit_angle;
+    end
+end
+
+deg_set deg_set_bb (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // 충돌 시 공B의 속도 업데이트
 
 /*---------------------------------------------------------*/
 // 공A의 위치
@@ -242,37 +242,39 @@ deg_set deg_set_inst (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // 충돌 �
 //  방향과 속력을 나누어서 관리. 
 //  방향과 속력을 곱해서 구한 속도로 공A의 중심좌표 업데이트
 /*---------------------------------------------------------*/
+reg ba_collision;
+
 always @(posedge clk or posedge rst) begin // 공A의 방향
     if(rst | key_pulse == 5'h10) begin 
         dax1 <= 0;
         day1 <= 0;
-        collision <= 0;
+        ba_collision <= 0;
     end
     else begin
         if(ba_top) begin // 테이블 위쪽 충돌
             day1 <= 1;
-            collision <= 1;
+            ba_collision <= 1;
         end
         else if (ba_bottom) begin  // 테이블 아래쪽 충돌
             day1 <= -1;
-            collision <= 1;
+            ba_collision <= 1;
         end
         else if (ba_left) begin // 테이블 왼쪽 충돌
             dax1 <= 1;
-            collision <= 1;
+            ba_collision <= 1;
         end
         else if (ba_right) begin // 테이블 오른쪽 충돌
             dax1 <= -1;
-            collision <= 1;
+            ba_collision <= 1;
         end
         else if (ba_bb) begin // 공B와 충돌
             if (cbx-cax >= 0)     dax1 <= -1;
             else if (cbx-cax < 0) dax1 <=  1;
             if (cby-cay >= 0)     day1 <= -1;
             else if (cby-cay < 0) day1 <=  1;
-            collision <= 1;
+            ba_collision <= 1;
         end
-        else if(collision == 0) begin // deg_set에서 출력하는 방향을 넣어줌
+        else if(ba_collision == 0) begin // deg_set에서 출력하는 방향을 넣어줌
             dax1 <= dax;
             day1 <= day;
         end
@@ -312,9 +314,6 @@ always @(posedge clk or posedge rst) begin // 공A 중심 좌표 업데이트
     end
 end
 
-
-
-
 /*---------------------------------------------------------*/
 // 공B의 위치
 //
@@ -322,29 +321,33 @@ end
 //  방향과 속력을 나누어서 관리. 
 //  방향과 속력을 곱해서 구한 속도로 공B의 중심좌표 업데이트
 /*---------------------------------------------------------*/
+reg bb_collision;
+
 always @(posedge clk or posedge rst) begin // 공B의 방향
     if(rst) begin
-        dbx <= 1;
-        dby <= -1;
+        dbx1 <= 0;
+        dby1 <= 0;
     end
     else begin
         if(bb_top) begin
-            dby <= 1;
+            dby1 <= 1;
         end
         else if (bb_bottom) begin
-            dby <= -1;
+            dby1 <= -1;
         end
         else if (bb_left) begin
-            dbx <= 1;
+            dbx1 <= 1;
         end
         else if (bb_right) begin 
-            dbx <= -1;
+            dbx1 <= -1;
         end
         else if (ba_bb) begin
-            if (cbx-cax >= 0)     dbx <=  1;
-            else if (cbx-cax < 0) dbx <= -1;
-            if (cby-cay >= 0)     dby <=  1;
-            else if (cby-cay < 0) dby <= -1;
+            bb_collision <= 1;
+        end
+        else if (bb_collision == 1) begin // 공 충돌 시에 deg_set에서 출력한 방향 받음
+            dbx1 <= dax1; // dbx
+            dby1 <= day1;
+            bb_collision <= 0;
         end
     end
 end
@@ -355,8 +358,8 @@ reg [4:0] ratio;
 
 always @ (posedge clk or posedge rst) begin // 공B의 속력
     if(rst) begin
-        vbx <= 0;
-        vby <= 0;
+        vbx1 <= 0;
+        vby1 <= 0;
     end
     else begin
         vbx1 <= vbx;
@@ -370,8 +373,8 @@ always @(posedge clk or posedge rst) begin // 공B 최종 속도
         vby_reg <= 0;
     end
     else begin
-        vbx_reg <= dbx*vbx;
-        vby_reg <= dby*vby;
+        vbx_reg <= dbx1*vbx1;
+        vby_reg <= dby1*vby1;
     end
 end
 
@@ -386,6 +389,36 @@ always @(posedge clk or posedge rst) begin // 공B 중심 좌표 업데이트
     end
 end
 
+/*---------------------------------------------------------*/
+// HOLE A, B, C, D
+/*---------------------------------------------------------*/
+/*
+reg [9:0] hole_cax, hole_cay;
+reg [9:0] hole_cbx, hole_cby;
+reg [9:0] hole_ccx, hole_ccy;
+reg [9:0] hole_cdx, hole_cdy;
+
+reg ha_ba, ha_bb;
+reg hb_ba, hb_bb;
+reg hc_ba, hc_bb;
+reg hd_ba, hd_bb;
+
+always @(posedge clk or posedge rst) begin
+    ha_ba = (`BALL_D*`BALL_D >= (hole_cax-cax)*(hole_cax-cax) + (hole_cay-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
+    ha_bb = (`BALL_D*`BALL_D >= (hole_cax-cbx)*(hole_cax-cbx) + (hole_cay-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
+    
+    hb_ba = (`BALL_D*`BALL_D >= (hole_cbx-cax)*(hole_cax-cax) + (hole_cby-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
+    hb_bb = (`BALL_D*`BALL_D >= (hole_cbx-cbx)*(hole_cax-cbx) + (hole_cby-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
+
+    hc_ba = (`BALL_D*`BALL_D >= (hole_ccx-cax)*(hole_cax-cax) + (hole_ccy-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
+    hc_bb = (`BALL_D*`BALL_D >= (hole_ccx-cbx)*(hole_cax-cbx) + (hole_ccy-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
+    
+    hd_ba = (`BALL_D*`BALL_D >= (hole_cdx-cax)*(hole_cax-cax) + (hole_cdy-cay)*(hole_cay-cay)) ? 1 : 0; // holeA-ballaA 충돌 감지
+    hd_bb = (`BALL_D*`BALL_D >= (hole_cdx-cbx)*(hole_cax-cbx) + (hole_cdy-cby)*(hole_cay-cby)) ? 1 : 0; // holeA-ballaB 충돌 감지
+
+    if(ha_ba || ha_bb || hb_ba || hb_bb || hc_ba || hc_bb || hd_ba || hd_bb) ba_bb = 1; //Just test
+end
+*/
 /*---------------------------------------------------------*/
 // 공A, B 그리기
 /*---------------------------------------------------------*/
