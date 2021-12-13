@@ -1,0 +1,362 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Mon Dec 13 23:16:28 2021
+| Host         : DESKTOP-8PEBONS running 64-bit major release  (build 9200)
+| Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
+| Design       : top
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 65
++-----------+----------+---------------------------+------------+
+| Rule      | Severity | Description               | Violations |
++-----------+----------+---------------------------+------------+
+| DPIR-1    | Warning  | Asynchronous driver check | 16         |
+| SYNTH-10  | Warning  | Wide multiplier           | 30         |
+| TIMING-20 | Warning  | Non-clocked latch         | 19         |
++-----------+----------+---------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+DPIR-1#1 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4 input pin graph_inst/ball_inst/ha_ba4/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#2 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4__0 input pin graph_inst/ball_inst/ha_ba4__0/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#3 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4__0 input pin graph_inst/ball_inst/ha_ba4__0/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#4 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4__1 input pin graph_inst/ball_inst/ha_ba4__1/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#5 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4__2 input pin graph_inst/ball_inst/ha_ba4__2/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#6 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4__3 input pin graph_inst/ball_inst/ha_ba4__3/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#7 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4__3 input pin graph_inst/ball_inst/ha_ba4__3/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#8 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_ba4__4 input pin graph_inst/ball_inst/ha_ba4__4/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#9 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4 input pin graph_inst/ball_inst/ha_bb4/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#10 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4__0 input pin graph_inst/ball_inst/ha_bb4__0/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#11 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4__0 input pin graph_inst/ball_inst/ha_bb4__0/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#12 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4__1 input pin graph_inst/ball_inst/ha_bb4__1/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#13 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4__2 input pin graph_inst/ball_inst/ha_bb4__2/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#14 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4__3 input pin graph_inst/ball_inst/ha_bb4__3/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#15 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4__3 input pin graph_inst/ball_inst/ha_bb4__3/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPIR-1#16 Warning
+Asynchronous driver check  
+DSP graph_inst/ball_inst/ha_bb4__4 input pin graph_inst/ball_inst/ha_bb4__4/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+SYNTH-10#1 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ba_bb3 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#2 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ba_bb3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#3 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ba_bb3__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#4 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ba_bb3__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#5 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ba_bb3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#6 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ba_bb3__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#7 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#8 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#9 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#10 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__10 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#11 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#12 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#13 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#14 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__5 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#15 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__6 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#16 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__7 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#17 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__8 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#18 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__9 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#19 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_ba4 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#20 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_ba4__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#21 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_ba4__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#22 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_ba4__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#23 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_ba4__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#24 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_ba4__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#25 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_bb4 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#26 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_bb4__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#27 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_bb4__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#28 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_bb4__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#29 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_bb4__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#30 Warning
+Wide multiplier  
+Detected multiplier at graph_inst/ball_inst/ha_bb4__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Dx_reg[0] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Dx_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Dx_reg[1] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Dx_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Dy_reg[1] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Dy_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vx_reg[0] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vx_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vx_reg[1] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vx_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vx_reg[2] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vx_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vx_reg[3] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vx_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vy_reg[0] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vy_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vy_reg[1] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vy_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vy_reg[2] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vy_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_ba/Vy_reg[3] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_ba/Vy_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vx_reg[0] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vx_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vx_reg[1] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vx_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vx_reg[2] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vx_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vx_reg[3] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vx_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vy_reg[0] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vy_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vy_reg[1] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vy_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vy_reg[2] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vy_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch graph_inst/ball_inst/deg_set_bb/Vy_reg[3] cannot be properly analyzed as its control pin graph_inst/ball_inst/deg_set_bb/Vy_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+
