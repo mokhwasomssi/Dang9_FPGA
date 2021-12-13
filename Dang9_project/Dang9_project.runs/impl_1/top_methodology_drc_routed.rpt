@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Dec 14 02:03:05 2021
+| Date         : Tue Dec 14 04:05:32 2021
 | Host         : DESKTOP-8PEBONS running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -431,67 +431,67 @@ Related violations: <none>
 
 SYNTH-10#48 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__23 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#49 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__24 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#50 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__25 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__5 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#51 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__26 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__6 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#52 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__27 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__7 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#53 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__28 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__8 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#54 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb4__9 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#55 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb5 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#56 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__5 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb5__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#57 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__6 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb5__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#58 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__7 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb5__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#59 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__8 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb5__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 SYNTH-10#60 Warning
 Wide multiplier  
-Detected multiplier at graph_inst/ball_inst/ball_rgb4__9 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Detected multiplier at graph_inst/ball_inst/ball_rgb5__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 TIMING-20#1 Warning

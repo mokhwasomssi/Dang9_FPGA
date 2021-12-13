@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Dec 14 02:03:03 2021
+| Date         : Tue Dec 14 04:05:29 2021
 | Host         : DESKTOP-8PEBONS running 64-bit major release  (build 9200)
 | Command      : report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
 | Design       : top
@@ -510,132 +510,132 @@ Related violations: <none>
 
 DPIP-1#95 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__23 input graph_inst/ball_inst/ball_rgb4__23/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__3 input graph_inst/ball_inst/ball_rgb4__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#96 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__23 input graph_inst/ball_inst/ball_rgb4__23/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__3 input graph_inst/ball_inst/ball_rgb4__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#97 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__24 input graph_inst/ball_inst/ball_rgb4__24/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__4 input graph_inst/ball_inst/ball_rgb4__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#98 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__24 input graph_inst/ball_inst/ball_rgb4__24/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__4 input graph_inst/ball_inst/ball_rgb4__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#99 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__25 input graph_inst/ball_inst/ball_rgb4__25/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__5 input graph_inst/ball_inst/ball_rgb4__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#100 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__25 input graph_inst/ball_inst/ball_rgb4__25/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__5 input graph_inst/ball_inst/ball_rgb4__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#101 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__26 input graph_inst/ball_inst/ball_rgb4__26/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__6 input graph_inst/ball_inst/ball_rgb4__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#102 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__26 input graph_inst/ball_inst/ball_rgb4__26/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__6 input graph_inst/ball_inst/ball_rgb4__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#103 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__27 input graph_inst/ball_inst/ball_rgb4__27/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__7 input graph_inst/ball_inst/ball_rgb4__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#104 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__27 input graph_inst/ball_inst/ball_rgb4__27/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__7 input graph_inst/ball_inst/ball_rgb4__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#105 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__28 input graph_inst/ball_inst/ball_rgb4__28/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__8 input graph_inst/ball_inst/ball_rgb4__8/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#106 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__28 input graph_inst/ball_inst/ball_rgb4__28/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__8 input graph_inst/ball_inst/ball_rgb4__8/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#107 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__3 input graph_inst/ball_inst/ball_rgb4__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__9 input graph_inst/ball_inst/ball_rgb4__9/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#108 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__3 input graph_inst/ball_inst/ball_rgb4__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb4__9 input graph_inst/ball_inst/ball_rgb4__9/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#109 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__4 input graph_inst/ball_inst/ball_rgb4__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5 input graph_inst/ball_inst/ball_rgb5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#110 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__4 input graph_inst/ball_inst/ball_rgb4__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5 input graph_inst/ball_inst/ball_rgb5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#111 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__5 input graph_inst/ball_inst/ball_rgb4__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__0 input graph_inst/ball_inst/ball_rgb5__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#112 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__5 input graph_inst/ball_inst/ball_rgb4__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__0 input graph_inst/ball_inst/ball_rgb5__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#113 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__6 input graph_inst/ball_inst/ball_rgb4__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__1 input graph_inst/ball_inst/ball_rgb5__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#114 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__6 input graph_inst/ball_inst/ball_rgb4__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__1 input graph_inst/ball_inst/ball_rgb5__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#115 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__7 input graph_inst/ball_inst/ball_rgb4__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__2 input graph_inst/ball_inst/ball_rgb5__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#116 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__7 input graph_inst/ball_inst/ball_rgb4__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__2 input graph_inst/ball_inst/ball_rgb5__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#117 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__8 input graph_inst/ball_inst/ball_rgb4__8/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__3 input graph_inst/ball_inst/ball_rgb5__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#118 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__8 input graph_inst/ball_inst/ball_rgb4__8/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__3 input graph_inst/ball_inst/ball_rgb5__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#119 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__9 input graph_inst/ball_inst/ball_rgb4__9/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__4 input graph_inst/ball_inst/ball_rgb5__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#120 Warning
 Input pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__9 input graph_inst/ball_inst/ball_rgb4__9/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP graph_inst/ball_inst/ball_rgb5__4 input graph_inst/ball_inst/ball_rgb5__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
@@ -875,67 +875,67 @@ Related violations: <none>
 
 DPOP-1#48 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__23 output graph_inst/ball_inst/ball_rgb4__23/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb4__3 output graph_inst/ball_inst/ball_rgb4__3/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#49 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__24 output graph_inst/ball_inst/ball_rgb4__24/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb4__4 output graph_inst/ball_inst/ball_rgb4__4/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#50 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__25 output graph_inst/ball_inst/ball_rgb4__25/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb4__5 output graph_inst/ball_inst/ball_rgb4__5/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#51 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__26 output graph_inst/ball_inst/ball_rgb4__26/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb4__6 output graph_inst/ball_inst/ball_rgb4__6/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#52 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__27 output graph_inst/ball_inst/ball_rgb4__27/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb4__7 output graph_inst/ball_inst/ball_rgb4__7/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#53 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__28 output graph_inst/ball_inst/ball_rgb4__28/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb4__8 output graph_inst/ball_inst/ball_rgb4__8/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#54 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__3 output graph_inst/ball_inst/ball_rgb4__3/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb4__9 output graph_inst/ball_inst/ball_rgb4__9/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#55 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__4 output graph_inst/ball_inst/ball_rgb4__4/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb5 output graph_inst/ball_inst/ball_rgb5/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#56 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__5 output graph_inst/ball_inst/ball_rgb4__5/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb5__0 output graph_inst/ball_inst/ball_rgb5__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#57 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__6 output graph_inst/ball_inst/ball_rgb4__6/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb5__1 output graph_inst/ball_inst/ball_rgb5__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#58 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__7 output graph_inst/ball_inst/ball_rgb4__7/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb5__2 output graph_inst/ball_inst/ball_rgb5__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#59 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__8 output graph_inst/ball_inst/ball_rgb4__8/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb5__3 output graph_inst/ball_inst/ball_rgb5__3/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#60 Warning
 PREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__9 output graph_inst/ball_inst/ball_rgb4__9/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP graph_inst/ball_inst/ball_rgb5__4 output graph_inst/ball_inst/ball_rgb5__4/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-2#1 Warning
@@ -1175,67 +1175,67 @@ Related violations: <none>
 
 DPOP-2#48 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__23 multiplier stage graph_inst/ball_inst/ball_rgb4__23/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb4__3 multiplier stage graph_inst/ball_inst/ball_rgb4__3/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#49 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__24 multiplier stage graph_inst/ball_inst/ball_rgb4__24/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb4__4 multiplier stage graph_inst/ball_inst/ball_rgb4__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#50 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__25 multiplier stage graph_inst/ball_inst/ball_rgb4__25/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb4__5 multiplier stage graph_inst/ball_inst/ball_rgb4__5/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#51 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__26 multiplier stage graph_inst/ball_inst/ball_rgb4__26/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb4__6 multiplier stage graph_inst/ball_inst/ball_rgb4__6/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#52 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__27 multiplier stage graph_inst/ball_inst/ball_rgb4__27/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb4__7 multiplier stage graph_inst/ball_inst/ball_rgb4__7/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#53 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__28 multiplier stage graph_inst/ball_inst/ball_rgb4__28/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb4__8 multiplier stage graph_inst/ball_inst/ball_rgb4__8/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#54 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__3 multiplier stage graph_inst/ball_inst/ball_rgb4__3/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb4__9 multiplier stage graph_inst/ball_inst/ball_rgb4__9/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#55 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__4 multiplier stage graph_inst/ball_inst/ball_rgb4__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb5 multiplier stage graph_inst/ball_inst/ball_rgb5/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#56 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__5 multiplier stage graph_inst/ball_inst/ball_rgb4__5/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb5__0 multiplier stage graph_inst/ball_inst/ball_rgb5__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#57 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__6 multiplier stage graph_inst/ball_inst/ball_rgb4__6/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb5__1 multiplier stage graph_inst/ball_inst/ball_rgb5__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#58 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__7 multiplier stage graph_inst/ball_inst/ball_rgb4__7/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb5__2 multiplier stage graph_inst/ball_inst/ball_rgb5__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#59 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__8 multiplier stage graph_inst/ball_inst/ball_rgb4__8/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb5__3 multiplier stage graph_inst/ball_inst/ball_rgb5__3/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#60 Warning
 MREG Output pipelining  
-DSP graph_inst/ball_inst/ball_rgb4__9 multiplier stage graph_inst/ball_inst/ball_rgb4__9/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP graph_inst/ball_inst/ball_rgb5__4 multiplier stage graph_inst/ball_inst/ball_rgb5__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 PDRC-153#1 Warning

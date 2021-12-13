@@ -148,6 +148,7 @@ always @(posedge clk or posedge rst) begin // 치는 힘 업데이트
        ba_hit_force <= 0;
    end
    else if(refr_tick) begin
+        //추후에 여기에 if(status != Player2)
         if(key == 5'h14) begin// 4번키를 누르고 있으면 치는 힘이 커짐
             if(ba_hit_force_t < MAX_ba_HIT_FORCE && cnt1 > 5) begin
                 ba_hit_force_t <= ba_hit_force_t + 1;
@@ -246,52 +247,52 @@ end
 deg_set deg_set_bb (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // 치는 힘과 각도를 받아서 공속도 출력
 
 /*---------------------------------------------------------*/
-// ??A?? ???
+// 공A의 위치
 //
-// <????>
-//  ????? ????? ?????? ????. 
-//  ????? ????? ????? ???? ????? ??A?? ?????? ???????
+// <설명>
+//  방향과 속력을 나누어서 관리. 
+//  방향과 속력을 곱해서 구한 속도로 공A의 중심좌표 업데이트
 /*---------------------------------------------------------*/
 reg ba_collision;
 
-always @(posedge clk or posedge rst) begin // ??A?? ????
+always @(posedge clk or posedge rst) begin // 공A의 방향
     if(rst | key_pulse == 5'h10) begin 
         dax1 <= 0;
         day1 <= 0;
         ba_collision <= 0;
     end
     else begin
-        if(ba_top) begin // ????? ???? ?浹
+        if(ba_top) begin // 테이블 위쪽 충돌
             day1 <= 1;
             ba_collision <= 1;
         end
-        else if (ba_bottom) begin  // ????? ????? ?浹
+        else if (ba_bottom) begin   // 테이블 아래쪽 충돌
             day1 <= -1;
             ba_collision <= 1;
         end
-        else if (ba_left) begin // ????? ???? ?浹
+        else if (ba_left) begin // 테이블 왼쪽 충돌
             dax1 <= 1;
             ba_collision <= 1;
         end
-        else if (ba_right) begin // ????? ?????? ?浹
+        else if (ba_right) begin // 테이블 오른쪽 충돌
             dax1 <= -1;
             ba_collision <= 1;
         end
-        else if (ba_bb) begin // ??B?? ?浹
+        else if (ba_bb) begin // 공B와 충돌
             if (cbx-cax >= 0)     dax1 <= -1;
             else if (cbx-cax < 0) dax1 <=  1;
             if (cby-cay >= 0)     day1 <= -1;
             else if (cby-cay < 0) day1 <=  1;
             ba_collision <= 1;
         end
-        else if(ba_collision == 0) begin // deg_set???? ?????? ?????? ?????
+        else if(ba_collision == 0) begin// deg_set에서 출력하는 방향을 넣어줌
             dax1 <= dax;
             day1 <= day;
         end
     end
 end
 
-always @ (posedge clk or posedge rst) begin // ??A?? ???
+always @ (posedge clk or posedge rst) begin // 공A의 속력
     if(rst) begin
         vax1 <= 0;
         vay1 <= 0;
@@ -302,7 +303,7 @@ always @ (posedge clk or posedge rst) begin // ??A?? ???
     end
 end
 
-always @(posedge clk or posedge rst) begin // ??A ???? ???
+always @(posedge clk or posedge rst) begin // 공A 최종 속도
     if(rst) begin
         vax_reg <= 0;
         vay_reg <= 0;
@@ -313,7 +314,7 @@ always @(posedge clk or posedge rst) begin // ??A ???? ???
     end
 end
 
-always @(posedge clk or posedge rst) begin // ??A ??? ??? ???????
+always @(posedge clk or posedge rst) begin // 공A 중심 좌표 업데이트
     if(rst) begin
         cax <= BA_START_X;
         cay <= BA_START_Y;
@@ -325,15 +326,15 @@ always @(posedge clk or posedge rst) begin // ??A ??? ??? ???????
 end
 
 /*---------------------------------------------------------*/
-// ??B?? ???
+// 공B의 위치
 //
-// <????>
-//  ????? ????? ?????? ????. 
-//  ????? ????? ????? ???? ????? ??B?? ?????? ???????
+// <설명>
+//  방향과 속력을 나누어서 관리. 
+//  방향과 속력을 곱해서 구한 속도로 공B의 중심좌표 업데이트
 /*---------------------------------------------------------*/
 reg bb_collision;
 
-always @(posedge clk or posedge rst) begin // ??B?? ????
+always @(posedge clk or posedge rst) begin // 공B의 방향
     if(rst) begin
         dbx1 <= 0;
         dby1 <= 0;
@@ -364,7 +365,7 @@ reg [2:0] flag;
 reg [4:0] cnt4;
 reg [4:0] ratio;
 
-always @ (posedge clk or posedge rst) begin // ??B?? ???
+always @ (posedge clk or posedge rst) begin // 공B의 속력
     if(rst) begin
         vbx1 <= 0;
         vby1 <= 0;
@@ -375,7 +376,7 @@ always @ (posedge clk or posedge rst) begin // ??B?? ???
     end
 end
 
-always @(posedge clk or posedge rst) begin // ??B ???? ???
+always @(posedge clk or posedge rst) begin// 공B 최종 속도
     if(rst) begin
         vbx_reg <= 0;
         vby_reg <= 0;
@@ -386,7 +387,7 @@ always @(posedge clk or posedge rst) begin // ??B ???? ???
     end
 end
 
-always @(posedge clk or posedge rst) begin // ??B ??? ??? ???????
+always @(posedge clk or posedge rst) begin // 공B 중심 좌표 업데이트
     if(rst) begin
         cbx <= BB_START_X;
         cby <= BB_START_Y;
@@ -408,7 +409,7 @@ parameter HOLE_CC_X = 40;
 parameter HOLE_CC_Y = 440;
 parameter HOLE_CD_X = 600;
 parameter HOLE_CD_Y = 440;
-parameter HOIE_SIZE = 30;
+parameter HOLE_SIZE = 30;
 
 reg ha_ba, ha_bb;
 reg hb_ba, hb_bb;
@@ -423,13 +424,13 @@ always @(posedge clk or posedge rst) begin
 
     end
     else begin
-        ha_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CA_X-cbx)*(HOLE_CA_X-cbx) + (HOLE_CA_Y-cby)*(HOLE_CA_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
-        hb_ba = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CB_X-cax)*(HOLE_CB_X-cax) + (HOLE_CB_Y-cay)*(HOLE_CB_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
-        hb_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CB_X-cbx)*(HOLE_CB_X-cbx) + (HOLE_CB_Y-cby)*(HOLE_CB_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
-        hc_ba = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CC_X-cax)*(HOLE_CC_X-cax) + (HOLE_CC_Y-cay)*(HOLE_CC_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
-        hc_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CC_X-cbx)*(HOLE_CC_X-cbx) + (HOLE_CC_Y-cby)*(HOLE_CC_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
-        hd_ba = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CD_X-cax)*(HOLE_CD_X-cax) + (HOLE_CD_Y-cay)*(HOLE_CD_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
-        hd_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CD_X-cbx)*(HOLE_CD_X-cbx) + (HOLE_CD_Y-cby)*(HOLE_CD_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+        ha_bb = (HOLE_SIZE * HOLE_SIZE >= (HOLE_CA_X-cbx)*(HOLE_CA_X-cbx) + (HOLE_CA_Y-cby)*(HOLE_CA_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+        hb_ba = (HOLE_SIZE * HOLE_SIZE >= (HOLE_CB_X-cax)*(HOLE_CB_X-cax) + (HOLE_CB_Y-cay)*(HOLE_CB_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
+        hb_bb = (HOLE_SIZE * HOLE_SIZE >= (HOLE_CB_X-cbx)*(HOLE_CB_X-cbx) + (HOLE_CB_Y-cby)*(HOLE_CB_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+        hc_ba = (HOLE_SIZE * HOLE_SIZE >= (HOLE_CC_X-cax)*(HOLE_CC_X-cax) + (HOLE_CC_Y-cay)*(HOLE_CC_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
+        hc_bb = (HOLE_SIZE * HOLE_SIZE >= (HOLE_CC_X-cbx)*(HOLE_CC_X-cbx) + (HOLE_CC_Y-cby)*(HOLE_CC_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+        hd_ba = (HOLE_SIZE * HOLE_SIZE >= (HOLE_CD_X-cax)*(HOLE_CD_X-cax) + (HOLE_CD_Y-cay)*(HOLE_CD_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
+        hd_bb = (HOLE_SIZE * HOLE_SIZE >= (HOLE_CD_X-cbx)*(HOLE_CD_X-cbx) + (HOLE_CD_Y-cby)*(HOLE_CD_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
 
         Ball_a_Hole_Flag = (ha_ba || hb_ba || hc_ba || hd_ba);
         Ball_b_Hole_Flag = (ha_bb || hb_bb || hc_bb || hd_bb);
@@ -443,17 +444,97 @@ wire [9:0] cue_x2, cue_y2;
 parameter CUE_BALL_SIZE = 5;
 cue_deg cue_deg_init (ba_hit_angle_t, cax, cay, cue_x2, cue_y2); //
 
+
 /*---------------------------------------------------------*/
-// ??A, B ?????
+// FSM
+/*---------------------------------------------------------*/
+parameter Player1 = 0;
+parameter Player1_play = 1;
+parameter Player2 = 2;
+parameter Player2_play = 3;
+parameter Player1_win = 4;
+parameter Player2_win = 5;
+
+reg [4:0] status;
+reg [5:0] ba_hit_force_Buf;
+reg [8:0] ba_hit_angle_Buf;
+reg [5:0] bb_hit_force_Buf;
+reg [8:0] bb_hit_angle_Buf;
+
+reg cue_1_flag, cue_2_flag;
+
+reg Player1_win_FLAG, Player2_win_FLAG;
+always@(posedge clk or posedge rst) begin
+    if(rst) begin
+        status = Player1;
+        Player1_win_FLAG = 0;
+        Player2_win_FLAG = 0;
+        cue_1_flag = 0;
+    end
+    else begin
+        case(status)
+            Player1 : begin
+                if(key_pulse == 5'h10) status <= Player1_play;
+                 cue_1_flag <= 1;
+            end
+            Player1_play : begin
+                cue_1_flag <= 0;
+                if(Ball_a_Hole_Flag)begin
+                    status <= Player2_win;
+                end
+                else if(Ball_b_Hole_Flag)begin
+                    status <= Player1_win;
+                end
+                else if((vax1 == 0) && (vay1 == 0) && (vbx1 == 0) && (vby1 == 0)) begin
+                    status <= Player1;
+                end
+            end
+            /*
+            Player2 : begin
+                //deg_set_ba의 INPUT인자를 ba_hit_force_Buf, ba_hit_angle_Buf로 변경
+                ba_hit_force_Buf = 0;
+                ba_hit_angle_Buf = 0;
+                //deg_set_bb의 INPUT인자를 bb_hit_force_Buf, bb_hit_angle_Buf로 변경
+                bb_hit_force_Buf = bb_hit_force;
+                bb_hit_angle_Buf = bb_hit_angle;
+
+                if(key_pulse == 5'h10) begin
+                    status = Player2_play;
+                end
+            end
+            Player2_play : begin
+                if(Ball_a_Hole_Flag)begin
+                    status = Player1_win;
+                end
+                else if(Ball_b_Hole_Flag)begin
+                    status = Player2_win;
+                end
+                if((vax1 == 0) && (vay1 == 0) && (vbx1 == 0) && (vby1 == 0)) begin
+                    status = Player1;
+                end
+            end
+            */
+            Player1_win : begin
+                Player1_win_FLAG <= 1;
+            end
+            Player2_win : begin
+                Player2_win_FLAG <= 1;
+            end
+        endcase
+    end
+end
+/*---------------------------------------------------------*/
+// 공A, B, Hole, 큐대 그리기
 /*---------------------------------------------------------*/
 assign ball_rgb[0] = (`BALL_R*`BALL_R >= (x-cax)*(x-cax) + (y-cay)*(y-cay)) ? 1 : 0;
 assign ball_rgb[1] = (`BALL_R*`BALL_R >= (x-cbx)*(x-cbx) + (y-cby)*(y-cby)) ? 1 : 0;
-assign ball_rgb[2] = (ba_bb || Ball_a_Hole_Flag || Ball_b_Hole_Flag); // Flag indicate
+assign ball_rgb[2] = (ba_bb || Player1_win_FLAG || Player1_win_FLAG); // Flag indicate
 
-assign ball_rgb[3] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CA_X)*(x - HOLE_CA_X) + (y - HOLE_CA_Y)*(y - HOLE_CA_Y)) ? 1 : 0;
-assign ball_rgb[4] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CB_X)*(x - HOLE_CB_X) + (y - HOLE_CB_Y)*(y - HOLE_CB_Y)) ? 1 : 0;
-assign ball_rgb[5] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CC_X)*(x - HOLE_CC_X) + (y - HOLE_CC_Y)*(y - HOLE_CC_Y)) ? 1 : 0;
-assign ball_rgb[6] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CD_X)*(x - HOLE_CD_X) + (y - HOLE_CD_Y)*(y - HOLE_CD_Y)) ? 1 : 0;
-assign ball_rgb[7] = (CUE_BALL_SIZE * CUE_BALL_SIZE >= (x - cue_x2)*(x - cue_x2) + (y - cue_y2)*(y - cue_y2)) ? 1 : 0;
 
+assign ball_rgb[3] = (HOLE_SIZE * HOLE_SIZE >= (x - HOLE_CA_X)*(x - HOLE_CA_X) + (y - HOLE_CA_Y)*(y - HOLE_CA_Y)) ? 1 : 0;
+assign ball_rgb[4] = (HOLE_SIZE * HOLE_SIZE >= (x - HOLE_CB_X)*(x - HOLE_CB_X) + (y - HOLE_CB_Y)*(y - HOLE_CB_Y)) ? 1 : 0;
+assign ball_rgb[5] = (HOLE_SIZE * HOLE_SIZE >= (x - HOLE_CC_X)*(x - HOLE_CC_X) + (y - HOLE_CC_Y)*(y - HOLE_CC_Y)) ? 1 : 0;
+assign ball_rgb[6] = (HOLE_SIZE * HOLE_SIZE >= (x - HOLE_CD_X)*(x - HOLE_CD_X) + (y - HOLE_CD_Y)*(y - HOLE_CD_Y)) ? 1 : 0;
+assign ball_rgb[7] = (cue_1_flag == 1) ? ((CUE_BALL_SIZE * CUE_BALL_SIZE >= (x - cue_x2)*(x - cue_x2) + (y - cue_y2)*(y - cue_y2)) ? 1 : 0) : 0;
+//assign ball_rgb[7] = cue_1_flag;
 endmodule 
