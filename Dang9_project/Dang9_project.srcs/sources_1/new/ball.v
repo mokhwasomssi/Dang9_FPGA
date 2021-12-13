@@ -466,16 +466,17 @@ reg cue_1_flag, cue_2_flag;
 reg Player1_win_FLAG, Player2_win_FLAG;
 always@(posedge clk or posedge rst) begin
     if(rst) begin
-        status = Player1;
-        Player1_win_FLAG = 0;
-        Player2_win_FLAG = 0;
-        cue_1_flag = 0;
+        status <= Player1;
+        Player1_win_FLAG <= 0;
+        Player2_win_FLAG <= 0;
+        cue_1_flag <= 0;
     end
     else begin
         case(status)
             Player1 : begin
-                if(key_pulse == 5'h10) status <= Player1_play;
-                 cue_1_flag <= 1;
+                //if(key_pulse == 5'h10) status <= Player1_play;
+                 cue_1_flag = 1;
+                 if((vax1 != 0) || (vay1 != 0) || (vbx1 != 0) || (vby1 != 0)) status <= Player1_play;
             end
             Player1_play : begin
                 cue_1_flag <= 0;

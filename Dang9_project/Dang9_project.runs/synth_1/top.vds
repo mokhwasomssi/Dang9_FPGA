@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Dec 14 04:02:56 2021
-# Process ID: 8400
+# Start of session at: Tue Dec 14 04:18:17 2021
+# Process ID: 608
 # Current directory: C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.vds
@@ -15,13 +15,13 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1464 
+INFO: Helper process launched with PID 6884 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 368.723 ; gain = 99.859
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 369.535 ; gain = 98.562
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-8400-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-8400-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-608-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-608-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'keypad' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
 	Parameter CLK_KHZ bound to: 25175 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'keypad' (2#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
@@ -100,9 +100,6 @@ WARNING: [Synth 8-5788] Register cnt3_reg in module ball is has both Set and res
 WARNING: [Synth 8-5788] Register cnt5_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:237]
 WARNING: [Synth 8-5788] Register Ball_a_Hole_Flag_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:435]
 WARNING: [Synth 8-5788] Register Ball_b_Hole_Flag_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:436]
-WARNING: [Synth 8-5788] Register status_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:469]
-WARNING: [Synth 8-5788] Register Player1_win_FLAG_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:470]
-WARNING: [Synth 8-5788] Register cue_1_flag_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:472]
 WARNING: [Synth 8-3848] Net ha_ba in module/entity ball does not have driver. [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:414]
 INFO: [Synth 8-6155] done synthesizing module 'ball' (7#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:3]
 INFO: [Synth 8-6155] done synthesizing module 'graph_mod' (8#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:3]
@@ -115,7 +112,7 @@ WARNING: [Synth 8-3331] design table_mod has unconnected port rst
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 433.445 ; gain = 164.582
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 434.070 ; gain = 163.098
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -128,10 +125,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 433.445 ; gain = 164.582
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 434.070 ; gain = 163.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 433.445 ; gain = 164.582
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 434.070 ; gain = 163.098
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -149,16 +146,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 807.590 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 808.336 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 807.590 ; gain = 538.727
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 808.336 ; gain = 537.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 807.590 ; gain = 538.727
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 808.336 ; gain = 537.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -167,7 +164,7 @@ Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/
 Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for clk_inst. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 807.590 ; gain = 538.727
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 808.336 ; gain = 537.363
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "keypad_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "Vx" won't be mapped to RAM because it is too sparse
@@ -176,7 +173,6 @@ INFO: [Synth 8-5546] ROM "ba_hit_force" won't be mapped to RAM because it is too
 INFO: [Synth 8-5546] ROM "cnt1" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ba_hit_angle_t" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ba_hit_angle_t" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "status" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "Player1_win_FLAG" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cue_1_flag" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:428]
@@ -185,21 +181,18 @@ INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recomm
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:429]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:431]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:427]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:534]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:534]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:535]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:535]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:536]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:537]
 INFO: [Synth 8-5546] ROM "ba_hit_force" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt1" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ba_hit_angle_t" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ba_hit_angle_t" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "status" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "Player1_win_FLAG" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cue_1_flag" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "dbx1" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dby1" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "status" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Player1_win_FLAG" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball_rgb1" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ba_bb" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "refr_tick" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -218,6 +211,7 @@ INFO: [Synth 8-5544] ROM "Ball_b_Hole_Flag3" won't be mapped to Block RAM becaus
 INFO: [Synth 8-5544] ROM "Ball_b_Hole_Flag3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Ball_b_Hole_Flag2" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Ball_b_Hole_Flag1" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "status" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball_rgb0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball_rgb0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ball_rgb0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -232,7 +226,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'Dy_reg' [C:/Users/Jongsang/
 WARNING: [Synth 8-327] inferring latch for variable 'x2_BUF_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/cue_deg.v:36]
 WARNING: [Synth 8-327] inferring latch for variable 'y2_BUF_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/cue_deg.v:36]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 807.590 ; gain = 538.727
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 808.336 ; gain = 537.363
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -275,12 +269,13 @@ Detailed RTL Component Info :
 	   2 Input      6 Bit        Muxes := 4     
 	   4 Input      5 Bit        Muxes := 4     
 	   5 Input      5 Bit        Muxes := 2     
-	   2 Input      5 Bit        Muxes := 7     
+	   2 Input      5 Bit        Muxes := 2     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 4     
 	  10 Input      4 Bit        Muxes := 1     
 	   5 Input      3 Bit        Muxes := 1     
 	  74 Input      3 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	  74 Input      2 Bit        Muxes := 20    
@@ -288,7 +283,7 @@ Detailed RTL Component Info :
 	  14 Input      2 Bit        Muxes := 4     
 	   5 Input      2 Bit        Muxes := 2     
 	   8 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 46    
+	   2 Input      1 Bit        Muxes := 44    
 	   4 Input      1 Bit        Muxes := 2     
 	  10 Input      1 Bit        Muxes := 2     
 	   5 Input      1 Bit        Muxes := 7     
@@ -381,12 +376,13 @@ Detailed RTL Component Info :
 	   2 Input      9 Bit        Muxes := 4     
 	   2 Input      7 Bit        Muxes := 4     
 	   2 Input      6 Bit        Muxes := 4     
-	   2 Input      5 Bit        Muxes := 6     
+	   2 Input      5 Bit        Muxes := 1     
 	   5 Input      5 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 10    
 	   5 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 33    
+	   2 Input      1 Bit        Muxes := 31    
 	   5 Input      1 Bit        Muxes := 6     
 	   3 Input      1 Bit        Muxes := 4     
 Module sync_mod 
@@ -420,14 +416,14 @@ INFO: [Synth 8-5546] ROM "Vx" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cue_deg_init/x2_BUF" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:80]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:80]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:529]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:529]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:530]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:530]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:531]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:531]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:428]
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:430]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:538]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:538]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:539]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:539]
 DSP Report: Generating DSP ba_bb3, operation Mode is: A*B.
 DSP Report: operator ba_bb3 is absorbed into DSP ba_bb3.
 DSP Report: operator ba_bb3 is absorbed into DSP ba_bb3.
@@ -711,7 +707,7 @@ INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/cnt3_reg[4]' (FDE) t
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_inst/cnt3_reg[3] )
 WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/cnt3_reg[3]) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 807.590 ; gain = 538.727
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 808.336 ; gain = 537.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -809,13 +805,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_inst/clk_out1' to pin 'clk_inst/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:46 . Memory (MB): peak = 842.828 ; gain = 573.965
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:46 . Memory (MB): peak = 842.789 ; gain = 571.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 989.395 ; gain = 720.531
+Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 992.246 ; gain = 721.273
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -851,7 +847,7 @@ INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM bloc
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:320]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:320]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:03 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:03 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -871,21 +867,21 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6064] Net n_0_160 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_154 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
 INFO: [Synth 8-6064] Net \graph_inst/ball_inst/Ball_a_Hole_Flag8 [14] is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
-INFO: [Synth 8-6064] Net n_0_457 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_466 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
 INFO: [Synth 8-6064] Net \graph_inst/ball_inst/Ball_b_Hole_Flag8 [14] is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
-INFO: [Synth 8-6064] Net n_0_451 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
-INFO: [Synth 8-6064] Net n_0_105 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
-INFO: [Synth 8-6064] Net n_0_244 is driving 76 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
-INFO: [Synth 8-6064] Net n_0_184 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
-INFO: [Synth 8-6064] Net n_0_238 is driving 76 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
-INFO: [Synth 8-6064] Net n_0_2251 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_460 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_99 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_224 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_2275 is driving 72 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_189 is driving 76 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_195 is driving 76 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:01:04 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:01:04 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -898,7 +894,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:00 ; elapsed = 00:01:04 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:00 ; elapsed = 00:01:04 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -910,25 +906,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -949,14 +945,14 @@ Report Cell Usage:
 |2     |CARRY4    |   254|
 |3     |DSP48E1   |    60|
 |4     |LUT1      |    12|
-|5     |LUT2      |  1061|
-|6     |LUT3      |    98|
-|7     |LUT4      |   197|
-|8     |LUT5      |   254|
-|9     |LUT6      |   879|
-|10    |MUXF7     |    25|
+|5     |LUT2      |  1074|
+|6     |LUT3      |    99|
+|7     |LUT4      |   200|
+|8     |LUT5      |   229|
+|9     |LUT6      |   908|
+|10    |MUXF7     |    21|
 |11    |MUXF8     |     2|
-|12    |FDCE      |   198|
+|12    |FDCE      |   193|
 |13    |FDPE      |    18|
 |14    |FDRE      |    60|
 |15    |LD        |    35|
@@ -968,24 +964,24 @@ Report Instance Areas:
 +------+-------------------+----------+------+
 |      |Instance           |Module    |Cells |
 +------+-------------------+----------+------+
-|1     |top                |          |  3178|
-|2     |  debounce_inst    |debounce  |    71|
-|3     |  graph_inst       |graph_mod |  2675|
-|4     |    ball_inst      |ball      |  2675|
-|5     |      cue_deg_init |cue_deg   |   133|
-|6     |      deg_set_ba   |deg_set   |   426|
-|7     |      deg_set_bb   |deg_set_0 |   381|
+|1     |top                |          |  3190|
+|2     |  debounce_inst    |debounce  |    74|
+|3     |  graph_inst       |graph_mod |  2687|
+|4     |    ball_inst      |ball      |  2687|
+|5     |      cue_deg_init |cue_deg   |   132|
+|6     |      deg_set_ba   |deg_set   |   422|
+|7     |      deg_set_bb   |deg_set_0 |   407|
 |8     |  keypad_inst      |keypad    |   173|
-|9     |  sync_inst        |sync_mod  |   234|
+|9     |  sync_inst        |sync_mod  |   231|
 +------+-------------------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1022.371 ; gain = 751.398
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 39 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:53 ; elapsed = 00:00:58 . Memory (MB): peak = 1015.469 ; gain = 372.461
-Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1015.469 ; gain = 746.605
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:00:58 . Memory (MB): peak = 1022.371 ; gain = 377.133
+Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:06 . Memory (MB): peak = 1022.371 ; gain = 751.398
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 381 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 377 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -994,11 +990,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE: 35 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-192 Infos, 73 Warnings, 0 Critical Warnings and 0 Errors encountered.
+189 Infos, 70 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:05 ; elapsed = 00:01:09 . Memory (MB): peak = 1015.469 ; gain = 752.523
+synth_design: Time (s): cpu = 00:01:05 ; elapsed = 00:01:09 . Memory (MB): peak = 1022.371 ; gain = 759.137
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 1015.469 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 14 04:04:11 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 1022.371 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 14 04:19:33 2021...
