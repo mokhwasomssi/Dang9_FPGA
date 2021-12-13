@@ -19,8 +19,8 @@ parameter BA_START_Y = `MAX_Y/2;
 parameter BB_START_X = `MAX_X/3*2;
 parameter BB_START_Y = `MAX_Y/2;
 
-parameter MAX_HIT_FORCE = 12;
-parameter MAT_HIT_ANGLE = 360;
+parameter MAX_ba_HIT_FORCE = 12;
+parameter MAT_ba_HIT_ANGLE = 360;
 
 // 60Hz clock
 wire refr_tick; 
@@ -28,16 +28,18 @@ assign refr_tick = (y==`MAX_Y-1 && x==`MAX_X-1)? 1 : 0;
 
 // 공A의 변수
 wire signed [1:0] dax, day;
-reg signed [1:0] dax1, day1; // 테이블 충돌시 방향 업데이트
+reg signed [1:0] dax1, day1; // 최종 방향
 wire signed [4:0] vax, vay;
-reg signed [4:0] vax1, vay1;
+reg signed [4:0] vax1, vay1; // 최종 속도
 reg signed [9:0] vax_reg, vay_reg;
 reg [9:0] cax, cay; // 공A 중심좌표
 wire ba_top, ba_bottom, ba_left, ba_right; // 공A-테이블 충돌 플래그
 
 // 공B의 변수
-reg signed [1:0] dbx, dby;
-reg signed [4:0] vbx, vby;
+wire signed [1:0] dbx, dby; 
+reg signed [1:0] dbx1, dby1; // 최종 방향
+wire signed [4:0] vbx, vby;
+reg signed [4:0] vbx1, vby1; // 최종 속도
 reg signed [9:0] vbx_reg, vby_reg;
 reg [9:0] cbx, cby; // 공B 중심좌표
 wire bb_top, bb_bottom, bb_left, bb_right; // 공B-테이블 충돌 플래그
@@ -45,7 +47,7 @@ wire bb_top, bb_bottom, bb_left, bb_right; // 공B-테이블 충돌 플래그
 // 충돌 변수
 wire ba_bb;
 reg state;
-
+/*
 reg [9:0] dx, dy;
 
 reg [9:0] vax_p, vay_p;
@@ -56,7 +58,7 @@ reg [9:0] vbx_buf, vby_buf;
 
 reg [9:0] vax_new, vay_new;
 reg [9:0] vbx_new, vby_new;
-
+*/
 
 /*---------------------------------------------------------*/
 // 충돌 감지
@@ -83,7 +85,7 @@ assign ba_bb = (`BALL_D*`BALL_D >= (cbx-cax)*(cbx-cax) + (cby-cay)*(cby-cay)) ? 
 // <설명>
 //  공A-공B 충돌 후 속도를 계산하고 업데이트
 /*---------------------------------------------------------*/
-
+/*
 always @ (*) begin 
     if(ba_bb && state == 0) begin
     vax_p = dbx*vbx*(cbx-cax) + dby*vby*(cby-cay);
@@ -118,6 +120,28 @@ always @ (*) begin
         state = 0;
     end
 end
+*/
+
+/*---------------------------------------------------------*/
+// 공A-공B 충돌 후 공B의 속도
+//
+// <설명>
+//  공A-공B 충돌 후 공B 속도 업데이트
+/*---------------------------------------------------------*/
+reg [5:0] bb_hit_force_t, bb_hit_force;
+reg [8:0] bb_hit_angle_t, bb_hit_angle;
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        bb_hit_force <= 0;
+        bb_hit_angle <= 0;
+    end
+    else if (ba_bb) begin
+        bb_hit_force <= ba_hit_force;
+        bb_hit_angle <= bb_hit_angle;
+    end
+end
+
 /*---------------------------------------------------------*/
 // 공A 발사
 //
@@ -136,26 +160,26 @@ end
 //  입력된 힘과 각도는 deg_set모듈을 통해 공의 속도로 변환
 /*---------------------------------------------------------*/
 reg [6:0] cnt1, cnt2, cnt3; // 키 입력 감도
-reg [5:0] hit_force_t, hit_force;
-reg [8:0] hit_angle_t, hit_angle;
+reg [5:0] ba_hit_force_t, ba_hit_force;
+reg [8:0] ba_hit_angle_t, ba_hit_angle;
 reg collision;
 
 always @(posedge clk or posedge rst) begin // 치는 힘 업데이트
    if(rst) begin
-       hit_force <= 0;
+       ba_hit_force <= 0;
    end
    else if(refr_tick) begin
         if(key == 5'h14) begin // 4번키를 누르고 있으면 치는 힘이 커짐
-            if(hit_force_t < MAX_HIT_FORCE && cnt1 > 5) begin
-                hit_force_t <= hit_force_t + 1;
+            if(ba_hit_force_t < MAX_ba_HIT_FORCE && cnt1 > 5) begin
+                ba_hit_force_t <= ba_hit_force_t + 1;
                 cnt1 <= 0;
             end
             else begin
                 cnt1 <= cnt1 + 1;
             end
         end
-        if (cnt2 == 20 && hit_force > 0) begin // 치는 힘이 0 이상이면 주기적으로 줄어들음
-            hit_force <= hit_force - 1;
+        if (cnt2 == 20 && ba_hit_force > 0) begin // 치는 힘이 0 이상이면 주기적으로 줄어들음
+            ba_hit_force <= ba_hit_force - 1;
             cnt2 <= 0;
         end
         else begin
@@ -163,24 +187,24 @@ always @(posedge clk or posedge rst) begin // 치는 힘 업데이트
         end
    end
    else if(key_pulse == 5'h10) begin // 공쏘기
-        hit_force <= hit_force_t;
-        hit_force_t <= 0;
+        ba_hit_force <= ba_hit_force_t;
+        ba_hit_force_t <= 0;
    end
 end
 
 always @(posedge clk or posedge rst) begin // 치는 각도 업데이트
     if(rst) begin
-        hit_angle <= 0;
+        ba_hit_angle <= 0;
     end
     else if (refr_tick) begin
         if (key == 5'h11) begin // 1번키 누르고 있으면 각도 증가
             if (cnt3 > 3) begin
-                if (hit_angle_t < 360) begin
-                    hit_angle_t <= hit_angle_t + 5;
+                if (ba_hit_angle_t < 360) begin
+                    ba_hit_angle_t <= ba_hit_angle_t + 5;
                     cnt3 <= 0;
                 end
-                else if (hit_angle_t == 360) begin // 현재 각도가 360도이면 0도로 변환
-                    hit_angle_t <= 0;
+                else if (ba_hit_angle_t == 360) begin // 현재 각도가 360도이면 0도로 변환
+                    ba_hit_angle_t <= 0;
                 end
             end
             else begin
@@ -189,12 +213,12 @@ always @(posedge clk or posedge rst) begin // 치는 각도 업데이트
         end
         if (key == 5'h17) begin // 7번키 누르고 있으면 각도 감소
             if (cnt3 > 3) begin
-                if (hit_angle_t > 0) begin
-                    hit_angle_t <= hit_angle_t - 5;
+                if (ba_hit_angle_t > 0) begin
+                    ba_hit_angle_t <= ba_hit_angle_t - 5;
                     cnt3 <= 0;
                 end
-                else if (hit_angle_t == 0) begin // 현재 각도가 0도이면 360도로 변환
-                    hit_angle_t <= 360;
+                else if (ba_hit_angle_t == 0) begin // 현재 각도가 0도이면 360도로 변환
+                    ba_hit_angle_t <= 360;
                 end
             end
             else begin
@@ -203,12 +227,13 @@ always @(posedge clk or posedge rst) begin // 치는 각도 업데이트
         end
     end 
     else if(key_pulse == 5'h10) begin // 공쏘기
-        hit_angle <= hit_angle_t;
-        hit_angle_t <= 0;
+        ba_hit_angle <= ba_hit_angle_t;
+        ba_hit_angle_t <= 0;
     end
 end
 
-deg_set deg_set_inst (hit_force, hit_angle, vax, vay, dax, day); // 치는 힘과 각도를 받아서 공속도 출력
+deg_set deg_set_inst (ba_hit_force, ba_hit_angle, vax, vay, dax, day); // 치는 힘과 각도를 받아서 공속도 출력
+deg_set deg_set_inst (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // 충돌 시 공B의 속도 업데이트
 
 /*---------------------------------------------------------*/
 // 공A의 위치
@@ -287,6 +312,9 @@ always @(posedge clk or posedge rst) begin // 공A 중심 좌표 업데이트
     end
 end
 
+
+
+
 /*---------------------------------------------------------*/
 // 공B의 위치
 //
@@ -330,56 +358,9 @@ always @ (posedge clk or posedge rst) begin // 공B의 속력
         vbx <= 0;
         vby <= 0;
     end
-    else if (state == 1) begin // 충돌 후 속력 업데이트
-        vbx <= vbx_new;
-        vby <= vby_new;
-
-        if(vbx == 0)begin
-            flag <= 0;
-        end
-        else if (vby == 0) begin
-            flag <= 1;
-        end
-        else if (vbx > vby) begin
-           ratio <= vbx / vby;
-           flag <= 2;
-        end
-        else if (vbx < vby) begin
-            ratio <= vby / vbx;
-            flag <= 3;
-        end
-        else if (vbx == vby) begin
-            ratio <= 1;
-            flag <= 4;
-        end
-    end
-    else if (refr_tick) begin // 시간에 따라 속도 감소
-        if ((cnt4 == 40) && (vbx > 0 || vby > 0)) begin
-            if (flag == 0) begin
-                vby <= vby - 1;
-            end
-            else if (flag == 1) begin
-                vbx <= vbx - 1;
-            end
-            else if (flag == 2) begin
-                vbx <= vbx - ratio;
-                vby <= vby - 1;
-                cnt4 <= 0;
-            end
-            else if (flag == 3) begin
-                vbx <= vbx - 1;
-                vby <= vby - ratio;
-                cnt4 <= 0;
-            end
-            else if (flag == 4) begin
-                vbx <= vbx - 1;
-                vby <= vby - 1;
-                cnt4 <= 0;
-            end
-        end
-        else begin
-            cnt4 <= cnt4 + 1;
-        end
+    else begin
+        vbx1 <= vbx;
+        vby1 <= vby;
     end
 end
 
