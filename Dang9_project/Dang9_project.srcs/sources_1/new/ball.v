@@ -10,10 +10,10 @@ module ball(
     input [4:0] key, 
     input [4:0] key_pulse, 
 
-    output [2:0] ball_rgb
+    output [8:0] ball_rgb
     );
 
-// ????????
+// 시작지점
 parameter BA_START_X = `MAX_X/3;
 parameter BA_START_Y = `MAX_Y/2;
 parameter BB_START_X = `MAX_X/3*2;
@@ -26,25 +26,25 @@ parameter MAT_ba_HIT_ANGLE = 360;
 wire refr_tick; 
 assign refr_tick = (y==`MAX_Y-1 && x==`MAX_X-1)? 1 : 0; 
 
-// ??A?? ????
+// 공A의 변수
 wire signed [1:0] dax, day;
-reg signed [1:0] dax1, day1; // ???? ????
+reg signed [1:0] dax1, day1;  // 최종 방향
 wire signed [4:0] vax, vay;
-reg signed [4:0] vax1, vay1; // ???? ???
+reg signed [4:0] vax1, vay1;  // 최종 속도
 reg signed [9:0] vax_reg, vay_reg;
-reg [9:0] cax, cay; // ??A ??????
-wire ba_top, ba_bottom, ba_left, ba_right; // ??A-????? ?浹 ?÷???
+reg [9:0] cax, cay; // 공A 중심좌표
+wire ba_top, ba_bottom, ba_left, ba_right;  // 공A-테이블 충돌 플래그
 
-// ??B?? ????
+// 공B의 변수
 wire signed [1:0] dbx, dby; 
-reg signed [1:0] dbx1, dby1; // ???? ????
+reg signed [1:0] dbx1, dby1; // 최종 방향
 wire signed [4:0] vbx, vby;
-reg signed [4:0] vbx1, vby1; // ???? ???
+reg signed [4:0] vbx1, vby1;// 최종 속도
 reg signed [9:0] vbx_reg, vby_reg;
-reg [9:0] cbx, cby; // ??B ??????
-wire bb_top, bb_bottom, bb_left, bb_right; // ??B-????? ?浹 ?÷???
+reg [9:0] cbx, cby; // 공B 중심좌표
+wire bb_top, bb_bottom, bb_left, bb_right;  // 공B-테이블 충돌 플래그
 
-// ?浹 ????
+// 충돌 변수
 wire ba_bb;
 reg state;
 /*
@@ -61,29 +61,29 @@ reg [9:0] vbx_new, vby_new;
 */
 
 /*---------------------------------------------------------*/
-// ?浹 ????
+// 충돌 감지
 //
-// <????>
-//  ??-????? ?浹 ??? ??A-??B ?浹?? ????
+// <설명>
+//  공-테이블 충돌 또는 공A-공B 충돌을 감지
 /*---------------------------------------------------------*/
 
-assign ba_top    = (`TABLE_IN_T >= (cay - `BALL_R)) ? 1 : 0; // ??A-????? ?浹 ????
+assign ba_top    = (`TABLE_IN_T >= (cay - `BALL_R)) ? 1 : 0;  // 공A-테이블 충돌 감지
 assign ba_bottom = (`TABLE_IN_B <= (cay + `BALL_R)) ? 1 : 0;
 assign ba_left   = (`TABLE_IN_L >= (cax - `BALL_R)) ? 1 : 0;
 assign ba_right  = (`TABLE_IN_R <= (cax + `BALL_R)) ? 1 : 0;
 
-assign bb_top    = (`TABLE_IN_T >= (cby - `BALL_R)) ? 1 : 0; // ??B-????? ?浹 ????
+assign bb_top    = (`TABLE_IN_T >= (cby - `BALL_R)) ? 1 : 0;// 공B-테이블 충돌 감지
 assign bb_bottom = (`TABLE_IN_B <= (cby + `BALL_R)) ? 1 : 0;
 assign bb_left   = (`TABLE_IN_L >= (cbx - `BALL_R)) ? 1 : 0;
 assign bb_right  = (`TABLE_IN_R <= (cbx + `BALL_R)) ? 1 : 0;
 
-assign ba_bb = (`BALL_D*`BALL_D >= (cbx-cax)*(cbx-cax) + (cby-cay)*(cby-cay)) ? 1 : 0; // ??A-??B ?浹 ????
+assign ba_bb = (`BALL_D*`BALL_D >= (cbx-cax)*(cbx-cax) + (cby-cay)*(cby-cay)) ? 1 : 0;  // 공A-공B 충돌 감지
 
 /*---------------------------------------------------------*/
-// ??A-??B ?浹 ?? ???
+// 공A-공B 충돌 후 속도
 //
-// <????>
-//  ??A-??B ?浹 ?? ????? ?????? ???????
+// <설명>
+//  공A-공B 충돌 후 속도를 계산하고 업데이트
 /*---------------------------------------------------------*/
 /*
 always @ (*) begin 
@@ -98,7 +98,7 @@ always @ (*) begin
     vbx_buf = vbx_p*(cbx-cax) - vby_p*(cby-cay);
     vby_buf = vbx_p*(cby-cay) + vby_p*(cbx-cax);
 
-    // ???? ??? ????? ???. ?????? ???? ???
+    // 음의 속도 양수로 변환. 방향은 따로 처리
     if (vax_buf[9] == 1'b1) vax_new = -1 * (vax_buf/12);
     else vax_new = (vax_buf/12);
     if (vay_buf[9] == 1'b1) vay_new = -1 * (vay_buf/12);
@@ -108,7 +108,7 @@ always @ (*) begin
     if (vby_buf[9] == 1'b1) vby_new = -1 * (vby_buf/12);
     else vby_new = (vby_buf/12);
 
-    //??? ????
+    //속도 제한
     if (vax_new > 12) vax_new = 12;
     if (vay_new > 12) vay_new = 12;
     if (vbx_new > 12) vbx_new = 12;
@@ -123,32 +123,32 @@ end
 */
 
 /*---------------------------------------------------------*/
-// ??A ???
+// 공A 발사
 //
-// <????>
-//  ??е? ?????? ??A?? ???. ?ð??? ???? ??A?? ????? ???? ??????? ???? ????.
+// <설명>
+//  키패드를 이용하여 공A를 발사. 시간에 따라 공A의 속력은 점점 감소하고 결국은 정지.
 //
-// <?????>
-//  KEY[1] : ??ð? ???????? ???? ???
-//  KEY[7] : ?ð? ???????? ???? ???
-//  KEY[4] : ??? ??(???) ?????
-//  KEY[0] : ??A ???
+// <조작법>
+//  KEY[1] : 반시계 방향으로 각도 회전
+//  KEY[7] : 시계 방향으로 각도 회전
+//  KEY[4] : 치는 힘(속력) 충전?
+//  KEY[0] : 공A 발사
 //
 // <NOTE>
-//  ??? ???? ???? ??????? ????
-//  ??????? : 0??
-//  ???? ???? ?????? deg_set????? ???? ???? ????? ???
+//  치는 힘은 공의 속력으로 치환됨
+//  시작각도 : 0도
+//  입력된 힘과 각도는 deg_set모듈을 통해 공의 속도로 변환
 /*---------------------------------------------------------*/
-reg [6:0] cnt1, cnt2, cnt3; // ? ??? ????
+reg [6:0] cnt1, cnt2, cnt3;  // 키 입력 감도
 reg [5:0] ba_hit_force_t, ba_hit_force;
 reg [8:0] ba_hit_angle_t, ba_hit_angle;
 
-always @(posedge clk or posedge rst) begin // ??? ?? ???????
+always @(posedge clk or posedge rst) begin // 치는 힘 업데이트
    if(rst) begin
        ba_hit_force <= 0;
    end
    else if(refr_tick) begin
-        if(key == 5'h14) begin // 4????? ?????? ?????? ??? ???? Ŀ??
+        if(key == 5'h14) begin// 4번키를 누르고 있으면 치는 힘이 커짐
             if(ba_hit_force_t < MAX_ba_HIT_FORCE && cnt1 > 5) begin
                 ba_hit_force_t <= ba_hit_force_t + 1;
                 cnt1 <= 0;
@@ -157,7 +157,7 @@ always @(posedge clk or posedge rst) begin // ??? ?? ???????
                 cnt1 <= cnt1 + 1;
             end
         end
-        if (cnt2 == 20 && ba_hit_force > 0) begin // ??? ???? 0 ?????? ????????? ??????
+        if (cnt2 == 20 && ba_hit_force > 0) begin// 치는 힘이 0 이상이면 주기적으로 줄어들음
             ba_hit_force <= ba_hit_force - 1;
             cnt2 <= 0;
         end
@@ -165,24 +165,24 @@ always @(posedge clk or posedge rst) begin // ??? ?? ???????
             cnt2 <= cnt2 + 1;
         end
    end
-   else if(key_pulse == 5'h10) begin // ?????
+   else if(key_pulse == 5'h10) begin // 공쏘기
         ba_hit_force <= ba_hit_force_t;
         ba_hit_force_t <= 0;
    end
 end
 
-always @(posedge clk or posedge rst) begin // ??? ???? ???????
+always @(posedge clk or posedge rst) begin// 치는 각도 업데이트
     if(rst) begin
         ba_hit_angle <= 0;
     end
     else if (refr_tick) begin
-        if (key == 5'h11) begin // 1??? ?????? ?????? ???? ????
+        if (key == 5'h11) begin // 1번키 누르고 있으면 각도 증가
             if (cnt3 > 3) begin
                 if (ba_hit_angle_t < 360) begin
                     ba_hit_angle_t <= ba_hit_angle_t + 5;
                     cnt3 <= 0;
                 end
-                else if (ba_hit_angle_t == 360) begin // ???? ?????? 360????? 0???? ???
+                else if (ba_hit_angle_t == 360) begin // 현재 각도가 360도이면 0도로 변환
                     ba_hit_angle_t <= 0;
                 end
             end
@@ -190,13 +190,13 @@ always @(posedge clk or posedge rst) begin // ??? ???? ???????
                 cnt3 <= cnt3 + 1;
             end
         end
-        if (key == 5'h17) begin // 7??? ?????? ?????? ???? ????
+        if (key == 5'h17) begin  // 7번키 누르고 있으면 각도 감소
             if (cnt3 > 3) begin
                 if (ba_hit_angle_t > 0) begin
                     ba_hit_angle_t <= ba_hit_angle_t - 5;
                     cnt3 <= 0;
                 end
-                else if (ba_hit_angle_t == 0) begin // ???? ?????? 0????? 360???? ???
+                else if (ba_hit_angle_t == 0) begin // 현재 각도가 0도이면 360도로 변환
                     ba_hit_angle_t <= 360;
                 end
             end
@@ -205,19 +205,19 @@ always @(posedge clk or posedge rst) begin // ??? ???? ???????
             end
         end
     end 
-    else if(key_pulse == 5'h10) begin // ?????
+    else if(key_pulse == 5'h10) begin // 공쏘기
         ba_hit_angle <= ba_hit_angle_t;
         ba_hit_angle_t <= 0;
     end
 end
 
-deg_set deg_set_ba (ba_hit_force, ba_hit_angle, vax, vay, dax, day); // ??? ???? ?????? ???? ????? ???
+deg_set deg_set_ba (ba_hit_force, ba_hit_angle, vax, vay, dax, day);// 치는 힘과 각도를 받아서 공속도 출력
 
 /*---------------------------------------------------------*/
-// ??A-??B ?浹 ?? ??B?? ???
+// 공A-공B 충돌 후 공B의 속도
 //
-// <????>
-//  ??A-??B ?浹 ?? ??B ??? ???????
+// <설명>
+//  공A-공B 충돌 후 공B 속도 업데이트
 /*---------------------------------------------------------*/
 reg [5:0] bb_hit_force_t, bb_hit_force;
 reg [8:0] bb_hit_angle_t, bb_hit_angle;
@@ -243,7 +243,7 @@ always @(posedge clk or posedge rst) begin
     end
 end
 
-deg_set deg_set_bb (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // ?浹 ?? ??B?? ??? ???????
+deg_set deg_set_bb (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // 치는 힘과 각도를 받아서 공속도 출력
 
 /*---------------------------------------------------------*/
 // ??A?? ???
@@ -399,7 +399,6 @@ end
 
 /*---------------------------------------------------------*/
 // HOLE A, B, C, D
-// ???? BALL_R ????
 /*---------------------------------------------------------*/
 parameter HOLE_CA_X = 40;
 parameter HOLE_CA_Y = 40;
@@ -409,28 +408,52 @@ parameter HOLE_CC_X = 40;
 parameter HOLE_CC_Y = 440;
 parameter HOLE_CD_X = 600;
 parameter HOLE_CD_Y = 440;
+parameter HOIE_SIZE = 30;
 
 reg ha_ba, ha_bb;
 reg hb_ba, hb_bb;
 reg hc_ba, hc_bb;
 reg hd_ba, hd_bb;
 
+reg Ball_a_Hole_Flag, Ball_b_Hole_Flag;
+
+
 always @(posedge clk or posedge rst) begin
     if (rst) begin
 
     end
     else begin
-        ha_ba = (50*50 >= (HOLE_CA_X-cax)*(HOLE_CA_X-cax) + (HOLE_CA_Y-cay)*(HOLE_CA_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
-        ha_bb = (50*50 >= (HOLE_CA_X-cbx)*(HOLE_CA_X-cbx) + (HOLE_CA_Y-cby)*(HOLE_CA_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
-        //if(ha_ba || ha_bb ) ba_bb = 1; //Just test
+        ha_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CA_X-cbx)*(HOLE_CA_X-cbx) + (HOLE_CA_Y-cby)*(HOLE_CA_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+        hb_ba = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CB_X-cax)*(HOLE_CB_X-cax) + (HOLE_CB_Y-cay)*(HOLE_CB_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
+        hb_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CB_X-cbx)*(HOLE_CB_X-cbx) + (HOLE_CB_Y-cby)*(HOLE_CB_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+        hc_ba = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CC_X-cax)*(HOLE_CC_X-cax) + (HOLE_CC_Y-cay)*(HOLE_CC_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
+        hc_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CC_X-cbx)*(HOLE_CC_X-cbx) + (HOLE_CC_Y-cby)*(HOLE_CC_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+        hd_ba = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CD_X-cax)*(HOLE_CD_X-cax) + (HOLE_CD_Y-cay)*(HOLE_CD_Y-cay)) ? 1 : 0; // holeA-ballaA ?浹 ????
+        hd_bb = (HOIE_SIZE * HOIE_SIZE >= (HOLE_CD_X-cbx)*(HOLE_CD_X-cbx) + (HOLE_CD_Y-cby)*(HOLE_CD_Y-cby)) ? 1 : 0; // holeA-ballaB ?浹 ????
+
+        Ball_a_Hole_Flag = (ha_ba || hb_ba || hc_ba || hd_ba);
+        Ball_b_Hole_Flag = (ha_bb || hb_bb || hc_bb || hd_bb);
     end
 end
+
+/*---------------------------------------------------------*/
+// CUE
+/*---------------------------------------------------------*/
+wire [9:0] cue_x2, cue_y2;
+parameter CUE_BALL_SIZE = 5;
+cue_deg cue_deg_init (ba_hit_angle_t, cax, cay, cue_x2, cue_y2); //
 
 /*---------------------------------------------------------*/
 // ??A, B ?????
 /*---------------------------------------------------------*/
 assign ball_rgb[0] = (`BALL_R*`BALL_R >= (x-cax)*(x-cax) + (y-cay)*(y-cay)) ? 1 : 0;
 assign ball_rgb[1] = (`BALL_R*`BALL_R >= (x-cbx)*(x-cbx) + (y-cby)*(y-cby)) ? 1 : 0;
-assign ball_rgb[2] = (ba_bb || ha_ba || ha_bb); // ??A-??B ?浹?? ?????? ???? ??? (???)
+assign ball_rgb[2] = (ba_bb || Ball_a_Hole_Flag || Ball_b_Hole_Flag); // Flag indicate
+
+assign ball_rgb[3] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CA_X)*(x - HOLE_CA_X) + (y - HOLE_CA_Y)*(y - HOLE_CA_Y)) ? 1 : 0;
+assign ball_rgb[4] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CB_X)*(x - HOLE_CB_X) + (y - HOLE_CB_Y)*(y - HOLE_CB_Y)) ? 1 : 0;
+assign ball_rgb[5] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CC_X)*(x - HOLE_CC_X) + (y - HOLE_CC_Y)*(y - HOLE_CC_Y)) ? 1 : 0;
+assign ball_rgb[6] = (HOIE_SIZE * HOIE_SIZE >= (x - HOLE_CD_X)*(x - HOLE_CD_X) + (y - HOLE_CD_Y)*(y - HOLE_CD_Y)) ? 1 : 0;
+assign ball_rgb[7] = (CUE_BALL_SIZE * CUE_BALL_SIZE >= (x - cue_x2)*(x - cue_x2) + (y - cue_y2)*(y - cue_y2)) ? 1 : 0;
 
 endmodule 

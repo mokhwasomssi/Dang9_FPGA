@@ -1,14 +1,14 @@
 `define BALL_R 12
 `define BALL_D 24
 
-`define WHITE 3'b111
-`define BLACK 3'b000
-`define RED   3'b100
-`define GREEN 3'b010
-`define BLUE  3'b001
-
-`define MAX_X 640
-`define MAX_Y 480
+`define WHITE   3'b111
+`define BLACK   3'b000
+`define RED     3'b100
+`define GREEN   3'b010
+`define BLUE    3'b001
+`define YELLOW  3'b110
+`define MAX_X   640
+`define MAX_Y   480
 
 `define TABLE_OUT_L 0
 `define TABLE_OUT_R 639
