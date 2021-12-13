@@ -221,6 +221,7 @@ deg_set deg_set_ba (ba_hit_force, ba_hit_angle, vax, vay, dax, day); // ??? ????
 /*---------------------------------------------------------*/
 reg [5:0] bb_hit_force_t, bb_hit_force;
 reg [8:0] bb_hit_angle_t, bb_hit_angle;
+reg [5:0] cnt5;
 
 always @(posedge clk or posedge rst) begin
     if (rst) begin
@@ -230,6 +231,15 @@ always @(posedge clk or posedge rst) begin
     else if (ba_bb) begin
         bb_hit_force <= ba_hit_force;
         bb_hit_angle <= ba_hit_angle;
+    end
+    else if (refr_tick) begin
+        if (cnt5 == 20 && bb_hit_force > 0) begin
+            bb_hit_force <= bb_hit_force - 1;
+            cnt5 <= 0;
+        end
+        else begin
+            cnt5 <= cnt5 + 1;
+        end
     end
 end
 
