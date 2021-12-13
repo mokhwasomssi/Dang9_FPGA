@@ -268,11 +268,11 @@ always @(posedge clk or posedge rst) begin // ??A?? ????
             ba_collision <= 1;
         end
         else if (ba_bb) begin // ??B?? ?תפ
-            ba_collision <= 1;
             if (cbx-cax >= 0)     dax1 <= -1;
             else if (cbx-cax < 0) dax1 <=  1;
             if (cby-cay >= 0)     day1 <= -1;
             else if (cby-cay < 0) day1 <=  1;
+            ba_collision <= 1;
         end
         else if(ba_collision == 0) begin // deg_set???? ?????? ?????? ?????
             dax1 <= dax;
@@ -341,9 +341,11 @@ always @(posedge clk or posedge rst) begin // ??B?? ????
         else if (bb_right) begin 
             dbx1 <= -1;
         end
-        else if (ba_collision == 1) begin
-            dbx1 <= dax1;
-            dby1 <= day1;
+        else if (ba_bb) begin // ??B?? ?תפ
+            if (cbx-cax >= 0)     dbx1 <=  1;
+            else if (cbx-cax < 0) dbx1 <= -1;
+            if (cby-cay >= 0)     dby1 <=  1;
+            else if (cby-cay < 0) dby1 <= -1;
         end
     end
 end
