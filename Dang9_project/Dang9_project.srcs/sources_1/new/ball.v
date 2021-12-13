@@ -334,7 +334,7 @@ always @ (posedge clk or posedge rst) begin // 공B의 속력
         else if (vbx == vby) begin
             ratio <= 1;
             flag <= 2;
-        end     
+        end
     end
     else if (refr_tick) begin // 시간에 따라 속도 감소
         if ((cnt4 == 20) && (vbx > 0 || vby > 0)) begin
