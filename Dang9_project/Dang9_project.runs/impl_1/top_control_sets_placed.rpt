@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Mon Dec 13 19:03:33 2021
+| Date         : Mon Dec 13 20:07:02 2021
 | Host         : DESKTOP-8PEBONS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    18 |
-| Unused register locations in slices containing registers |    60 |
+| Number of unique control sets                            |    21 |
+| Unused register locations in slices containing registers |    70 |
 +----------------------------------------------------------+-------+
 
 
@@ -35,9 +35,9 @@ Table of Contents
 | Fanout | Control Sets |
 +--------+--------------+
 |      2 |            1 |
-|      8 |            1 |
-|     10 |            2 |
-|     12 |            4 |
+|      8 |            3 |
+|     10 |            4 |
+|     12 |            3 |
 |     14 |            2 |
 |    16+ |            8 |
 +--------+--------------+
@@ -49,39 +49,42 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              56 |           18 |
-| No           | No                    | Yes                    |             174 |           35 |
-| No           | Yes                   | No                     |              22 |            4 |
-| Yes          | No                    | No                     |              14 |            2 |
-| Yes          | No                    | Yes                    |             194 |           32 |
-| Yes          | Yes                   | No                     |              56 |           10 |
+| No           | No                    | No                     |              50 |           11 |
+| No           | No                    | Yes                    |             174 |           38 |
+| No           | Yes                   | No                     |              22 |            5 |
+| Yes          | No                    | No                     |              46 |            8 |
+| Yes          | No                    | Yes                    |             192 |           34 |
+| Yes          | Yes                   | No                     |              54 |           10 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------------------------------------------+-------------------------------------------+--------------------------------------+------------------+----------------+
-|                     Clock Signal                     |               Enable Signal               |           Set/Reset Signal           | Slice Load Count | Bel Load Count |
-+------------------------------------------------------+-------------------------------------------+--------------------------------------+------------------+----------------+
-|  graph_inst/ball_inst/state0                         |                                           | graph_inst/ball_inst/vbx_new0__0     |                1 |              2 |
-|  clk_inst/inst/clk_out1                              | keypad_inst/col[3]_i_1_n_0                | rst_IBUF                             |                1 |              8 |
-|  clk_inst/inst/clk_out1                              | debounce_inst/btn_in_d                    | rst_IBUF                             |                2 |             10 |
-|  clk_inst/inst/clk_out1                              | keypad_inst/keypad_out[4]_i_1_n_0         | rst_IBUF                             |                1 |             10 |
-|  clk_inst/inst/clk_out1                              | debounce_inst/hit_angle_t_reg[0]          | debounce_inst/hit_angle_t_reg[7]_0   |                2 |             12 |
-|  clk_inst/inst/clk_out1                              | debounce_inst/hit_force_t                 | debounce_inst/hit_force_t_reg[5]     |                2 |             12 |
-|  clk_inst/inst/clk_out1                              | debounce_inst/cnt1                        | graph_inst/ball_inst/cnt1[5]_i_1_n_0 |                2 |             12 |
-|  clk_inst/inst/clk_out1                              | graph_inst/ball_inst/hit_force[5]_i_1_n_0 | rst_IBUF                             |                2 |             12 |
-|  clk_inst/inst/clk_out1                              |                                           |                                      |                4 |             14 |
-|  clk_inst/inst/clk_out1                              | sync_inst/cnt2_reg[0][0]                  |                                      |                2 |             14 |
-|  graph_inst/ball_inst/vbx_new0__0                    |                                           |                                      |                4 |             20 |
-|  clk_inst/inst/clk_out1                              | graph_inst/ball_inst/state                | rst_IBUF                             |                3 |             20 |
-|  clk_inst/inst/clk_out1                              | sync_inst/c_v                             | rst_IBUF                             |                4 |             20 |
-|  graph_inst/ball_inst/deg_set_inst/Vx_reg[3]_i_2_n_0 |                                           |                                      |               10 |             22 |
-|  clk_inst/inst/clk_out1                              | debounce_inst/E[0]                        | rst_IBUF                             |                7 |             22 |
-|  clk_inst/inst/clk_out1                              | debounce_inst/o[0]_i_1_n_0                | rst_IBUF                             |                4 |             32 |
-|  clk_inst/inst/clk_out1                              | sync_inst/refr_tick1                      | rst_IBUF                             |               12 |             80 |
-|  clk_inst/inst/clk_out1                              |                                           | rst_IBUF                             |               38 |            194 |
-+------------------------------------------------------+-------------------------------------------+--------------------------------------+------------------+----------------+
++------------------------------------------------------+-----------------------------------+--------------------------------------+------------------+----------------+
+|                     Clock Signal                     |           Enable Signal           |           Set/Reset Signal           | Slice Load Count | Bel Load Count |
++------------------------------------------------------+-----------------------------------+--------------------------------------+------------------+----------------+
+|  graph_inst/ball_inst/state0                         |                                   | graph_inst/ball_inst/vbx_new0__0     |                1 |              2 |
+|  clk_inst/inst/clk_out1                              |                                   |                                      |                2 |              8 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/hit_angle_t_reg[0]  |                                      |                2 |              8 |
+|  clk_inst/inst/clk_out1                              | keypad_inst/col[3]_i_1_n_0        | rst_IBUF                             |                1 |              8 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/hit_angle_t_reg[0]  | sync_inst/hit_angle_t_reg[0]_2       |                3 |             10 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/btn_in_d            | rst_IBUF                             |                2 |             10 |
+|  clk_inst/inst/clk_out1                              | graph_inst/ball_inst/cnt4         |                                      |                1 |             10 |
+|  clk_inst/inst/clk_out1                              | keypad_inst/keypad_out[4]_i_1_n_0 | rst_IBUF                             |                2 |             10 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/hit_force_t         | debounce_inst/hit_force_t_reg[0]_0   |                2 |             12 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/cnt1                | graph_inst/ball_inst/cnt1[5]_i_1_n_0 |                2 |             12 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/hit_force_reg[5][0] | rst_IBUF                             |                3 |             12 |
+|  clk_inst/inst/clk_out1                              | graph_inst/ball_inst/ratio        |                                      |                3 |             14 |
+|  clk_inst/inst/clk_out1                              | sync_inst/E[0]                    |                                      |                2 |             14 |
+|  graph_inst/ball_inst/vbx_new0__0                    |                                   |                                      |                4 |             20 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/E[0]                | rst_IBUF                             |                3 |             20 |
+|  clk_inst/inst/clk_out1                              | graph_inst/ball_inst/vby          | rst_IBUF                             |                7 |             20 |
+|  clk_inst/inst/clk_out1                              | sync_inst/c_v[9]_i_1_n_0          | rst_IBUF                             |                3 |             20 |
+|  graph_inst/ball_inst/deg_set_inst/Vx_reg[3]_i_2_n_0 |                                   |                                      |                5 |             22 |
+|  clk_inst/inst/clk_out1                              | debounce_inst/o[0]_i_1_n_0        | rst_IBUF                             |                4 |             32 |
+|  clk_inst/inst/clk_out1                              | sync_inst/cax_reg[0][0]           | rst_IBUF                             |               12 |             80 |
+|  clk_inst/inst/clk_out1                              |                                   | rst_IBUF                             |               42 |            194 |
++------------------------------------------------------+-----------------------------------+--------------------------------------+------------------+----------------+
 
 
