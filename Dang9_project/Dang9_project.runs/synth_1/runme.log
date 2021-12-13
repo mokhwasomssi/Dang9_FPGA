@@ -14,52 +14,66 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6096 
-WARNING: [Synth 8-2611] redeclaration of ansi port ball2_center_x is not allowed [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v:33]
-WARNING: [Synth 8-2611] redeclaration of ansi port ball2_center_y is not allowed [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v:34]
-WARNING: [Synth 8-2611] redeclaration of ansi port ball1_center_x is not allowed [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:36]
-WARNING: [Synth 8-2611] redeclaration of ansi port ball1_center_y is not allowed [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:37]
+INFO: Helper process launched with PID 9716 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 378.707 ; gain = 108.672
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 369.129 ; gain = 99.262
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-3372-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-3372-DESKTOP-00TQ7BI/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'keypad' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-9348-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/.Xil/Vivado-9348-DESKTOP-8PEBONS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'keypad' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
 	Parameter CLK_KHZ bound to: 25175 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'keypad' (2#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
-INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/debounce.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'keypad' (2#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/keypad.v:1]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/debounce.v:1]
 	Parameter SIZE bound to: 16 - type: integer 
 	Parameter BTN_WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/debounce.v:1]
-INFO: [Synth 8-6157] synthesizing module 'graph_mod' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:24]
-	Parameter CUE_X_SIZE bound to: 72 - type: integer 
-	Parameter CUE_Y_SIZE bound to: 16 - type: integer 
-	Parameter MAX_HIT_FORCE bound to: 20 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'white_ball' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:1]
-	Parameter MAX_HIT_FORCE bound to: 20 - type: integer 
-WARNING: [Synth 8-5788] Register cnt1_reg in module white_ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:78]
-WARNING: [Synth 8-5788] Register ball1_vx_reg in module white_ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:94]
-WARNING: [Synth 8-5788] Register ball1_vy_reg in module white_ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:95]
-WARNING: [Synth 8-5788] Register cnt2_reg in module white_ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:98]
-INFO: [Synth 8-6155] done synthesizing module 'white_ball' (4#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:1]
-INFO: [Synth 8-6157] synthesizing module 'red_ball' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v:1]
-	Parameter MAX_HIT_FORCE bound to: 20 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'red_ball' (5#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v:1]
-INFO: [Synth 8-6157] synthesizing module 'table_mod' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/table.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'table_mod' (6#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/table.v:1]
-INFO: [Synth 8-6157] synthesizing module 'collision_dectect' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/collision_detect.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'collision_dectect' (7#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/collision_detect.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'graph_mod' (8#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:24]
-INFO: [Synth 8-6157] synthesizing module 'sync_mod' [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'sync_mod' (9#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'top' (10#1) [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/debounce.v:1]
+INFO: [Synth 8-6157] synthesizing module 'graph_mod' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:3]
+INFO: [Synth 8-6157] synthesizing module 'table_mod' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/table.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'table_mod' (4#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/table.v:1]
+INFO: [Synth 8-6157] synthesizing module 'ball' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:3]
+	Parameter BA_START_X bound to: 213 - type: integer 
+	Parameter BA_START_Y bound to: 240 - type: integer 
+	Parameter BB_START_X bound to: 426 - type: integer 
+	Parameter BB_START_Y bound to: 240 - type: integer 
+	Parameter MAX_HIT_FORCE bound to: 12 - type: integer 
+	Parameter MAT_HIT_ANGLE bound to: 360 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'deg_set' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:21]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:96]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:171]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:246]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:321]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:396]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:471]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:546]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:621]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:696]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:771]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:846]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:921]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'deg_set' (5#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:1]
+WARNING: [Synth 8-689] width (6) of port connection 'R' does not match port width (10) of module 'deg_set' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:201]
+WARNING: [Synth 8-689] width (9) of port connection 'DEG' does not match port width (10) of module 'deg_set' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:201]
+WARNING: [Synth 8-689] width (5) of port connection 'Vx' does not match port width (10) of module 'deg_set' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:201]
+WARNING: [Synth 8-689] width (5) of port connection 'Vy' does not match port width (10) of module 'deg_set' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:201]
+WARNING: [Synth 8-5788] Register hit_force_t_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:139]
+WARNING: [Synth 8-5788] Register cnt1_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:139]
+WARNING: [Synth 8-5788] Register cnt2_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:147]
+WARNING: [Synth 8-5788] Register hit_angle_t_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:168]
+WARNING: [Synth 8-5788] Register cnt3_reg in module ball is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:167]
+INFO: [Synth 8-6155] done synthesizing module 'ball' (6#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'graph_mod' (7#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/graph_mod.v:3]
+INFO: [Synth 8-6157] synthesizing module 'sync_mod' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sync_mod' (8#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/sync_mod.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'top' (9#1) [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v:1]
 WARNING: [Synth 8-3331] design table_mod has unconnected port clk
 WARNING: [Synth 8-3331] design table_mod has unconnected port rst
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 416.211 ; gain = 146.176
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 430.754 ; gain = 160.887
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -72,53 +86,83 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 416.211 ; gain = 146.176
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 430.754 ; gain = 160.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 416.211 ; gain = 146.176
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 430.754 ; gain = 160.887
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_inst'
-Finished Parsing XDC File [c:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_inst'
-Parsing XDC File [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]
-Finished Parsing XDC File [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Parsing XDC File [c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_inst'
+Finished Parsing XDC File [c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_inst'
+Parsing XDC File [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]
+Finished Parsing XDC File [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/constrs_1/new/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 795.363 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 805.438 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 795.363 ; gain = 525.328
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 805.438 ; gain = 535.570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 795.363 ; gain = 525.328
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 805.438 ; gain = 535.570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for clk_inst. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 795.363 ; gain = 525.328
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 805.438 ; gain = 535.570
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "keypad_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "Vx" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3936] Found unconnected internal register 'vbx_new_reg' and it is trimmed from '10' to '5' bits. [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:100]
+WARNING: [Synth 8-3936] Found unconnected internal register 'vby_new_reg' and it is trimmed from '10' to '5' bits. [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:102]
 INFO: [Synth 8-5546] ROM "hit_force" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "hit_angle_t" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "hit_angle_t" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "hit_force" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "hit_angle_t" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "hit_angle_t" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "dbx" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dby" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball_rgb0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ball_rgb0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ba_bb" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "refr_tick" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ba_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ba_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ba_top" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ba_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bb_left" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bb_right" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bb_top" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bb_bottom" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "c_v" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-327] inferring latch for variable 'Vx_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:22]
+WARNING: [Synth 8-327] inferring latch for variable 'Vy_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:22]
+WARNING: [Synth 8-327] inferring latch for variable 'Dx_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:22]
+WARNING: [Synth 8-327] inferring latch for variable 'Dy_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/deg_set.v:22]
+WARNING: [Synth 8-327] inferring latch for variable 'state_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:84]
+WARNING: [Synth 8-327] inferring latch for variable 'vbx_new_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:100]
+WARNING: [Synth 8-327] inferring latch for variable 'vby_new_reg' [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:102]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 795.363 ; gain = 525.328
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 805.438 ; gain = 535.570
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -135,40 +179,53 @@ Detailed RTL Component Info :
 	   3 Input     32 Bit       Adders := 6     
 	   2 Input     11 Bit       Adders := 8     
 	   2 Input     10 Bit       Adders := 6     
-	   2 Input      7 Bit       Adders := 2     
-	   2 Input      6 Bit       Adders := 1     
-	   2 Input      5 Bit       Adders := 2     
+	   3 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 2     
 +---Registers : 
 	               10 Bit    Registers := 10    
-	                7 Bit    Registers := 2     
-	                6 Bit    Registers := 1     
-	                5 Bit    Registers := 7     
+	                9 Bit    Registers := 2     
+	                7 Bit    Registers := 3     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 9     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Multipliers : 
 	                32x32  Multipliers := 6     
 +---Muxes : 
 	  10 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 1     
+	  74 Input     10 Bit        Muxes := 21    
+	   4 Input     10 Bit        Muxes := 2     
+	   8 Input     10 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 2     
-	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 4     
+	   2 Input      7 Bit        Muxes := 4     
+	   2 Input      6 Bit        Muxes := 2     
 	   4 Input      5 Bit        Muxes := 4     
 	   5 Input      5 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      5 Bit        Muxes := 3     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 4     
 	  10 Input      4 Bit        Muxes := 1     
-	   5 Input      3 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 1     
+	  74 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 6     
+	  74 Input      2 Bit        Muxes := 10    
+	   2 Input      2 Bit        Muxes := 9     
+	  14 Input      2 Bit        Muxes := 2     
+	   5 Input      2 Bit        Muxes := 2     
 	   8 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 18    
+	   2 Input      1 Bit        Muxes := 32    
 	   4 Input      1 Bit        Muxes := 2     
 	  10 Input      1 Bit        Muxes := 2     
-	   5 Input      1 Bit        Muxes := 1     
-	   3 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 2     
+	  74 Input      1 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -210,57 +267,54 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 1     
-Module white_ball 
+Module deg_set 
 Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     32 Bit       Adders := 2     
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 4     
-	   2 Input     10 Bit       Adders := 2     
-	   2 Input      7 Bit       Adders := 2     
-	   2 Input      6 Bit       Adders := 1     
-	   2 Input      5 Bit       Adders := 2     
-+---Registers : 
-	               10 Bit    Registers := 4     
-	                7 Bit    Registers := 2     
-	                6 Bit    Registers := 1     
-	                5 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-+---Multipliers : 
-	                32x32  Multipliers := 2     
 +---Muxes : 
-	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 4     
-	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 8     
-	   3 Input      1 Bit        Muxes := 1     
-Module red_ball 
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     32 Bit       Adders := 2     
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 4     
-	   2 Input     10 Bit       Adders := 2     
-+---Registers : 
-	               10 Bit    Registers := 4     
-	                2 Bit    Registers := 2     
-+---Multipliers : 
-	                32x32  Multipliers := 2     
-+---Muxes : 
-	   2 Input      2 Bit        Muxes := 2     
+	  74 Input     10 Bit        Muxes := 21    
+	   4 Input     10 Bit        Muxes := 2     
+	   8 Input     10 Bit        Muxes := 1     
+	  74 Input      3 Bit        Muxes := 1     
+	  74 Input      2 Bit        Muxes := 10    
+	   2 Input      2 Bit        Muxes := 3     
+	  14 Input      2 Bit        Muxes := 2     
+	  74 Input      1 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
-Module collision_dectect 
+	  14 Input      1 Bit        Muxes := 1     
+Module ball 
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     32 Bit       Adders := 2     
-	   2 Input     32 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 6     
+	   2 Input     32 Bit       Adders := 3     
+	   2 Input     11 Bit       Adders := 8     
+	   2 Input     10 Bit       Adders := 4     
+	   3 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 2     
++---Registers : 
+	               10 Bit    Registers := 8     
+	                9 Bit    Registers := 2     
+	                7 Bit    Registers := 3     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 4     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 1     
 +---Multipliers : 
-	                32x32  Multipliers := 2     
+	                32x32  Multipliers := 6     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 4     
+	   2 Input      7 Bit        Muxes := 4     
+	   2 Input      6 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 4     
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 22    
+	   5 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 4     
 Module graph_mod 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
 Module sync_mod 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -290,119 +344,148 @@ Warning: Parallel synthesis criteria is not met
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "sync_inst/c_v" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/collision_detect.v:11]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/collision_detect.v:11]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v:91]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v:91]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:134]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v:134]
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/collision_dectect_inst/collision3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: operator graph_inst/collision_dectect_inst/collision3 is absorbed into DSP graph_inst/collision_dectect_inst/collision3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/red_ball_inst/red_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: operator graph_inst/red_ball_inst/red_ball_on3 is absorbed into DSP graph_inst/red_ball_inst/red_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: Generating DSP graph_inst/white_ball_inst/white_ball_on3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
-DSP Report: operator graph_inst/white_ball_inst/white_ball_on3 is absorbed into DSP graph_inst/white_ball_inst/white_ball_on3.
+INFO: [Synth 8-5546] ROM "ball_inst/deg_set_inst/Vx" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:350]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:350]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:351]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:351]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:79]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:79]
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ball_rgb4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: operator ball_inst/ball_rgb4 is absorbed into DSP ball_inst/ball_rgb4.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/ba_bb3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: operator ball_inst/ba_bb3 is absorbed into DSP ball_inst/ba_bb3.
+DSP Report: Generating DSP ball_inst/vbx_new4, operation Mode is: A*B.
+DSP Report: operator ball_inst/vbx_new4 is absorbed into DSP ball_inst/vbx_new4.
+DSP Report: Generating DSP ball_inst/vbx_new3, operation Mode is: C+A*B.
+DSP Report: operator ball_inst/vbx_new3 is absorbed into DSP ball_inst/vbx_new3.
+DSP Report: operator ball_inst/vbx_new4 is absorbed into DSP ball_inst/vbx_new3.
+DSP Report: Generating DSP ball_inst/vbx_new2, operation Mode is: A*B.
+DSP Report: operator ball_inst/vbx_new2 is absorbed into DSP ball_inst/vbx_new2.
+DSP Report: Generating DSP ball_inst/vbx_new4, operation Mode is: A*B.
+DSP Report: operator ball_inst/vbx_new4 is absorbed into DSP ball_inst/vbx_new4.
+DSP Report: Generating DSP ball_inst/vbx_new3, operation Mode is: C-A*B.
+DSP Report: operator ball_inst/vbx_new3 is absorbed into DSP ball_inst/vbx_new3.
+DSP Report: operator ball_inst/vbx_new4 is absorbed into DSP ball_inst/vbx_new3.
+DSP Report: Generating DSP ball_inst/vbx_new1, operation Mode is: C-A*B.
+DSP Report: operator ball_inst/vbx_new1 is absorbed into DSP ball_inst/vbx_new1.
+DSP Report: operator ball_inst/vbx_new2 is absorbed into DSP ball_inst/vbx_new1.
+DSP Report: Generating DSP ball_inst/vby_new1, operation Mode is: C+A*B.
+DSP Report: operator ball_inst/vby_new1 is absorbed into DSP ball_inst/vby_new1.
+DSP Report: operator ball_inst/vbx_new2 is absorbed into DSP ball_inst/vby_new1.
+INFO: [Synth 8-5546] ROM "c_v" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3331] design top has unconnected port btn[1]
 WARNING: [Synth 8-3331] design top has unconnected port btn[0]
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[0]' (FDC) to 'graph_inst/red_ball_inst/ball2_vx_reg_reg[1]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[1]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[1]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[3]' (FDC) to 'graph_inst/red_ball_inst/ball2_vx_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[4]' (FDC) to 'graph_inst/red_ball_inst/ball2_vx_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[5]' (FDC) to 'graph_inst/red_ball_inst/ball2_vx_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[6]' (FDC) to 'graph_inst/red_ball_inst/ball2_vx_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[7]' (FDC) to 'graph_inst/red_ball_inst/ball2_vx_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vx_reg_reg[8]' (FDC) to 'graph_inst/red_ball_inst/ball2_vx_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/white_ball_inst/ball1_vx_reg_reg[6]' (FDC) to 'graph_inst/white_ball_inst/ball1_vx_reg_reg[7]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/white_ball_inst/ball1_vx_reg_reg[7]' (FDC) to 'graph_inst/white_ball_inst/ball1_vx_reg_reg[8]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/white_ball_inst/ball1_vx_reg_reg[8]' (FDC) to 'graph_inst/white_ball_inst/ball1_vx_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vy_reg_reg[0]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/red_ball_inst/ball2_vy_reg_reg[1] )
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vy_reg_reg[3]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vy_reg_reg[4]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vy_reg_reg[5]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vy_reg_reg[6]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vy_reg_reg[7]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/red_ball_inst/ball2_vy_reg_reg[8]' (FDC) to 'graph_inst/red_ball_inst/ball2_vy_reg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/white_ball_inst/ball1_vy_reg_reg[6]' (FDC) to 'graph_inst/white_ball_inst/ball1_vy_reg_reg[7]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/white_ball_inst/ball1_vy_reg_reg[7]' (FDC) to 'graph_inst/white_ball_inst/ball1_vy_reg_reg[8]'
-INFO: [Synth 8-3886] merging instance 'graph_inst/white_ball_inst/ball1_vy_reg_reg[8]' (FDC) to 'graph_inst/white_ball_inst/ball1_vy_reg_reg[9]'
-WARNING: [Synth 8-3332] Sequential element (graph_inst/red_ball_inst/ball2_vy_reg_reg[1]) is unused and will be removed from module top.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/red_ball_inst/ball2_center_x0_inferred /\graph_inst/red_ball_inst/ball2_center_x_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/red_ball_inst/ball2_center_y0_inferred /\graph_inst/red_ball_inst/ball2_center_y_reg[0] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/red_ball_inst/ball2_dir_y_reg[0] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/white_ball_inst/ball1_dir_y_reg[0] )
-WARNING: [Synth 8-3332] Sequential element (graph_inst/white_ball_inst/ball1_dir_y_reg[0]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (graph_inst/red_ball_inst/ball2_dir_y_reg[0]) is unused and will be removed from module top.
-INFO: [Synth 8-3886] merging instance 'graph_inst/white_ball_inst/ball1_vy_reg_reg[5]' (FDC) to 'graph_inst/white_ball_inst/ball1_vy_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/deg_set_inst/Vx_reg[4]' (LD) to 'graph_inst/ball_inst/deg_set_inst/Vy_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_inst/deg_set_inst/Vy_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball_inst/deg_set_inst/Dy_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball_inst/dbx_reg[0] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vax1_reg[4]' (FDC) to 'graph_inst/ball_inst/vay1_reg[4]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\graph_inst/ball_inst/dby_reg[0] )
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vbx_reg_reg[6]' (FDC) to 'graph_inst/ball_inst/vbx_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vbx_reg_reg[7]' (FDC) to 'graph_inst/ball_inst/vbx_reg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vbx_reg_reg[8]' (FDC) to 'graph_inst/ball_inst/vbx_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vax_reg_reg[6]' (FDC) to 'graph_inst/ball_inst/vax_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vax_reg_reg[7]' (FDC) to 'graph_inst/ball_inst/vax_reg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vax_reg_reg[8]' (FDC) to 'graph_inst/ball_inst/vax_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vby_reg_reg[6]' (FDC) to 'graph_inst/ball_inst/vby_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vby_reg_reg[7]' (FDC) to 'graph_inst/ball_inst/vby_reg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vby_reg_reg[8]' (FDC) to 'graph_inst/ball_inst/vby_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vay_reg_reg[6]' (FDC) to 'graph_inst/ball_inst/vay_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vay_reg_reg[7]' (FDC) to 'graph_inst/ball_inst/vay_reg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vay_reg_reg[8]' (FDC) to 'graph_inst/ball_inst/vay_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vax_reg_reg[5]' (FDC) to 'graph_inst/ball_inst/vax_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vay_reg_reg[5]' (FDC) to 'graph_inst/ball_inst/vay_reg_reg[9]'
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vx_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vx_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vx_reg[7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vx_reg[6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vx_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vy_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vy_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vy_reg[7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vy_reg[6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vy_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Dy_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/dby_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/dbx_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/vay1_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/deg_set_inst/Vy_reg[4]) is unused and will be removed from module top.
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/cnt3_reg[5]' (FDE) to 'graph_inst/ball_inst/cnt3_reg[3]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/cnt3_reg[6]' (FDE) to 'graph_inst/ball_inst/cnt3_reg[3]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/cnt3_reg[4]' (FDE) to 'graph_inst/ball_inst/cnt3_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\graph_inst/ball_inst/cnt3_reg[3] )
+WARNING: [Synth 8-3332] Sequential element (graph_inst/ball_inst/cnt3_reg[3]) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 795.363 ; gain = 525.328
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 805.438 ; gain = 535.570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -412,36 +495,45 @@ DSP: Preliminary Mapping  Report (see note below)
 +------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|graph_mod   | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ball        | A*B            | 10     | 7      | -      | -      | 17     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ball        | C+A*B          | 10     | 7      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|ball        | A*B            | 10     | 10     | -      | -      | 20     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ball        | A*B            | 10     | 7      | -      | -      | 17     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ball        | C-A*B          | 10     | 7      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|ball        | C-A*B          | 10     | 10     | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|ball        | C+A*B          | 10     | 10     | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 +------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:317]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:316]
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -454,13 +546,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_inst/clk_out1' to pin 'clk_inst/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 830.605 ; gain = 560.570
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 844.953 ; gain = 575.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 850.691 ; gain = 580.656
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 926.625 ; gain = 656.758
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -471,8 +563,12 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vby_reg_reg[5]' (FDC) to 'graph_inst/ball_inst/vby_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'graph_inst/ball_inst/vbx_reg_reg[5]' (FDC) to 'graph_inst/ball_inst/vbx_reg_reg[9]'
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:317]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ball.v:316]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -496,7 +592,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -509,7 +605,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -521,25 +617,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -557,57 +653,60 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
-|2     |CARRY4    |    88|
-|3     |DSP48E1   |    18|
-|4     |LUT1      |    12|
-|5     |LUT2      |   276|
-|6     |LUT3      |    55|
-|7     |LUT4      |    70|
-|8     |LUT5      |    70|
-|9     |LUT6      |   186|
-|10    |MUXF7     |     1|
-|11    |FDCE      |   137|
-|12    |FDPE      |    26|
-|13    |FDRE      |    34|
-|14    |LDC       |     5|
-|15    |IBUF      |     5|
-|16    |OBUF      |    18|
+|2     |CARRY4    |    96|
+|3     |DSP48E1   |    21|
+|4     |DSP48E1_1 |     4|
+|5     |LUT1      |    10|
+|6     |LUT2      |   377|
+|7     |LUT3      |    60|
+|8     |LUT4      |    81|
+|9     |LUT5      |   121|
+|10    |LUT6      |   474|
+|11    |MUXF7     |    13|
+|12    |MUXF8     |     2|
+|13    |FDCE      |   165|
+|14    |FDPE      |    19|
+|15    |FDRE      |    52|
+|16    |LD        |    21|
+|17    |LDP       |     1|
+|18    |IBUF      |     5|
+|19    |OBUF      |    18|
 +------+----------+------+
 
 Report Instance Areas: 
-+------+---------------------------+------------------+------+
-|      |Instance                   |Module            |Cells |
-+------+---------------------------+------------------+------+
-|1     |top                        |                  |  1003|
-|2     |  debounce_inst            |debounce          |    66|
-|3     |  graph_inst               |graph_mod         |   591|
-|4     |    collision_dectect_inst |collision_dectect |    99|
-|5     |    red_ball_inst          |red_ball          |   173|
-|6     |    white_ball_inst        |white_ball        |   319|
-|7     |  keypad_inst              |keypad            |   175|
-|8     |  sync_inst                |sync_mod          |   146|
-+------+---------------------------+------------------+------+
++------+-------------------+----------+------+
+|      |Instance           |Module    |Cells |
++------+-------------------+----------+------+
+|1     |top                |          |  1542|
+|2     |  debounce_inst    |debounce  |    74|
+|3     |  graph_inst       |graph_mod |  1121|
+|4     |    ball_inst      |ball      |  1121|
+|5     |      deg_set_inst |deg_set   |   409|
+|6     |  keypad_inst      |keypad    |   175|
+|7     |  sync_inst        |sync_mod  |   147|
++------+-------------------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 865.512 ; gain = 216.324
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 865.512 ; gain = 595.477
+Synthesis finished with 0 errors, 0 critical warnings and 27 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 949.059 ; gain = 304.508
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 949.059 ; gain = 679.191
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 117 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 5 instances were transformed.
-  LDC => LDCE: 5 instances
+  A total of 22 instances were transformed.
+  LD => LDCE: 21 instances
+  LDP => LDPE: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-75 Infos, 17 Warnings, 0 Critical Warnings and 0 Errors encountered.
+112 Infos, 40 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 865.512 ; gain = 601.809
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 949.059 ; gain = 685.402
 WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 865.512 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri Dec 10 23:04:36 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 949.059 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 13 18:54:03 2021...

@@ -43,21 +43,21 @@ reg [9:0] cbx, cby; // 공B 중심좌표
 wire bb_top, bb_bottom, bb_left, bb_right; // 공B-테이블 충돌 플래그
 
 // 충돌 변수
-/*
+
 wire ba_bb;
 reg state;
 
-reg signed [9:0] dx, dy;
+reg [9:0] dx, dy;
 
-reg signed [9:0] vax_p, vay_p;
-reg signed [9:0] vbx_p, vby_p;
+reg [9:0] vax_p, vay_p;
+reg [9:0] vbx_p, vby_p;
 
-reg signed [9:0] vax_buf, vay_buf;
-reg signed [9:0] vbx_buf, vby_buf;
+reg [9:0] vax_buf, vay_buf;
+reg [9:0] vbx_buf, vby_buf;
 
-reg signed [9:0] vax_new, vay_new;
-reg signed [9:0] vbx_new, vby_new;
-*/
+reg [9:0] vax_new, vay_new;
+reg [9:0] vbx_new, vby_new;
+
 
 /*---------------------------------------------------------*/
 // 충돌 감지
@@ -65,6 +65,7 @@ reg signed [9:0] vbx_new, vby_new;
 // <설명>
 //  공-테이블 충돌 또는 공A-공B 충돌을 감지
 /*---------------------------------------------------------*/
+
 assign ba_top    = (`TABLE_IN_T >= (cay - `BALL_R)) ? 1 : 0; // 공A-테이블 충돌 감지
 assign ba_bottom = (`TABLE_IN_B <= (cay + `BALL_R)) ? 1 : 0;
 assign ba_left   = (`TABLE_IN_L >= (cax - `BALL_R)) ? 1 : 0;
@@ -78,29 +79,28 @@ assign bb_right  = (`TABLE_IN_R <= (cbx + `BALL_R)) ? 1 : 0;
 assign ba_bb = (`BALL_D*`BALL_D >= (cbx-cax)*(cbx-cax) + (cby-cay)*(cby-cay)) ? 1 : 0; // 공A-공B 충돌 감지
 
 // 공A-공B 충돌 후 속력
-/*
+
 always @ (*) begin 
     if(ba_bb && state == 0) begin
-    vax_p = dbx*vbx*((cbx-cax)/24) + dby*vby*((cby-cay)/24);
-    vay_p = day*vay*((cbx-cax)/24) - dax*vax*((cby-cay)/24);
-    vbx_p = dax*vax*((cbx-cax)/24) + day*vay*((cby-cay)/24);
-    vby_p = dby*vby*((cbx-cax)/24) - dbx*vbx*((cby-cay)/24);
-    
-    vax_buf = vax_p*((cbx-cax)/24) - vay_p*((cby-cay)/24);
-    vay_buf = vax_p*((cby-cay)/24) + vay_p*((cbx-cax)/24);
-    vbx_buf = vbx_p*((cbx-cax)/24) - vby_p*((cby-cay)/24);
-    vby_buf = vbx_p*((cby-cay)/24) + vby_p*((cbx-cax)/24);
+    vax_p = dbx*vbx*(cbx-cax) + dby*vby*(cby-cay);
+    vay_p = day*vay*(cbx-cax) - dax*vax*(cby-cay);
+    vbx_p = dax*vax*(cbx-cax) + day*vay*(cby-cay);
+    vby_p = dby*vby*(cbx-cax) - dbx*vbx*(cby-cay);
+   
+    vax_buf = vax_p*(cbx-cax) - vay_p*(cbx-cax);
+    vay_buf = vax_p*(cbx-cax) + vay_p*(cbx-cax);
+    vbx_buf = vbx_p*(cbx-cax) - vby_p*(cbx-cax);
+    vby_buf = vbx_p*(cbx-cax) + vby_p*(cbx-cax);
 
     // 음의 속도 양수로 변환. 방향은 따로 처리
-    if (vax_buf[9] == 1'b1) vax_new = -1 * vax_buf;
-    else vax_new = vax_buf;
-    if (vay_buf[9] == 1'b1) vay_new = -1 * vay_buf;
-    else vay_new = vay_buf;
-    if (vbx_buf[9] == 1'b1) vbx_new = -1 * vbx_buf;
-    else vbx_new = vbx_buf;
-    if (vby_buf[9] == 1'b1) vby_new = -1 * vby_buf;
-    else vby_new = vby_buf;
-    
+    if (vax_buf[9] == 1'b1) vax_new = -1 * (vax_buf/12);
+    else vax_new = (vax_buf/12);
+    if (vay_buf[9] == 1'b1) vay_new = -1 * (vay_buf/12);
+    else vay_new = (vay_buf/12);
+    if (vbx_buf[9] == 1'b1) vbx_new = -1 * (vbx_buf/12);
+    else vbx_new = (vbx_buf/12);
+    if (vby_buf[9] == 1'b1) vby_new = -1 * (vby_buf/12);
+    else vby_new = (vby_buf/12);
     state = 1;
     
     end
@@ -108,8 +108,6 @@ always @ (*) begin
         state = 0;
     end
 end
-*/
-
 /*---------------------------------------------------------*/
 // 공A 발사
 //
@@ -201,7 +199,6 @@ always @(posedge clk or posedge rst) begin // 치는 각도 업데이트
 end
 
 deg_set deg_set_inst (hit_force, hit_angle, vax, vay, dax, day); // 치는 힘과 각도를 받아서 공속도 출력
-
 
 /*---------------------------------------------------------*/
 // 공A의 위치
@@ -319,12 +316,10 @@ always @ (posedge clk or posedge rst) begin // 공B의 속력
         vbx <= 0;
         vby <= 0;
     end
-    /*
     else if (state == 1) begin
         vbx <= vbx_new;
         vby <= vby_new;
     end
-    */
 end
 
 always @(posedge clk or posedge rst) begin // 공B 최종 속도

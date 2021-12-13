@@ -108,7 +108,6 @@ always @(posedge clk or posedge rst) begin
             else if (delta_y == 0) begin//std Ball2, Hit C -> RC
                 dax_new <=  1;  day_new <= -1;
                 dbx_new <= -1;  dby_new <=  1;
-                
         end
         else if (delta_x < 0) begin //std Ball2, Hit L
             if (delta_y > 0) begin //std Ball2, Hit T -> LT
