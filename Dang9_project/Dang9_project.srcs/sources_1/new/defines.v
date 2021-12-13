@@ -11,16 +11,16 @@
 `define MAX_Y 480
 
 `define TABLE_OUT_L 0
-`define TABLE_OUT_R 640
+`define TABLE_OUT_R 639
 `define TABLE_OUT_T 0
-`define TABLE_OUT_B 480
+`define TABLE_OUT_B 479
 
 `define TABLE_IN_L 40
 `define TABLE_IN_R 600
 `define TABLE_IN_T 40
 `define TABLE_IN_B 440
 
-`define COS(dx) (dx/24) // �浹 ������ cos, sin
+`define COS(dx) (dx/24) 
 `define SIN(dy) (dy/24)
 
 //`define MAX_HIT_FORCE 12

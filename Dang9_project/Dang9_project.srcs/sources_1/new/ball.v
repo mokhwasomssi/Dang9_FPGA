@@ -43,7 +43,6 @@ reg [9:0] cbx, cby; // 공B 중심좌표
 wire bb_top, bb_bottom, bb_left, bb_right; // 공B-테이블 충돌 플래그
 
 // 충돌 변수
-
 wire ba_bb;
 reg state;
 
@@ -78,7 +77,12 @@ assign bb_right  = (`TABLE_IN_R <= (cbx + `BALL_R)) ? 1 : 0;
 
 assign ba_bb = (`BALL_D*`BALL_D >= (cbx-cax)*(cbx-cax) + (cby-cay)*(cby-cay)) ? 1 : 0; // 공A-공B 충돌 감지
 
-// 공A-공B 충돌 후 속력
+/*---------------------------------------------------------*/
+// 공A-공B 충돌 후 속도
+//
+// <설명>
+//  공A-공B 충돌 후 속도를 계산하고 업데이트
+/*---------------------------------------------------------*/
 
 always @ (*) begin 
     if(ba_bb && state == 0) begin
@@ -101,6 +105,13 @@ always @ (*) begin
     else vbx_new = (vbx_buf/12);
     if (vby_buf[9] == 1'b1) vby_new = -1 * (vby_buf/12);
     else vby_new = (vby_buf/12);
+
+    //속도 제한
+    if (vax_new > 12) vax_new = 12;
+    if (vay_new > 12) vay_new = 12;
+    if (vbx_new > 12) vbx_new = 12;
+    if (vby_new > 12) vby_new = 12;
+
     state = 1;
     end
     else if (ba_bb == 0 && state == 1) begin
@@ -343,7 +354,7 @@ always @ (posedge clk or posedge rst) begin // 공B의 속력
         end
     end
     else if (refr_tick) begin // 시간에 따라 속도 감소
-        if ((cnt4 == 20) && (vbx > 0 || vby > 0)) begin
+        if ((cnt4 == 40) && (vbx > 0 || vby > 0)) begin
             if (flag == 0) begin
                 vby <= vby - 1;
             end
