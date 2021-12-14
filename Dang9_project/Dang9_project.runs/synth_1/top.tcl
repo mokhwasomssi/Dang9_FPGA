@@ -18,6 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -43,6 +44,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/table.v
   C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/top.v
 }
+read_vhdl -library xil_defaultlib C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/font_rom.vhd
 read_ip -quiet C:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Jongsang/.Xilinx/DigitalSystem/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
