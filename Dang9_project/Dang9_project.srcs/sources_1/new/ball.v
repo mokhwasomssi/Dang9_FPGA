@@ -378,10 +378,6 @@ always @(posedge clk or posedge rst) begin // 공B의 방향
     end
 end
 
-reg [2:0] flag;
-reg [4:0] cnt4;
-reg [4:0] ratio;
-
 always @ (posedge clk or posedge rst) begin // 공B의 속력
     if(rst) begin
         vbx1 <= 0;
@@ -499,6 +495,7 @@ always@(posedge clk or posedge rst) begin
             end
             PLAYER1_PLAY : begin // PLAYER1이 공을 친 후 공들이 움직이는 상태
                 cue_1_flag <= 0;
+
                 if(Ball_a_Hole_Flag)begin
                     game_status <= PLAYER2_WIN;
                 end
@@ -511,10 +508,7 @@ always@(posedge clk or posedge rst) begin
             end
             PLAYER2 : begin // PLAYER2가 공을 칠 차례
                 cue_2_flag <= 1;
-
-                if(key_pulse == 5'h10) begin
-                    game_status <= PLAYER2_PLAY;
-                end
+                if((vax1 != 0) || (vay1 != 0) || (vbx1 != 0) || (vby1 != 0)) game_status <= PLAYER2_PLAY;
             end
             PLAYER2_PLAY : begin // PLAYER2가 공을 친 후 공들이 움직이는 상태
                 cue_2_flag <= 0;
@@ -526,7 +520,7 @@ always@(posedge clk or posedge rst) begin
                     game_status = PLAYER2_WIN;
                 end
                 if((vax1 == 0) && (vay1 == 0) && (vbx1 == 0) && (vby1 == 0)) begin
-                    game_status = PLAYER1;
+                    game_status <= PLAYER1;
                 end
             end
             PLAYER1_WIN : begin
