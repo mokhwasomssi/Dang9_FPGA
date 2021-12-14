@@ -21,12 +21,12 @@ wire       table_rgb;
 wire       font;
 
 // 인스턴시
-ball       ball_inst   (clk, rst, x, y, key, key_pulse, ball_rgb, cue_rgb);
+ball       ball_inst   (clk, rst, x, y, key, key_pulse, ball_rgb, cue_rgb, font);
 table_mod  table_inst  (clk, rst, x, y, table_rgb);
 hole       hole_inst   (clk, rst, x, y, hole_rgb);
 
 // 최종 출력
-assign rgb = (font == 1)           ? `WHITE   :
+assign rgb = (font == 1)           ? `WHITE   : // 게임 종료 시 폰트 생성
              (ball_rgb[0] == 1)    ? `YELLOW  : // 공A
              (ball_rgb[1] == 1)    ? `RED    : // 공B
              //(ball_rgb[2] == 1)    ? `GREEN  : // 충돌
