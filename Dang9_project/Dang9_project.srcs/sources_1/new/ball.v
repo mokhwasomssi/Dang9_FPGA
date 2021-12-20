@@ -15,7 +15,7 @@ module ball(
     output font
     );
 
-// ½ÃÀÛÁöÁ¡
+// ì‹œì‘ì§€ì 
 parameter BA_START_X = `MAX_X/3;
 parameter BA_START_Y = `MAX_Y/2;
 parameter BB_START_X = `MAX_X/3*2;
@@ -28,78 +28,78 @@ parameter MAT_ba_HIT_ANGLE = 360;
 wire refr_tick; 
 assign refr_tick = (y==`MAX_Y-1 && x==`MAX_X-1)? 1 : 0; 
 
-// °øAÀÇ º¯¼ö
+// ê³µAì˜ ë³€ìˆ˜
 wire signed [1:0] dax, day;
-reg signed [1:0] dax1, day1;  // ÃÖÁ¾ ¹æÇâ
+reg signed [1:0] dax1, day1;  // ìµœì¢… ë°©í–¥
 wire signed [4:0] vax, vay;
-reg signed [4:0] vax1, vay1;  // ÃÖÁ¾ ¼Óµµ
+reg signed [4:0] vax1, vay1;  // ìµœì¢… ì†ë„
 reg signed [9:0] vax_reg, vay_reg;
-reg [9:0] cax, cay; // °øA Áß½ÉÁÂÇ¥
+reg [9:0] cax, cay; // ê³µA ì¤‘ì‹¬ì¢Œí‘œ
 
-// °øBÀÇ º¯¼ö
+// ê³µBì˜ ë³€ìˆ˜
 wire signed [1:0] dbx, dby; 
-reg signed [1:0] dbx1, dby1; // ÃÖÁ¾ ¹æÇâ
+reg signed [1:0] dbx1, dby1; // ìµœì¢… ë°©í–¥
 wire signed [4:0] vbx, vby;
-reg signed [4:0] vbx1, vby1;// ÃÖÁ¾ ¼Óµµ
+reg signed [4:0] vbx1, vby1;// ìµœì¢… ì†ë„
 reg signed [9:0] vbx_reg, vby_reg;
-reg [9:0] cbx, cby; // °øB Áß½ÉÁÂÇ¥
+reg [9:0] cbx, cby; // ê³µB ì¤‘ì‹¬ì¢Œí‘œ
 
 /*---------------------------------------------------------*/
-// Ãæµ¹ °¨Áö
+// ì¶©ëŒ ê°ì§€
 //
-// <¼³¸í>
-//  °ø-Å×ÀÌºí Ãæµ¹ ¶Ç´Â °øA-°øB Ãæµ¹À» °¨Áö
+// <ì„¤ëª…>
+//  ê³µ-í…Œì´ë¸” ì¶©ëŒ ë˜ëŠ” ê³µA-ê³µB ì¶©ëŒì„ ê°ì§€
 /*---------------------------------------------------------*/
-wire ba_top, ba_bottom, ba_left, ba_right;  // °øA-Å×ÀÌºí Ãæµ¹ ÇÃ·¡±×
-wire bb_top, bb_bottom, bb_left, bb_right;  // °øB-Å×ÀÌºí Ãæµ¹ ÇÃ·¡±×
-wire ba_bb; // °øA-°øB Ãæµ¹ ÇÃ·¡±×
+wire ba_top, ba_bottom, ba_left, ba_right;  // ê³µA-í…Œì´ë¸” ì¶©ëŒ í”Œë˜ê·¸
+wire bb_top, bb_bottom, bb_left, bb_right;  // ê³µB-í…Œì´ë¸” ì¶©ëŒ í”Œë˜ê·¸
+wire ba_bb; // ê³µA-ê³µB ì¶©ëŒ í”Œë˜ê·¸
 
-assign ba_top    = (`TABLE_IN_T >= (cay - `BALL_R)) ? 1 : 0;  // °øA-Å×ÀÌºí Ãæµ¹ °¨Áö
+assign ba_top    = (`TABLE_IN_T >= (cay - `BALL_R)) ? 1 : 0;  // ê³µA-í…Œì´ë¸” ì¶©ëŒ ê°ì§€
 assign ba_bottom = (`TABLE_IN_B <= (cay + `BALL_R)) ? 1 : 0;
 assign ba_left   = (`TABLE_IN_L >= (cax - `BALL_R)) ? 1 : 0;
 assign ba_right  = (`TABLE_IN_R <= (cax + `BALL_R)) ? 1 : 0;
 
-assign bb_top    = (`TABLE_IN_T >= (cby - `BALL_R)) ? 1 : 0;// °øB-Å×ÀÌºí Ãæµ¹ °¨Áö
+assign bb_top    = (`TABLE_IN_T >= (cby - `BALL_R)) ? 1 : 0;// ê³µB-í…Œì´ë¸” ì¶©ëŒ ê°ì§€
 assign bb_bottom = (`TABLE_IN_B <= (cby + `BALL_R)) ? 1 : 0;
 assign bb_left   = (`TABLE_IN_L >= (cbx - `BALL_R)) ? 1 : 0;
 assign bb_right  = (`TABLE_IN_R <= (cbx + `BALL_R)) ? 1 : 0;
 
-assign ba_bb = (`BALL_D*`BALL_D >= (cbx-cax)*(cbx-cax) + (cby-cay)*(cby-cay)) ? 1 : 0;  // °øA-°øB Ãæµ¹ °¨Áö
+assign ba_bb = (`BALL_D*`BALL_D >= (cbx-cax)*(cbx-cax) + (cby-cay)*(cby-cay)) ? 1 : 0;  // ê³µA-ê³µB ì¶©ëŒ ê°ì§€
 
 
 /*---------------------------------------------------------*/
-// °ø ¹ß»ç
+// ê³µ ë°œì‚¬
 //
-// <¼³¸í>
-//  Å°ÆĞµå¸¦ ÀÌ¿ëÇÏ¿© °øA ¶Ç´Â °øB¸¦ ¹ß»ç. 
-//  ½Ã°£¿¡ µû¶ó °øÀÇ ¼Ó·ÂÀº Á¡Á¡ °¨¼ÒÇÏ°í °á±¹Àº Á¤Áö.
+// <ì„¤ëª…>
+//  í‚¤íŒ¨ë“œë¥¼ ì´ìš©í•˜ì—¬ ê³µA ë˜ëŠ” ê³µBë¥¼ ë°œì‚¬. 
+//  ì‹œê°„ì— ë”°ë¼ ê³µì˜ ì†ë ¥ì€ ì ì  ê°ì†Œí•˜ê³  ê²°êµ­ì€ ì •ì§€.
 //
-// <Á¶ÀÛ¹ı>
-//  KEY[1] : ¹İ½Ã°è ¹æÇâÀ¸·Î °¢µµ È¸Àü
-//  KEY[7] : ½Ã°è ¹æÇâÀ¸·Î °¢µµ È¸Àü
-//  KEY[4] : Ä¡´Â Èû(¼Ó·Â) ÃæÀü?
-//  KEY[0] : °ø ¹ß»ç
+// <ì¡°ì‘ë²•>
+//  KEY[1] : ë°˜ì‹œê³„ ë°©í–¥ìœ¼ë¡œ ê°ë„ íšŒì „
+//  KEY[7] : ì‹œê³„ ë°©í–¥ìœ¼ë¡œ ê°ë„ íšŒì „
+//  KEY[4] : ì¹˜ëŠ” í˜(ì†ë ¥) ì¶©ì „?
+//  KEY[0] : ê³µ ë°œì‚¬
 //
 // <NOTE>
-//  Ä¡´Â ÈûÀº °øÀÇ ¼Ó·ÂÀ¸·Î Ä¡È¯µÊ
-//  ½ÃÀÛ°¢µµ : 0µµ
-//  ÀÔ·ÂµÈ Èû°ú °¢µµ´Â deg_set¸ğµâÀ» ÅëÇØ °øÀÇ ¼Óµµ·Î º¯È¯
+//  ì¹˜ëŠ” í˜ì€ ê³µì˜ ì†ë ¥ìœ¼ë¡œ ì¹˜í™˜ë¨
+//  ì‹œì‘ê°ë„ : 0ë„
+//  ì…ë ¥ëœ í˜ê³¼ ê°ë„ëŠ” deg_setëª¨ë“ˆì„ í†µí•´ ê³µì˜ ì†ë„ë¡œ ë³€í™˜
 /*---------------------------------------------------------*/
 
 /*---------------------------------------------------------*/
-// °ø ¹ß»ç ¼Ó·Â
+// ê³µ ë°œì‚¬ ì†ë ¥
 /*---------------------------------------------------------*/
-reg [6:0] cnt1, cnt2;  // Å° ÀÔ·Â °¨µµ
-reg [5:0] hit_force_t; // ÀÓ½Ã ¼Ó·Â
-reg [5:0] ba_hit_force, bb_hit_force; // °øA, °øB ¼Ó·Â
+reg [6:0] cnt1, cnt2;  // í‚¤ ì…ë ¥ ê°ë„
+reg [5:0] hit_force_t; // ì„ì‹œ ì†ë ¥
+reg [5:0] ba_hit_force, bb_hit_force; // ê³µA, ê³µB ì†ë ¥
 
-always @(posedge clk or posedge rst) begin // °ø¹ß»ç ¼Ó·Â
+always @(posedge clk or posedge rst) begin // ê³µë°œì‚¬ ì†ë ¥
    if(rst) begin
        ba_hit_force <= 0;
        bb_hit_force <= 0;
    end
    else if(refr_tick) begin
-        if(key == 5'h14) begin// KEY[4] ´©¸£°í ÀÖÀ¸¸é Ä¡´Â ÈûÀÌ Ä¿Áü
+        if(key == 5'h14) begin// KEY[4] ëˆ„ë¥´ê³  ìˆìœ¼ë©´ ì¹˜ëŠ” í˜ì´ ì»¤ì§
             if(hit_force_t < MAX_ba_HIT_FORCE && cnt1 > 5) begin
                 hit_force_t <= hit_force_t + 1;
                 cnt1 <= 0;
@@ -108,7 +108,7 @@ always @(posedge clk or posedge rst) begin // °ø¹ß»ç ¼Ó·Â
                 cnt1 <= cnt1 + 1;
             end
         end
-        if (cnt2 == 20) begin// ½Ã°£¿¡ µû¶ó ¼Ó·Â °¨¼Ò
+        if (cnt2 == 20) begin// ì‹œê°„ì— ë”°ë¼ ì†ë ¥ ê°ì†Œ
             if (bb_hit_force > 0) begin
                 bb_hit_force <= bb_hit_force - 1;
             end
@@ -121,45 +121,45 @@ always @(posedge clk or posedge rst) begin // °ø¹ß»ç ¼Ó·Â
             cnt2 <= cnt2 + 1;
         end
     end
-    else if(key_pulse == 5'h10) begin // °ø½î±â
-        if (game_status == PLAYER1) begin // ÇÃ·¹ÀÌ¾î1ÀÇ Â÷·ÊÀÏ ¶§ °øA¸¦ Ä§
+    else if(key_pulse == 5'h10) begin // ê³µì˜ê¸°
+        if (game_status == PLAYER1) begin // í”Œë ˆì´ì–´1ì˜ ì°¨ë¡€ì¼ ë•Œ ê³µAë¥¼ ì¹¨
             ba_hit_force <= hit_force_t;
             hit_force_t <= 0;
         end
-        else if (game_status == PLAYER2) begin // ÇÃ·¹ÀÌ¾îÀÇ Â÷·ÊÀÏ ¶§ °øB¸¦ Ä§
+        else if (game_status == PLAYER2) begin // í”Œë ˆì´ì–´ì˜ ì°¨ë¡€ì¼ ë•Œ ê³µBë¥¼ ì¹¨
             bb_hit_force <= hit_force_t;
             hit_force_t <= 0;
         end
     end
-    else if (ba_bb) begin // °øA-°øB Ãæµ¹
-        if (game_status == PLAYER1_PLAY) begin // Ãæµ¹ ½Ã °øAÀÇ ¼Ó·Â¸¦ °øB¿¡ Àü°¡
+    else if (ba_bb) begin // ê³µA-ê³µB ì¶©ëŒ
+        if (game_status == PLAYER1_PLAY) begin // ì¶©ëŒ ì‹œ ê³µAì˜ ì†ë ¥ë¥¼ ê³µBì— ì „ê°€
             bb_hit_force <= ba_hit_force;
         end
-        else if (game_status == PLAYER2_PLAY) begin // Ãæµ¹ ½Ã °øBÀÇ ¼Ó·Â¸¦ °øA¿¡ Àü°¡
+        else if (game_status == PLAYER2_PLAY) begin // ì¶©ëŒ ì‹œ ê³µBì˜ ì†ë ¥ë¥¼ ê³µAì— ì „ê°€
             ba_hit_force <= bb_hit_force;
         end
     end
 end
 
 /*---------------------------------------------------------*/
-// °ø ¹ß»ç °¢µµ
+// ê³µ ë°œì‚¬ ê°ë„
 /*---------------------------------------------------------*/
 reg [6:0] cnt3;
-reg [8:0] hit_angle_t; // ÀÓ½Ã °¢µµ
-reg [8:0] ba_hit_angle, bb_hit_angle; // °øA, °øB °¢µµ
+reg [8:0] hit_angle_t; // ì„ì‹œ ê°ë„
+reg [8:0] ba_hit_angle, bb_hit_angle; // ê³µA, ê³µB ê°ë„
 
-always @(posedge clk or posedge rst) begin // °ø¹ß»ç °¢µµ
+always @(posedge clk or posedge rst) begin // ê³µë°œì‚¬ ê°ë„
     if(rst) begin
         ba_hit_angle <= 0;
     end
     else if (refr_tick) begin
-        if (key == 5'h11) begin // KEY[1] ´©¸£°í ÀÖÀ¸¸é °¢µµ Áõ°¡
+        if (key == 5'h11) begin // KEY[1] ëˆ„ë¥´ê³  ìˆìœ¼ë©´ ê°ë„ ì¦ê°€
             if (cnt3 > 3) begin
                 if (hit_angle_t < 360) begin
                     hit_angle_t <= hit_angle_t + 5;
                     cnt3 <= 0;
                 end
-                else if (hit_angle_t == 360) begin // ÇöÀç °¢µµ°¡ 360µµÀÌ¸é 0µµ·Î º¯È¯
+                else if (hit_angle_t == 360) begin // í˜„ì¬ ê°ë„ê°€ 360ë„ì´ë©´ 0ë„ë¡œ ë³€í™˜
                     hit_angle_t <= 0;
                 end
             end
@@ -167,13 +167,13 @@ always @(posedge clk or posedge rst) begin // °ø¹ß»ç °¢µµ
                 cnt3 <= cnt3 + 1;
             end
         end
-        if (key == 5'h17) begin  // KEY[7] ´©¸£°í ÀÖÀ¸¸é °¢µµ °¨¼Ò
+        if (key == 5'h17) begin  // KEY[7] ëˆ„ë¥´ê³  ìˆìœ¼ë©´ ê°ë„ ê°ì†Œ
             if (cnt3 > 3) begin
                 if (hit_angle_t > 0) begin
                     hit_angle_t <= hit_angle_t - 5;
                     cnt3 <= 0;
                 end
-                else if (hit_angle_t == 0) begin // ÇöÀç °¢µµ°¡ 0µµÀÌ¸é 360µµ·Î º¯È¯
+                else if (hit_angle_t == 0) begin // í˜„ì¬ ê°ë„ê°€ 0ë„ì´ë©´ 360ë„ë¡œ ë³€í™˜
                     hit_angle_t <= 360;
                 end
             end
@@ -182,7 +182,7 @@ always @(posedge clk or posedge rst) begin // °ø¹ß»ç °¢µµ
             end
         end
     end
-    else if(key_pulse == 5'h10) begin // °ø½î±â
+    else if(key_pulse == 5'h10) begin // ê³µì˜ê¸°
         if (game_status == PLAYER1) begin
             ba_hit_angle <= hit_angle_t;
             hit_angle_t <= 0;
@@ -192,11 +192,11 @@ always @(posedge clk or posedge rst) begin // °ø¹ß»ç °¢µµ
             hit_angle_t <= 0;
         end
     end
-    else if (ba_bb) begin // °øA-°øB Ãæµ¹
-        if (game_status == PLAYER1_PLAY) begin // Ãæµ¹ ½Ã °øAÀÇ °¢µµ¸¦ °øB¿¡ Àü°¡
+    else if (ba_bb) begin // ê³µA-ê³µB ì¶©ëŒ
+        if (game_status == PLAYER1_PLAY) begin // ì¶©ëŒ ì‹œ ê³µAì˜ ê°ë„ë¥¼ ê³µBì— ì „ê°€
             bb_hit_angle <= ba_hit_angle;
         end
-        else if (game_status == PLAYER2_PLAY) begin // Ãæµ¹ ½Ã °øBÀÇ °¢µµ¸¦ °øA¿¡ Àü°¡
+        else if (game_status == PLAYER2_PLAY) begin // ì¶©ëŒ ì‹œ ê³µBì˜ ê°ë„ë¥¼ ê³µAì— ì „ê°€
             ba_hit_angle <= bb_hit_angle;
         end
     end
@@ -204,104 +204,62 @@ end
 
 
 /*---------------------------------------------------------*/
-// °ø³¢¸® Ãæµ¹ ÈÄ °ø ¼Óµµ
+// ìµœì¢… ê³µì†ë„ ì¶œë ¥
 //
-// <¼³¸í>
-//  °øA-°øB Ãæµ¹ ÈÄ °øB ¼Óµµ ¾÷µ¥ÀÌÆ®
+// <ì„¤ëª…>
+//  deg_set ëª¨ë“ˆì„ ì´ìš©í•˜ì—¬ í˜„ì¬ ì†ë ¥ê³¼ ê°ë„ë¥¼ ë°›ì€ í›„ ì†ë„ë¥¼ ì¶œë ¥
 /*---------------------------------------------------------*/
-/*
-reg [5:0] cnt5;
+deg_set deg_set_ba (ba_hit_force, ba_hit_angle, vax, vay, dax, day);// ì¹˜ëŠ” í˜ê³¼ ê°ë„ë¥¼ ë°›ì•„ì„œ ê³µì†ë„ ì¶œë ¥
+deg_set deg_set_bb (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // ì¹˜ëŠ” í˜ê³¼ ê°ë„ë¥¼ ë°›ì•„ì„œ ê³µì†ë„ ì¶œë ¥
 
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
-        bb_hit_force <= 0;
-        bb_hit_angle <= 0;
-    end
-    else if (ba_bb) begin
-        if (game_status == PLAYER1_PLAY) begin // Ãæµ¹ ½Ã °øAÀÇ ¼Óµµ¸¦ °øB¿¡ Àü°¡
-            bb_hit_force <= ba_hit_force;
-            bb_hit_angle <= ba_hit_angle;
-        end
-        else if (game_status == PLAYER2_PLAY) begin // Ãæµ¹ ½Ã °øBÀÇ ¼Óµµ¸¦ °øA¿¡ Àü°¡
-            ba_hit_force <= bb_hit_force;
-            ba_hit_angle <= bb_hit_angle;
-        end
-    end
-    else if (refr_tick) begin
-        if (cnt5 == 20) begin
-            if (game_status == PLAYER1_PLAY && bb_hit_force > 0) begin
-            bb_hit_force <= bb_hit_force - 1;
-            cnt5 <= 0;
-            end
-            else if (game_status == PLAYER2_PLAY && ba_hit_force > 0) begin
-            ba_hit_force <= ba_hit_force - 1;
-            cnt5 <= 0;
-            end
-        end
-        else begin
-            cnt5 <= cnt5 + 1;
-        end
-    end
-end
-*/
 
 /*---------------------------------------------------------*/
-// ÃÖÁ¾ °ø¼Óµµ Ãâ·Â
+// ê³µAì˜ ìœ„ì¹˜
 //
-// <¼³¸í>
-//  deg_set ¸ğµâÀ» ÀÌ¿ëÇÏ¿© ÇöÀç ¼Ó·Â°ú °¢µµ¸¦ ¹ŞÀº ÈÄ ¼Óµµ¸¦ Ãâ·Â
-/*---------------------------------------------------------*/
-deg_set deg_set_ba (ba_hit_force, ba_hit_angle, vax, vay, dax, day);// Ä¡´Â Èû°ú °¢µµ¸¦ ¹Ş¾Æ¼­ °ø¼Óµµ Ãâ·Â
-deg_set deg_set_bb (bb_hit_force, bb_hit_angle, vbx, vby, dbx, dby); // Ä¡´Â Èû°ú °¢µµ¸¦ ¹Ş¾Æ¼­ °ø¼Óµµ Ãâ·Â
-
-
-/*---------------------------------------------------------*/
-// °øAÀÇ À§Ä¡
-//
-// <¼³¸í>
-//  ¹æÇâ°ú ¼Ó·ÂÀ» ³ª´©¾î¼­ °ü¸®. 
-//  ¹æÇâ°ú ¼Ó·ÂÀ» °öÇØ¼­ ±¸ÇÑ ¼Óµµ·Î °øAÀÇ Áß½ÉÁÂÇ¥ ¾÷µ¥ÀÌÆ®
+// <ì„¤ëª…>
+//  ë°©í–¥ê³¼ ì†ë ¥ì„ ë‚˜ëˆ„ì–´ì„œ ê´€ë¦¬. 
+//  ë°©í–¥ê³¼ ì†ë ¥ì„ ê³±í•´ì„œ êµ¬í•œ ì†ë„ë¡œ ê³µAì˜ ì¤‘ì‹¬ì¢Œí‘œ ì—…ë°ì´íŠ¸
 /*---------------------------------------------------------*/
 reg ba_collision;
 
-always @(posedge clk or posedge rst) begin // °øAÀÇ ¹æÇâ
+always @(posedge clk or posedge rst) begin // ê³µAì˜ ë°©í–¥
     if(rst | key_pulse == 5'h10) begin 
         dax1 <= 0;
         day1 <= 0;
         ba_collision <= 0;
     end
     else begin
-        if(ba_top) begin // Å×ÀÌºí À§ÂÊ Ãæµ¹
+        if(ba_top) begin // í…Œì´ë¸” ìœ„ìª½ ì¶©ëŒ
             day1 <= 1;
             ba_collision <= 1;
         end
-        else if (ba_bottom) begin   // Å×ÀÌºí ¾Æ·¡ÂÊ Ãæµ¹
+        else if (ba_bottom) begin   // í…Œì´ë¸” ì•„ë˜ìª½ ì¶©ëŒ
             day1 <= -1;
             ba_collision <= 1;
         end
-        else if (ba_left) begin // Å×ÀÌºí ¿ŞÂÊ Ãæµ¹
+        else if (ba_left) begin // í…Œì´ë¸” ì™¼ìª½ ì¶©ëŒ
             dax1 <= 1;
             ba_collision <= 1;
         end
-        else if (ba_right) begin // Å×ÀÌºí ¿À¸¥ÂÊ Ãæµ¹
+        else if (ba_right) begin // í…Œì´ë¸” ì˜¤ë¥¸ìª½ ì¶©ëŒ
             dax1 <= -1;
             ba_collision <= 1;
         end
-        else if (ba_bb) begin // °øB¿Í Ãæµ¹
+        else if (ba_bb) begin // ê³µBì™€ ì¶©ëŒ
             if (cbx-cax >= 0)     dax1 <= -1;
             else if (cbx-cax < 0) dax1 <=  1;
             if (cby-cay >= 0)     day1 <= -1;
             else if (cby-cay < 0) day1 <=  1;
             ba_collision <= 1;
         end
-        else if(ba_collision == 0) begin// deg_set¿¡¼­ Ãâ·ÂÇÏ´Â ¹æÇâÀ» ³Ö¾îÁÜ
-            dax1 <= dax;
+        else if(ba_collision == 0) begin // deg_setì—ì„œ ì¶œë ¥í•˜ëŠ” ë°©í–¥ì„ ë„£ì–´ì¤Œ
+            dax1 <= dax;                 // ì¶©ëŒ ì´ì „ì—ëŠ” ì´ ë°©í–¥ì„ ìœ ì§€
             day1 <= day;
         end
     end
 end
 
-always @ (posedge clk or posedge rst) begin // °øAÀÇ ¼Ó·Â
+always @ (posedge clk or posedge rst) begin // ê³µAì˜ ì†ë ¥
     if(rst) begin
         vax1 <= 0;
         vay1 <= 0;
@@ -312,7 +270,7 @@ always @ (posedge clk or posedge rst) begin // °øAÀÇ ¼Ó·Â
     end
 end
 
-always @(posedge clk or posedge rst) begin // °øA ÃÖÁ¾ ¼Óµµ
+always @(posedge clk or posedge rst) begin // ê³µA ìµœì¢… ì†ë„
     if(rst) begin
         vax_reg <= 0;
         vay_reg <= 0;
@@ -323,7 +281,7 @@ always @(posedge clk or posedge rst) begin // °øA ÃÖÁ¾ ¼Óµµ
     end
 end
 
-always @(posedge clk or posedge rst) begin // °øA Áß½É ÁÂÇ¥ ¾÷µ¥ÀÌÆ®
+always @(posedge clk or posedge rst) begin // ê³µA ì¤‘ì‹¬ ì¢Œí‘œ ì—…ë°ì´íŠ¸
     if(rst) begin
         cax <= BA_START_X;
         cay <= BA_START_Y;
@@ -335,15 +293,15 @@ always @(posedge clk or posedge rst) begin // °øA Áß½É ÁÂÇ¥ ¾÷µ¥ÀÌÆ®
 end
 
 /*---------------------------------------------------------*/
-// °øBÀÇ À§Ä¡
+// ê³µBì˜ ìœ„ì¹˜
 //
-// <¼³¸í>
-//  ¹æÇâ°ú ¼Ó·ÂÀ» ³ª´©¾î¼­ °ü¸®. 
-//  ¹æÇâ°ú ¼Ó·ÂÀ» °öÇØ¼­ ±¸ÇÑ ¼Óµµ·Î °øBÀÇ Áß½ÉÁÂÇ¥ ¾÷µ¥ÀÌÆ®
+// <ì„¤ëª…>
+//  ë°©í–¥ê³¼ ì†ë ¥ì„ ë‚˜ëˆ„ì–´ì„œ ê´€ë¦¬. 
+//  ë°©í–¥ê³¼ ì†ë ¥ì„ ê³±í•´ì„œ êµ¬í•œ ì†ë„ë¡œ ê³µBì˜ ì¤‘ì‹¬ì¢Œí‘œ ì—…ë°ì´íŠ¸
 /*---------------------------------------------------------*/
 reg bb_collision;
 
-always @(posedge clk or posedge rst) begin // °øBÀÇ ¹æÇâ
+always @(posedge clk or posedge rst) begin // ê³µBì˜ ë°©í–¥
     if(rst | key_pulse == 5'h10) begin
         dbx1 <= 0;
         dby1 <= 0;
@@ -366,21 +324,21 @@ always @(posedge clk or posedge rst) begin // °øBÀÇ ¹æÇâ
             dbx1 <= -1;
             bb_collision <= 1;
         end
-        else if (ba_bb) begin // °øA¿Í Ãæµ¹
+        else if (ba_bb) begin // ê³µAì™€ ì¶©ëŒ
             if (cbx-cax >= 0)     dbx1 <=  1;
             else if (cbx-cax < 0) dbx1 <= -1;
             if (cby-cay >= 0)     dby1 <=  1;
             else if (cby-cay < 0) dby1 <= -1;
             bb_collision <= 1;
         end
-        else if(bb_collision == 0) begin// deg_set¿¡¼­ Ãâ·ÂÇÏ´Â ¹æÇâÀ» ³Ö¾îÁÜ
+        else if(bb_collision == 0) begin// deg_setì—ì„œ ì¶œë ¥í•˜ëŠ” ë°©í–¥ì„ ë„£ì–´ì¤Œ
             dbx1 <= dbx;
             dby1 <= dby;
         end
     end
 end
 
-always @ (posedge clk or posedge rst) begin // °øBÀÇ ¼Ó·Â
+always @ (posedge clk or posedge rst) begin // ê³µBì˜ ì†ë ¥
     if(rst) begin
         vbx1 <= 0;
         vby1 <= 0;
@@ -391,7 +349,7 @@ always @ (posedge clk or posedge rst) begin // °øBÀÇ ¼Ó·Â
     end
 end
 
-always @(posedge clk or posedge rst) begin// °øB ÃÖÁ¾ ¼Óµµ
+always @(posedge clk or posedge rst) begin// ê³µB ìµœì¢… ì†ë„
     if(rst) begin
         vbx_reg <= 0;
         vby_reg <= 0;
@@ -402,7 +360,7 @@ always @(posedge clk or posedge rst) begin// °øB ÃÖÁ¾ ¼Óµµ
     end
 end
 
-always @(posedge clk or posedge rst) begin // °øB Áß½É ÁÂÇ¥ ¾÷µ¥ÀÌÆ®
+always @(posedge clk or posedge rst) begin // ê³µB ì¤‘ì‹¬ ì¢Œí‘œ ì—…ë°ì´íŠ¸
     if(rst) begin
         cbx <= BB_START_X;
         cby <= BB_START_Y;
@@ -414,10 +372,10 @@ always @(posedge clk or posedge rst) begin // °øB Áß½É ÁÂÇ¥ ¾÷µ¥ÀÌÆ®
 end
 
 /*---------------------------------------------------------*/
-// È¦-°ø ÀÎ½Ä
+// í™€-ê³µ ì¸ì‹
 //
-// [¼³¸í]
-//  °øÀÌ È¦¿¡ µé¾î°¬´ÂÁö¸¦ ÀÎ½ÄÇÔ.
+// [ì„¤ëª…]
+//  ê³µì´ í™€ì— ë“¤ì–´ê°”ëŠ”ì§€ë¥¼ ì¸ì‹í•¨.
 //
 //  A--------------B
 //  |              |
@@ -425,32 +383,21 @@ end
 //  C--------------D
 //
 /*---------------------------------------------------------*/
-/*
-parameter HOLE_CA_X = 40;
-parameter HOLE_CA_Y = 40;
-parameter HOLE_CB_X = 600;
-parameter HOLE_CB_Y = 40;
-parameter HOLE_CC_X = 40;
-parameter HOLE_CC_Y = 440;
-parameter HOLE_CD_X = 600;
-parameter HOLE_CD_Y = 440;
-parameter HOLE_R = 30;
-*/
 
-reg ha_ba, hb_ba, hc_ba, hd_ba; // È¦-°øA ÀÎ½Ä ÇÃ·¡±×
-reg ha_bb, hb_bb, hc_bb, hd_bb; // È¦-°øB ÀÎ½Ä ÇÃ·¡±×
+reg ha_ba, hb_ba, hc_ba, hd_ba; // í™€-ê³µA ì¸ì‹ í”Œë˜ê·¸
+reg ha_bb, hb_bb, hc_bb, hd_bb; // í™€-ê³µB ì¸ì‹ í”Œë˜ê·¸
 
 reg Ball_a_Hole_Flag, Ball_b_Hole_Flag;
 
 always @ (*) begin
-    ha_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CA_X-cbx)*(`HOLE_CA_X-cbx) + (`HOLE_CA_Y-cay)*(`HOLE_CA_Y-cay)) ? 1 : 0; // È¦A-°øA
-    hb_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CB_X-cax)*(`HOLE_CB_X-cax) + (`HOLE_CB_Y-cay)*(`HOLE_CB_Y-cay)) ? 1 : 0; // È¦B-°øA
-    hc_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CC_X-cax)*(`HOLE_CC_X-cax) + (`HOLE_CC_Y-cay)*(`HOLE_CC_Y-cay)) ? 1 : 0; // È¦C-°øA
-    hd_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CD_X-cax)*(`HOLE_CD_X-cax) + (`HOLE_CD_Y-cay)*(`HOLE_CD_Y-cay)) ? 1 : 0; // È¦D-°øA
-    ha_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CA_X-cbx)*(`HOLE_CA_X-cbx) + (`HOLE_CA_Y-cby)*(`HOLE_CA_Y-cby)) ? 1 : 0; // È¦A-°øB
-    hb_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CB_X-cbx)*(`HOLE_CB_X-cbx) + (`HOLE_CB_Y-cby)*(`HOLE_CB_Y-cby)) ? 1 : 0; // È¦B-°øB
-    hc_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CC_X-cbx)*(`HOLE_CC_X-cbx) + (`HOLE_CC_Y-cby)*(`HOLE_CC_Y-cby)) ? 1 : 0; // È¦C-°øB
-    hd_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CD_X-cbx)*(`HOLE_CD_X-cbx) + (`HOLE_CD_Y-cby)*(`HOLE_CD_Y-cby)) ? 1 : 0; // È¦D-°øB
+    ha_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CA_X-cbx)*(`HOLE_CA_X-cbx) + (`HOLE_CA_Y-cay)*(`HOLE_CA_Y-cay)) ? 1 : 0; // í™€A-ê³µA
+    hb_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CB_X-cax)*(`HOLE_CB_X-cax) + (`HOLE_CB_Y-cay)*(`HOLE_CB_Y-cay)) ? 1 : 0; // í™€B-ê³µA
+    hc_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CC_X-cax)*(`HOLE_CC_X-cax) + (`HOLE_CC_Y-cay)*(`HOLE_CC_Y-cay)) ? 1 : 0; // í™€C-ê³µA
+    hd_ba = (`HOLE_R * `HOLE_R >= (`HOLE_CD_X-cax)*(`HOLE_CD_X-cax) + (`HOLE_CD_Y-cay)*(`HOLE_CD_Y-cay)) ? 1 : 0; // í™€D-ê³µA
+    ha_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CA_X-cbx)*(`HOLE_CA_X-cbx) + (`HOLE_CA_Y-cby)*(`HOLE_CA_Y-cby)) ? 1 : 0; // í™€A-ê³µB
+    hb_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CB_X-cbx)*(`HOLE_CB_X-cbx) + (`HOLE_CB_Y-cby)*(`HOLE_CB_Y-cby)) ? 1 : 0; // í™€B-ê³µB
+    hc_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CC_X-cbx)*(`HOLE_CC_X-cbx) + (`HOLE_CC_Y-cby)*(`HOLE_CC_Y-cby)) ? 1 : 0; // í™€C-ê³µB
+    hd_bb = (`HOLE_R * `HOLE_R >= (`HOLE_CD_X-cbx)*(`HOLE_CD_X-cbx) + (`HOLE_CD_Y-cby)*(`HOLE_CD_Y-cby)) ? 1 : 0; // í™€D-ê³µB
 
     Ball_a_Hole_Flag = (ha_ba || hb_ba || hc_ba || hd_ba);
     Ball_b_Hole_Flag = (ha_bb || hb_bb || hc_bb || hd_bb);
@@ -459,8 +406,8 @@ end
 /*---------------------------------------------------------*/
 // CUE
 /*---------------------------------------------------------*/
-wire [9:0] ba_cue_x, ba_cue_y; // °øA Å¥ÀÇ ÁÂÇ¥
-wire [9:0] bb_cue_x, bb_cue_y; // °øB Å¥ÀÇ ÁÂÇ¥
+wire [9:0] ba_cue_x, ba_cue_y; // ê³µA íì˜ ì¢Œí‘œ
+wire [9:0] bb_cue_x, bb_cue_y; // ê³µB íì˜ ì¢Œí‘œ
 parameter CUE_BALL_SIZE = 5;
 
 cue_deg cue_deg_ba (hit_angle_t, cax, cay, ba_cue_x, ba_cue_y);
@@ -476,7 +423,7 @@ parameter PLAYER1_WIN = 4, PLAYER2_WIN = 5;
 
 reg [4:0] game_status;
 reg cue_1_flag, cue_2_flag;
-reg ba_flag, bb_flag; // °øÀÌ ±¸¸Û¿¡ µé¾î°¬À» ¶§ ÇÃ·¡±×
+reg ba_flag, bb_flag; // ê³µì´ êµ¬ë©ì— ë“¤ì–´ê°”ì„ ë•Œ í”Œë˜ê·¸
 
 reg PLAYER1_WIN_FLAG, PLAYER2_WIN_FLAG;
 always @ (posedge clk or posedge rst) begin
@@ -491,11 +438,11 @@ always @ (posedge clk or posedge rst) begin
     end
     else begin
         case(game_status)
-            PLAYER1 : begin // PLAYER1ÀÌ °øÀ» Ä¥ Â÷·Ê
+            PLAYER1 : begin // PLAYER1ì´ ê³µì„ ì¹  ì°¨ë¡€
                 cue_1_flag <= 1;
                 if((vax1 != 0) || (vay1 != 0) || (vbx1 != 0) || (vby1 != 0)) game_status <= PLAYER1_PLAY;
             end
-            PLAYER1_PLAY : begin // PLAYER1ÀÌ °øÀ» Ä£ ÈÄ °øµéÀÌ ¿òÁ÷ÀÌ´Â »óÅÂ
+            PLAYER1_PLAY : begin // PLAYER1ì´ ê³µì„ ì¹œ í›„ ê³µë“¤ì´ ì›€ì§ì´ëŠ” ìƒíƒœ
                 cue_1_flag <= 0;
 
                 if(Ball_a_Hole_Flag)begin
@@ -510,11 +457,11 @@ always @ (posedge clk or posedge rst) begin
                     game_status <= PLAYER2;
                 end
             end
-            PLAYER2 : begin // PLAYER2°¡ °øÀ» Ä¥ Â÷·Ê
+            PLAYER2 : begin // PLAYER2ê°€ ê³µì„ ì¹  ì°¨ë¡€
                 cue_2_flag <= 1;
                 if((vax1 != 0) || (vay1 != 0) || (vbx1 != 0) || (vby1 != 0)) game_status <= PLAYER2_PLAY;
             end
-            PLAYER2_PLAY : begin // PLAYER2°¡ °øÀ» Ä£ ÈÄ °øµéÀÌ ¿òÁ÷ÀÌ´Â »óÅÂ
+            PLAYER2_PLAY : begin // PLAYER2ê°€ ê³µì„ ì¹œ í›„ ê³µë“¤ì´ ì›€ì§ì´ëŠ” ìƒíƒœ
                 cue_2_flag <= 0;
 
                 if(Ball_a_Hole_Flag)begin
@@ -560,7 +507,7 @@ parameter yFont = 236;
 font_rom_vhd font_rom_inst1 (clk, rom_addr1, font_word1);
 
 assign rom_addr1 = {char_addr1, row_addr1};
-assign font_bit1 = font_word1[~bit_addr1]; //È­ï¿½ï¿½ xï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, romï¿½ï¿½ bitï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ reverse
+assign font_bit1 = font_word1[~bit_addr1]; 
 
 assign char_addr1 = (P1_win_on1)? char_addr1_s1 : 0;
 assign row_addr1  = (P1_win_on1)? row_addr1_s1  : 0; 
@@ -626,11 +573,11 @@ end
 
 
 /*---------------------------------------------------------*/
-// °ø, Å¥ ±×¸®±â
+// ê³µ, í ê·¸ë¦¬ê¸°
 /*---------------------------------------------------------*/
-assign ball_rgb[0] = (ba_flag == 1) ? 0 : // °øA°¡ ±¸¸Û¿¡ µé¾î°¡¸é °øA ¾ø¾Ú
+assign ball_rgb[0] = (ba_flag == 1) ? 0 : // ê³µAê°€ êµ¬ë©ì— ë“¤ì–´ê°€ë©´ ê³µA ì—†ì•°
                      (`BALL_R*`BALL_R >= (x-cax)*(x-cax) + (y-cay)*(y-cay)) ? 1 : 0;
-assign ball_rgb[1] = (bb_flag == 1) ? 0 : // °øB°¡ ±¸¸Û¿¡ µé¾î°¡¸é °øB ¾ø¾Ú
+assign ball_rgb[1] = (bb_flag == 1) ? 0 : // ê³µBê°€ êµ¬ë©ì— ë“¤ì–´ê°€ë©´ ê³µB ì—†ì•°
                      (`BALL_R*`BALL_R >= (x-cbx)*(x-cbx) + (y-cby)*(y-cby)) ? 1 : 0;
 
 assign cue_rgb[0] = (cue_1_flag == 1) ? ((CUE_BALL_SIZE * CUE_BALL_SIZE >= (x - ba_cue_x)*(x - ba_cue_x) + (y - ba_cue_y)*(y - ba_cue_y)) ? 1 : 0) : 0;

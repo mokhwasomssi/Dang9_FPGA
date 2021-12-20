@@ -13,32 +13,32 @@ module graph_mod (
     output [2:0] rgb
     );
 
-// RGB ÇÃ·¡±×
+// RGB í”Œë˜ê·¸
 wire [1:0] ball_rgb;
 wire [1:0] cue_rgb;
 wire [3:0] hole_rgb;
 wire       table_rgb;
 wire       font;
 
-// ÀÎ½ºÅÏ½Ã
+// ì¸ìŠ¤í„´ì‹œ
 ball       ball_inst   (clk, rst, x, y, key, key_pulse, ball_rgb, cue_rgb, font);
 table_mod  table_inst  (clk, rst, x, y, table_rgb);
 hole       hole_inst   (clk, rst, x, y, hole_rgb);
 
-// ÃÖÁ¾ Ãâ·Â
-assign rgb = (font == 1)           ? `WHITE   : // °ÔÀÓ Á¾·á ½Ã ÆùÆ® »ı¼º
-             (ball_rgb[0] == 1)    ? `YELLOW  : // °øA
-             (ball_rgb[1] == 1)    ? `RED    : // °øB
-             //(ball_rgb[2] == 1)    ? `GREEN  : // Ãæµ¹
+// ìµœì¢… ì¶œë ¥
+assign rgb = (font == 1)           ? `WHITE   : // ê²Œì„ ì¢…ë£Œ ì‹œ í°íŠ¸ ìƒì„±
+             (ball_rgb[0] == 1)    ? `YELLOW  : // ê³µA
+             (ball_rgb[1] == 1)    ? `RED    : // ê³µB
+             //(ball_rgb[2] == 1)    ? `GREEN  : // ì¶©ëŒ
 
-             (cue_rgb[0] == 1)     ? `YELLOW : // °øA Å¥
-             (cue_rgb[1] == 1)     ? `RED  : // °øB Å¥
+             (cue_rgb[0] == 1)     ? `YELLOW : // ê³µA í
+             (cue_rgb[1] == 1)     ? `RED  : // ê³µB í
 
-             (hole_rgb[0] == 1)    ? `BLACK  : // È¦A
-             (hole_rgb[1] == 1)    ? `BLACK  : // È¦B
-             (hole_rgb[2] == 1)    ? `BLACK  : // È¦C
-             (hole_rgb[3] == 1)    ? `BLACK  : // È¦D
+             (hole_rgb[0] == 1)    ? `BLACK  : // í™€A
+             (hole_rgb[1] == 1)    ? `BLACK  : // í™€B
+             (hole_rgb[2] == 1)    ? `BLACK  : // í™€C
+             (hole_rgb[3] == 1)    ? `BLACK  : // í™€D
 
-             (table_rgb == 1)      ? `WHITE  : // Å×ÀÌºí
+             (table_rgb == 1)      ? `WHITE  : // í…Œì´ë¸”
                                      `BLACK; 
 endmodule

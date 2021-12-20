@@ -1,4 +1,4 @@
-// Ȧ ��ǥ
+// 홀 좌표
 module hole (
     input clk, 
     input rst, 

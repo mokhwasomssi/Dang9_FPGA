@@ -2,43 +2,12 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri Dec 10 22:55:57 2021
-# Process ID: 8544
-# Current directory: C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13936 C:\Users\mokhw\Desktop\Dang9_FPGA\Dang9_project\Dang9_project.xpr
-# Log file: C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/vivado.log
-# Journal file: C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project\vivado.jou
+# Start of session at: Mon Dec 20 09:20:59 2021
+# Process ID: 16324
+# Current directory: C:/Users/mokhw/Desktop/GitHub/FPGA_Dang9/Dang9_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19388 C:\Users\mokhw\Desktop\GitHub\FPGA_Dang9\Dang9_project\Dang9_project.xpr
+# Log file: C:/Users/mokhw/Desktop/GitHub/FPGA_Dang9/Dang9_project/vivado.log
+# Journal file: C:/Users/mokhw/Desktop/GitHub/FPGA_Dang9/Dang9_project\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.xpr
-update_compile_order -fileset sources_1
-close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v w ]
-add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/white_ball.v
-close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v w ]
-add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/red_ball.v
-close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v w ]
-add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/ballCollision_mod.v
-close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mod.v w ]
-add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/abs_mod.v
-close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/collision_detect.v w ]
-add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/collision_detect.v
-close [ open C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/table.v w ]
-add_files C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.srcs/sources_1/new/table.v
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 6
-wait_on_run impl_1
-open_hw
-connect_hw_server
-open_hw_target
-set_property PROGRAM.FILE {C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.runs/impl_1/top.bit} [get_hw_devices xc7z020_1]
-current_hw_device [get_hw_devices xc7z020_1]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
-set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
-set_property PROGRAM.FILE {C:/Users/mokhw/Desktop/Dang9_FPGA/Dang9_project/Dang9_project.runs/impl_1/top.bit} [get_hw_devices xc7z020_1]
-program_hw_devices [get_hw_devices xc7z020_1]
-refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_project C:/Users/mokhw/Desktop/GitHub/FPGA_Dang9/Dang9_project/Dang9_project.xpr
